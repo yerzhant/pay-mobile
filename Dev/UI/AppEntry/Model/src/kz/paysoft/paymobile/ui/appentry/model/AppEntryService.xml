@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppEntryService"
+  Version="11.1.1.56.60"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="Applications"
+    ViewObjectName="kz.paysoft.paymobile.ui.appentry.model.views.ApplicationsView"/>
+  <ViewUsage
+    Name="AppAccounts"
+    ViewObjectName="kz.paysoft.paymobile.ui.appentry.model.views.AppAccountsView"/>
+  <ViewLinkUsage
+    Name="AppAccountsToApplicationsLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.appentry.model.views.AppAccountsToApplicationsLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.appentry.model.AppEntryService.Applications"
+    DstViewUsageName="kz.paysoft.paymobile.ui.appentry.model.AppEntryService.AppAccounts"
+    Reversed="false"/>
+</AppModule>

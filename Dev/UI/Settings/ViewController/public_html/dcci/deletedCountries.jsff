@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelAccordion id="pa1">
+    <af:showDetailItem text="Удаленные страны" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps1" positionedFromEnd="true" orientation="vertical">
+        <f:facet name="first">
+          <dc:TableDef id="td1" baseView="Main" refreshEnabled="true" refresh="#{bindings.Execute.execute}"
+                       rows="#{bindings.DCountries.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.DCountries.collectionModel}" var="row" rows="#{bindings.DCountries.rangeSize}"
+                        emptyText="#{bindings.DCountries.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.DCountries.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.DCountriesQuery.queryDescriptor}"
+                        queryListener="#{bindings.DCountriesQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.DCountries.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DCountries.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                        partialTriggers="::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DCountries.hints.Id.label}" id="c3">
+                  <af:outputText value="#{row.Id}" id="ot2">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DCountries.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DCountries.hints.Date.label}" id="c2">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id1"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot1">
+                    <af:convertDateTime pattern="#{bindings.DCountries.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.DCountries.hints.Editor.label}" id="c4">
+                  <af:outputText value="#{row.Editor}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.DCountries.hints.Name.label}" id="c1">
+                  <af:outputText value="#{row.Name}" id="ot4"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td2" baseView="Main" refreshEnabled="true" refresh="#{bindings.Execute1.execute}"
+                       rows="#{bindings.DHCountries.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.DHCountries.collectionModel}" var="row" rows="#{bindings.DHCountries.rangeSize}"
+                        emptyText="#{bindings.DHCountries.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.DHCountries.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.DHCountriesQuery.queryDescriptor}" queryListener="#{bindings.DHCountriesQuery.processQuery}" varStatus="vs" selectedRowKeys="#{bindings.DHCountries.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DHCountries.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                        partialTriggers="::::td1:dc_pc1:t1 ::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DHCountries.hints.Id.label}" id="c5">
+                  <af:outputText value="#{row.Id}" id="ot5">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DHCountries.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DHCountries.hints.Date.label}" id="c8">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id2"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot7">
+                    <af:convertDateTime pattern="#{bindings.DHCountries.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.DHCountries.hints.Editor.label}" id="c6">
+                  <af:outputText value="#{row.Editor}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.DHCountries.hints.Name.label}" id="c7">
+                  <af:outputText value="#{row.Name}" id="ot6"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</jsp:root>

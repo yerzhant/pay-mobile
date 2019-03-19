@@ -1,0 +1,28 @@
+af|train::stop-link:selected {
+    color: Lime;
+}
+
+af|train::stop-link:unvisited {
+    color: Yellow;
+}
+
+af|train::stop-link:disabled {
+    color: InactiveBorder;
+}
+
+af|train::stop-link:train-visited {
+    color: Aqua;
+}
+
+af|column::column-header-cell {
+    text-align: center;
+}
+
+.Title {
+    font-size: large;
+    font-family: Georgia, times, Serif;
+}
+
+.Copyright {
+    font-size: xx-small;
+}

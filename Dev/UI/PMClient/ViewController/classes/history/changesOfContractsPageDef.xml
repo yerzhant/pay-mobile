@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfContractsPageDef" Package="history">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CContracts" RangeSize="25" DataControl="PMClientServiceDataControl" id="CContractsIterator"/>
+    <searchRegion Binds="CContractsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CContractsQuery"/>
+    <iterator Binds="CHContracts" RangeSize="25" DataControl="PMClientServiceDataControl" id="CHContractsIterator"/>
+    <searchRegion Binds="CHContractsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CHContractsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CContractsIterator" id="CContracts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.ContractsView" Name="CContracts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Status"/>
+          <Item Value="OpenDate"/>
+          <Item Value="AppliedAt"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="PasswordTries"/>
+          <Item Value="CloseDate"/>
+          <Item Value="ANumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHContractsIterator" id="CHContracts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.HContractsView" Name="CHContracts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Status"/>
+          <Item Value="OpenDate"/>
+          <Item Value="AppliedAt"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="PasswordTries"/>
+          <Item Value="CloseDate"/>
+          <Item Value="ANumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CContractsIterator" id="Execute" InstanceName="PMClientServiceDataControl.CContracts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

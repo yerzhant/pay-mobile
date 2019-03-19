@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
+        <af:panelGroupLayout id="pgl2" layout="vertical">
+          <af:panelBox text="Клиент" id="pb1" showDisclosure="false">
+            <af:panelGroupLayout id="pgl6">
+              <af:outputText id="ot2"
+                             value="Клиент является существующим. Данные клиента с заявления не будут перенесены в карточку клиента. Перепроверьте информацию представленную ниже!"
+                             rendered="#{not empty bindings.Date.inputValue}" inlineStyle="color:Red;"/>
+              <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                              required="#{bindings.LastName.hints.mandatory}" columns="#{bindings.LastName.hints.displayWidth}"
+                              maximumLength="#{bindings.LastName.hints.precision}" shortDesc="#{bindings.LastName.hints.tooltip}" id="it5">
+                  <f:validator binding="#{bindings.LastName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                              required="#{bindings.FirstName.hints.mandatory}" columns="#{bindings.FirstName.hints.displayWidth}"
+                              maximumLength="#{bindings.FirstName.hints.precision}" shortDesc="#{bindings.FirstName.hints.tooltip}" id="it2">
+                  <f:validator binding="#{bindings.FirstName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.MiddleName.inputValue}" label="#{bindings.MiddleName.hints.label}"
+                              required="#{bindings.MiddleName.hints.mandatory}" columns="#{bindings.MiddleName.hints.displayWidth}"
+                              maximumLength="#{bindings.MiddleName.hints.precision}" shortDesc="#{bindings.MiddleName.hints.tooltip}" id="it4">
+                  <f:validator binding="#{bindings.MiddleName.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.BirthDate.inputValue}" label="#{bindings.BirthDate.hints.label}"
+                              required="#{bindings.BirthDate.hints.mandatory}" shortDesc="#{bindings.BirthDate.hints.tooltip}" id="id2">
+                  <f:validator binding="#{bindings.BirthDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.BirthDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.TaxPayerId.inputValue}" label="#{bindings.TaxPayerId.hints.label}"
+                              required="#{bindings.TaxPayerId.hints.mandatory}" columns="#{bindings.TaxPayerId.hints.displayWidth}"
+                              maximumLength="#{bindings.TaxPayerId.hints.precision}" shortDesc="#{bindings.TaxPayerId.hints.tooltip}" id="it3">
+                  <f:validator binding="#{bindings.TaxPayerId.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.DocTypeId.inputValue}" label="#{bindings.DocTypeId.label}"
+                                    required="#{bindings.DocTypeId.hints.mandatory}" shortDesc="#{bindings.DocTypeId.hints.tooltip}" id="soc1">
+                  <f:selectItems value="#{bindings.DocTypeId.items}" id="si2"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.DocId.inputValue}" label="#{bindings.DocId.hints.label}" required="#{bindings.DocId.hints.mandatory}"
+                              columns="#{bindings.DocId.hints.displayWidth}" maximumLength="#{bindings.DocId.hints.precision}"
+                              shortDesc="#{bindings.DocId.hints.tooltip}" id="it7">
+                  <f:validator binding="#{bindings.DocId.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.DocDate.inputValue}" label="#{bindings.DocDate.hints.label}"
+                              required="#{bindings.DocDate.hints.mandatory}" shortDesc="#{bindings.DocDate.hints.tooltip}" id="id1">
+                  <f:validator binding="#{bindings.DocDate.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.DocDate.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.DocIssuer.inputValue}" label="#{bindings.DocIssuer.hints.label}"
+                              required="#{bindings.DocIssuer.hints.mandatory}" columns="#{bindings.DocIssuer.hints.displayWidth}"
+                              maximumLength="#{bindings.DocIssuer.hints.precision}" shortDesc="#{bindings.DocIssuer.hints.tooltip}" id="it6">
+                  <f:validator binding="#{bindings.DocIssuer.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.CountryId.inputValue}" label="#{bindings.CountryId.label}"
+                                    required="#{bindings.CountryId.hints.mandatory}" shortDesc="#{bindings.CountryId.hints.tooltip}" id="soc2">
+                  <f:selectItems value="#{bindings.CountryId.items}" id="si3"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.BranchId.inputValue}" label="#{bindings.BranchId.label}"
+                                    required="#{bindings.BranchId.hints.mandatory}" shortDesc="#{bindings.BranchId.hints.tooltip}" id="soc3">
+                  <f:selectItems value="#{bindings.BranchId.items}" id="si1"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
+                              required="#{bindings.Address.hints.mandatory}" columns="#{bindings.Address.hints.displayWidth}"
+                              maximumLength="#{bindings.Address.hints.precision}" shortDesc="#{bindings.Address.hints.tooltip}" id="it1"
+                              rows="#{bindings.Address.hints.displayHeight}">
+                  <f:validator binding="#{bindings.Address.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:panelBox text="Договор" id="pb2" showDisclosure="false">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="#{bindings.AppliedAt.hints.label}" id="plam2">
+                <af:outputText value="#{bindings.AppliedAt.inputValue}" id="ot1">
+                  <af:convertDateTime pattern="#{bindings.AppliedAt.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.PhoneNumber.hints.label}" id="plam1">
+                <af:outputText value="#{bindings.PhoneNumber.inputValue}" id="ot3">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.PhoneNumber.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:inputText value="#{bindings.ANumber.inputValue}" label="#{bindings.ANumber.hints.label}"
+                            required="#{bindings.ANumber.hints.mandatory}" columns="#{bindings.ANumber.hints.displayWidth}"
+                            maximumLength="#{bindings.ANumber.hints.precision}" shortDesc="#{bindings.ANumber.hints.tooltip}" id="it8">
+                <f:validator binding="#{bindings.ANumber.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <af:panelGroupLayout id="pgl3">
+            <af:commandButton text="Сохранить" id="cb1" action="toSave"/>
+            <af:commandButton text="Отменить" id="cb2" action="toCancel"/>
+            <f:facet name="separator">
+              <af:spacer width="4" id="s2"/>
+            </f:facet>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelGroupLayout id="pgl4">
+        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="center">
+          <af:commandButton text="Назад" id="cb3" disabled="true"/>
+          <af:commandButton text="Далее" id="cb4" disabled="true"/>
+          <f:facet name="separator">
+            <af:spacer width="4" id="s1"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

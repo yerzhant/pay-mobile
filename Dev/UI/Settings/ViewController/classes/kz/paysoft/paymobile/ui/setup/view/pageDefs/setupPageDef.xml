@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="setupPageDef"
+                Package="kz.paysoft.paymobile.ui.setup.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="dcciflow1" taskFlowId="/WEB-INF/dcci-flow.xml#dcci-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="spsflow1" taskFlowId="/WEB-INF/sps-flow.xml#sps-flow" activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="srtypesflow1" taskFlowId="/WEB-INF/srtypes-flow.xml#srtypes-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

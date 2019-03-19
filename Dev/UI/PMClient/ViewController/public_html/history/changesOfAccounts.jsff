@@ -1,0 +1,542 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:pageTemplate viewId="/WEB-INF/history-template.jspx" id="pt1">
+    <f:facet name="top">
+      <dc:TableDef id="td1" refreshEnabled="#{bindings.Execute.enabled}" refresh="#{bindings.Execute.execute}" baseView="Main"
+                   rows="#{bindings.CContracts.estimatedRowCount}">
+        <f:facet name="table">
+          <af:table value="#{bindings.CContracts.collectionModel}" var="row" rows="#{bindings.CContracts.rangeSize}"
+                    emptyText="#{bindings.CContracts.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                    fetchSize="#{bindings.CContracts.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.CContractsQuery.queryDescriptor}"
+                    queryListener="#{bindings.CContractsQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.CContracts.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CContracts.collectionModel.makeCurrent}" rowSelection="single" id="t1" summary="Текущие договоры"
+                    shortDesc="Текущие договоры" partialTriggers="::dc_refresh">
+            <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.Id.label}" id="c3"
+                       rowHeader="unstyled">
+              <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.CContracts.hints.Id.label}"
+                            required="#{bindings.CContracts.hints.Id.mandatory}" columns="#{bindings.CContracts.hints.Id.displayWidth}"
+                            maximumLength="#{bindings.CContracts.hints.Id.precision}" shortDesc="#{bindings.CContracts.hints.Id.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.Id.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.CContracts.hints.Id.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.Date.label}" id="c9">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.Date}" id="id7"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.CContracts.hints.Date.label}"
+                            required="#{bindings.CContracts.hints.Date.mandatory}" shortDesc="#{bindings.CContracts.hints.Date.tooltip}" id="id6">
+                <f:validator binding="#{row.bindings.Date.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CContracts.hints.Date.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="User" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.User.label}" id="c1">
+              <af:selectOneChoice value="#{row.bindings.User.inputValue}" label="#{row.bindings.User.label}"
+                                  required="#{bindings.CContracts.hints.User.mandatory}" shortDesc="#{bindings.CContracts.hints.User.tooltip}"
+                                  id="soc2">
+                <f:selectItems value="#{row.bindings.User.items}" id="si2"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="Status" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.Status.label}" id="c6">
+              <af:selectOneChoice value="#{row.bindings.Status.inputValue}" label="#{row.bindings.Status.label}"
+                                  required="#{bindings.CContracts.hints.Status.mandatory}" shortDesc="#{bindings.CContracts.hints.Status.tooltip}"
+                                  id="soc1">
+                <f:selectItems value="#{row.bindings.Status.items}" id="si1"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="OpenDate" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.OpenDate.label}" id="c7">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.OpenDate}" id="id5"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.OpenDate.inputValue}" label="#{bindings.CContracts.hints.OpenDate.label}"
+                            required="#{bindings.CContracts.hints.OpenDate.mandatory}" shortDesc="#{bindings.CContracts.hints.OpenDate.tooltip}"
+                            id="id2">
+                <f:validator binding="#{row.bindings.OpenDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CContracts.hints.OpenDate.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="AppliedAt" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.AppliedAt.label}" id="c2">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.AppliedAt}" id="id4"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.AppliedAt.inputValue}" label="#{bindings.CContracts.hints.AppliedAt.label}"
+                            required="#{bindings.CContracts.hints.AppliedAt.mandatory}" shortDesc="#{bindings.CContracts.hints.AppliedAt.tooltip}"
+                            id="id3">
+                <f:validator binding="#{row.bindings.AppliedAt.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CContracts.hints.AppliedAt.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="PhoneNumber" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.PhoneNumber.label}"
+                       id="c8">
+              <af:inputText value="#{row.bindings.PhoneNumber.inputValue}" label="#{bindings.CContracts.hints.PhoneNumber.label}"
+                            required="#{bindings.CContracts.hints.PhoneNumber.mandatory}"
+                            columns="#{bindings.CContracts.hints.PhoneNumber.displayWidth}"
+                            maximumLength="#{bindings.CContracts.hints.PhoneNumber.precision}"
+                            shortDesc="#{bindings.CContracts.hints.PhoneNumber.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.PhoneNumber.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.CContracts.hints.PhoneNumber.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="PasswordTries" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.PasswordTries.label}"
+                       id="c4">
+              <af:inputText value="#{row.bindings.PasswordTries.inputValue}" label="#{bindings.CContracts.hints.PasswordTries.label}"
+                            required="#{bindings.CContracts.hints.PasswordTries.mandatory}"
+                            columns="#{bindings.CContracts.hints.PasswordTries.displayWidth}"
+                            maximumLength="#{bindings.CContracts.hints.PasswordTries.precision}"
+                            shortDesc="#{bindings.CContracts.hints.PasswordTries.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.PasswordTries.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.CContracts.hints.PasswordTries.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="CloseDate" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.CloseDate.label}" id="c5">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.CloseDate}" id="id1"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.CloseDate.inputValue}" label="#{bindings.CContracts.hints.CloseDate.label}"
+                            required="#{bindings.CContracts.hints.CloseDate.mandatory}" shortDesc="#{bindings.CContracts.hints.CloseDate.tooltip}"
+                            id="id8">
+                <f:validator binding="#{row.bindings.CloseDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CContracts.hints.CloseDate.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="ANumber" filterable="true" sortable="true" headerText="#{bindings.CContracts.hints.ANumber.label}" id="c10">
+              <af:inputText value="#{row.bindings.ANumber.inputValue}" label="#{bindings.CContracts.hints.ANumber.label}"
+                            required="#{bindings.CContracts.hints.ANumber.mandatory}" columns="#{bindings.CContracts.hints.ANumber.displayWidth}"
+                            maximumLength="#{bindings.CContracts.hints.ANumber.precision}" shortDesc="#{bindings.CContracts.hints.ANumber.tooltip}"
+                            id="it3">
+                <f:validator binding="#{row.bindings.ANumber.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </f:facet>
+      </dc:TableDef>
+    </f:facet>
+    <f:facet name="bottom">
+      <af:panelSplitter id="ps1" orientation="vertical">
+        <f:facet name="first">
+          <dc:TableDef id="td2" baseView="Main" rows="#{bindings.CAccounts.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CAccounts.collectionModel}" var="row" rows="#{bindings.CAccounts.rangeSize}"
+                        emptyText="#{bindings.CAccounts.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.CAccounts.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.CAccountsQuery.queryDescriptor}"
+                        queryListener="#{bindings.CAccountsQuery.processQuery}" filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.CAccounts.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CAccounts.collectionModel.makeCurrent}" rowSelection="single" id="t2" summary="Текущие счета"
+                        shortDesc="Текущие счета" partialTriggers="::::td1:dc_pc1:t1">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.Id.label}" id="c18"
+                           rowHeader="unstyled">
+                  <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.CAccounts.hints.Id.label}"
+                                required="#{bindings.CAccounts.hints.Id.mandatory}" columns="#{bindings.CAccounts.hints.Id.displayWidth}"
+                                maximumLength="#{bindings.CAccounts.hints.Id.precision}" shortDesc="#{bindings.CAccounts.hints.Id.tooltip}" id="it17">
+                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.Id.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.Date.label}" id="c24">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id10"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.CAccounts.hints.Date.label}"
+                                required="#{bindings.CAccounts.hints.Date.mandatory}" shortDesc="#{bindings.CAccounts.hints.Date.tooltip}" id="id9">
+                    <f:validator binding="#{row.bindings.Date.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.CAccounts.hints.Date.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="User" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.User.label}" id="c34">
+                  <af:selectOneChoice value="#{row.bindings.User.inputValue}" label="#{row.bindings.User.label}"
+                                      required="#{bindings.CAccounts.hints.User.mandatory}" shortDesc="#{bindings.CAccounts.hints.User.tooltip}"
+                                      id="soc6">
+                    <f:selectItems value="#{row.bindings.User.items}" id="si6"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="Kind" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.Kind.label}" id="c27">
+                  <af:selectOneChoice value="#{row.bindings.Kind.inputValue}" label="#{row.bindings.Kind.label}"
+                                      required="#{bindings.CAccounts.hints.Kind.mandatory}" shortDesc="#{bindings.CAccounts.hints.Kind.tooltip}"
+                                      id="soc3">
+                    <f:selectItems value="#{row.bindings.Kind.items}" id="si5"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="AnInterface" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.AnInterface.label}"
+                           id="c13">
+                  <af:selectOneChoice value="#{row.bindings.AnInterface.inputValue}" label="#{row.bindings.AnInterface.label}"
+                                      required="#{bindings.CAccounts.hints.AnInterface.mandatory}"
+                                      shortDesc="#{bindings.CAccounts.hints.AnInterface.tooltip}" id="soc5">
+                    <f:selectItems value="#{row.bindings.AnInterface.items}" id="si3"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="ANumber" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.ANumber.label}" id="c21">
+                  <af:inputText value="#{row.bindings.ANumber.inputValue}" label="#{bindings.CAccounts.hints.ANumber.label}"
+                                required="#{bindings.CAccounts.hints.ANumber.mandatory}" columns="#{bindings.CAccounts.hints.ANumber.displayWidth}"
+                                maximumLength="#{bindings.CAccounts.hints.ANumber.precision}" shortDesc="#{bindings.CAccounts.hints.ANumber.tooltip}"
+                                id="it15">
+                    <f:validator binding="#{row.bindings.ANumber.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.Name.label}" id="c30">
+                  <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.CAccounts.hints.Name.label}"
+                                required="#{bindings.CAccounts.hints.Name.mandatory}" columns="#{bindings.CAccounts.hints.Name.displayWidth}"
+                                maximumLength="#{bindings.CAccounts.hints.Name.precision}" shortDesc="#{bindings.CAccounts.hints.Name.tooltip}"
+                                id="it7">
+                    <f:validator binding="#{row.bindings.Name.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Priority" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.Priority.label}" id="c12">
+                  <af:inputText value="#{row.bindings.Priority.inputValue}" label="#{bindings.CAccounts.hints.Priority.label}"
+                                required="#{bindings.CAccounts.hints.Priority.mandatory}" columns="#{bindings.CAccounts.hints.Priority.displayWidth}"
+                                maximumLength="#{bindings.CAccounts.hints.Priority.precision}"
+                                shortDesc="#{bindings.CAccounts.hints.Priority.tooltip}" id="it6">
+                    <f:validator binding="#{row.bindings.Priority.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.Priority.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="Разовые" id="c11">
+                  <af:column sortProperty="SingleAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.CAccounts.hints.SingleAmount.label}" id="c25">
+                    <af:inputText value="#{row.bindings.SingleAmount.inputValue}" label="#{bindings.CAccounts.hints.SingleAmount.label}"
+                                  required="#{bindings.CAccounts.hints.SingleAmount.mandatory}"
+                                  columns="#{bindings.CAccounts.hints.SingleAmount.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.SingleAmount.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.SingleAmount.tooltip}" id="it8">
+                      <f:validator binding="#{row.bindings.SingleAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.SingleAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="SingleCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.CAccounts.hints.SingleCurrency.label}" id="c29">
+                    <af:selectOneChoice value="#{row.bindings.SingleCurrency.inputValue}" label="#{row.bindings.SingleCurrency.label}"
+                                        required="#{bindings.CAccounts.hints.SingleCurrency.mandatory}"
+                                        shortDesc="#{bindings.CAccounts.hints.SingleCurrency.tooltip}" id="soc8">
+                      <f:selectItems value="#{row.bindings.SingleCurrency.items}" id="si8"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:column>
+                <af:column headerText="Суточные" id="c31">
+                  <af:column sortProperty="DayAmount" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.DayAmount.label}"
+                             id="c33">
+                    <af:inputText value="#{row.bindings.DayAmount.inputValue}" label="#{bindings.CAccounts.hints.DayAmount.label}"
+                                  required="#{bindings.CAccounts.hints.DayAmount.mandatory}"
+                                  columns="#{bindings.CAccounts.hints.DayAmount.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.DayAmount.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.DayAmount.tooltip}" id="it16">
+                      <f:validator binding="#{row.bindings.DayAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.DayAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayCurrency" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.DayCurrency.label}"
+                             id="c23">
+                    <af:selectOneChoice value="#{row.bindings.DayCurrency.inputValue}" label="#{row.bindings.DayCurrency.label}"
+                                        required="#{bindings.CAccounts.hints.DayCurrency.mandatory}"
+                                        shortDesc="#{bindings.CAccounts.hints.DayCurrency.tooltip}" id="soc4">
+                      <f:selectItems value="#{row.bindings.DayCurrency.items}" id="si7"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="DayQuantity" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.DayQuantity.label}"
+                             id="c28">
+                    <af:inputText value="#{row.bindings.DayQuantity.inputValue}" label="#{bindings.CAccounts.hints.DayQuantity.label}"
+                                  required="#{bindings.CAccounts.hints.DayQuantity.mandatory}"
+                                  columns="#{bindings.CAccounts.hints.DayQuantity.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.DayQuantity.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.DayQuantity.tooltip}" id="it9">
+                      <f:validator binding="#{row.bindings.DayQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.DayQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="Месячные" id="c26">
+                  <af:column sortProperty="MonthAmount" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.MonthAmount.label}"
+                             id="c16">
+                    <af:inputText value="#{row.bindings.MonthAmount.inputValue}" label="#{bindings.CAccounts.hints.MonthAmount.label}"
+                                  required="#{bindings.CAccounts.hints.MonthAmount.mandatory}"
+                                  columns="#{bindings.CAccounts.hints.MonthAmount.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.MonthAmount.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.MonthAmount.tooltip}" id="it12">
+                      <f:validator binding="#{row.bindings.MonthAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.MonthAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="MonthCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.CAccounts.hints.MonthCurrency.label}" id="c14">
+                    <af:selectOneChoice value="#{row.bindings.MonthCurrency.inputValue}" label="#{row.bindings.MonthCurrency.label}"
+                                        required="#{bindings.CAccounts.hints.MonthCurrency.mandatory}"
+                                        shortDesc="#{bindings.CAccounts.hints.MonthCurrency.tooltip}" id="soc7">
+                      <f:selectItems value="#{row.bindings.MonthCurrency.items}" id="si4"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="MonthQuantity" filterable="true" sortable="true"
+                             headerText="#{bindings.CAccounts.hints.MonthQuantity.label}" id="c17">
+                    <af:inputText value="#{row.bindings.MonthQuantity.inputValue}" label="#{bindings.CAccounts.hints.MonthQuantity.label}"
+                                  required="#{bindings.CAccounts.hints.MonthQuantity.mandatory}"
+                                  columns="#{bindings.CAccounts.hints.MonthQuantity.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.MonthQuantity.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.MonthQuantity.tooltip}" id="it14">
+                      <f:validator binding="#{row.bindings.MonthQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.MonthQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="С" id="c20">
+                  <af:column sortProperty="FromHour" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.FromHour.label}"
+                             id="c15">
+                    <af:inputText value="#{row.bindings.FromHour.inputValue}" label="#{bindings.CAccounts.hints.FromHour.label}"
+                                  required="#{bindings.CAccounts.hints.FromHour.mandatory}"
+                                  columns="#{bindings.CAccounts.hints.FromHour.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.FromHour.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.FromHour.tooltip}" id="it13">
+                      <f:validator binding="#{row.bindings.FromHour.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.FromHour.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="FromMin" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.FromMin.label}" id="c35">
+                    <af:inputText value="#{row.bindings.FromMin.inputValue}" label="#{bindings.CAccounts.hints.FromMin.label}"
+                                  required="#{bindings.CAccounts.hints.FromMin.mandatory}" columns="#{bindings.CAccounts.hints.FromMin.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.FromMin.precision}"
+                                  shortDesc="#{bindings.CAccounts.hints.FromMin.tooltip}" id="it11">
+                      <f:validator binding="#{row.bindings.FromMin.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.FromMin.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="По" id="c32">
+                  <af:column sortProperty="ToHour" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.ToHour.label}" id="c22">
+                    <af:inputText value="#{row.bindings.ToHour.inputValue}" label="#{bindings.CAccounts.hints.ToHour.label}"
+                                  required="#{bindings.CAccounts.hints.ToHour.mandatory}" columns="#{bindings.CAccounts.hints.ToHour.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.ToHour.precision}" shortDesc="#{bindings.CAccounts.hints.ToHour.tooltip}"
+                                  id="it5">
+                      <f:validator binding="#{row.bindings.ToHour.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.ToHour.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="ToMin" filterable="true" sortable="true" headerText="#{bindings.CAccounts.hints.ToMin.label}" id="c19">
+                    <af:inputText value="#{row.bindings.ToMin.inputValue}" label="#{bindings.CAccounts.hints.ToMin.label}"
+                                  required="#{bindings.CAccounts.hints.ToMin.mandatory}" columns="#{bindings.CAccounts.hints.ToMin.displayWidth}"
+                                  maximumLength="#{bindings.CAccounts.hints.ToMin.precision}" shortDesc="#{bindings.CAccounts.hints.ToMin.tooltip}"
+                                  id="it10">
+                      <f:validator binding="#{row.bindings.ToMin.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CAccounts.hints.ToMin.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td3" baseView="Main" rows="#{bindings.CHAccounts.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CHAccounts.collectionModel}" var="row" rows="#{bindings.CHAccounts.rangeSize}"
+                        emptyText="#{bindings.CHAccounts.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.CHAccounts.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.CHAccountsQuery.queryDescriptor}"
+                        queryListener="#{bindings.CHAccountsQuery.processQuery}" filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.CHAccounts.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CHAccounts.collectionModel.makeCurrent}" rowSelection="single" id="t3" summary="История"
+                        shortDesc="История" partialTriggers="::::td2:dc_pc1:t2">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.Id.label}" id="c60"
+                           rowHeader="unstyled">
+                  <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.CHAccounts.hints.Id.label}"
+                                required="#{bindings.CHAccounts.hints.Id.mandatory}" columns="#{bindings.CHAccounts.hints.Id.displayWidth}"
+                                maximumLength="#{bindings.CHAccounts.hints.Id.precision}" shortDesc="#{bindings.CHAccounts.hints.Id.tooltip}"
+                                id="it20">
+                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.Id.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.Date.label}" id="c53">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id12"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.CHAccounts.hints.Date.label}"
+                                required="#{bindings.CHAccounts.hints.Date.mandatory}" shortDesc="#{bindings.CHAccounts.hints.Date.tooltip}"
+                                id="id11">
+                    <f:validator binding="#{row.bindings.Date.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.CHAccounts.hints.Date.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="User" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.User.label}" id="c46">
+                  <af:selectOneChoice value="#{row.bindings.User.inputValue}" label="#{row.bindings.User.label}"
+                                      required="#{bindings.CHAccounts.hints.User.mandatory}" shortDesc="#{bindings.CHAccounts.hints.User.tooltip}"
+                                      id="soc14">
+                    <f:selectItems value="#{row.bindings.User.items}" id="si14"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="Kind" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.Kind.label}" id="c54">
+                  <af:selectOneChoice value="#{row.bindings.Kind.inputValue}" label="#{row.bindings.Kind.label}"
+                                      required="#{bindings.CHAccounts.hints.Kind.mandatory}" shortDesc="#{bindings.CHAccounts.hints.Kind.tooltip}"
+                                      id="soc10">
+                    <f:selectItems value="#{row.bindings.Kind.items}" id="si12"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="AnInterface" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.AnInterface.label}"
+                           id="c57">
+                  <af:selectOneChoice value="#{row.bindings.AnInterface.inputValue}" label="#{row.bindings.AnInterface.label}"
+                                      required="#{bindings.CHAccounts.hints.AnInterface.mandatory}"
+                                      shortDesc="#{bindings.CHAccounts.hints.AnInterface.tooltip}" id="soc12">
+                    <f:selectItems value="#{row.bindings.AnInterface.items}" id="si10"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="ANumber" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.ANumber.label}" id="c48">
+                  <af:inputText value="#{row.bindings.ANumber.inputValue}" label="#{bindings.CHAccounts.hints.ANumber.label}"
+                                required="#{bindings.CHAccounts.hints.ANumber.mandatory}" columns="#{bindings.CHAccounts.hints.ANumber.displayWidth}"
+                                maximumLength="#{bindings.CHAccounts.hints.ANumber.precision}"
+                                shortDesc="#{bindings.CHAccounts.hints.ANumber.tooltip}" id="it24">
+                    <f:validator binding="#{row.bindings.ANumber.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.Name.label}" id="c44">
+                  <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.CHAccounts.hints.Name.label}"
+                                required="#{bindings.CHAccounts.hints.Name.mandatory}" columns="#{bindings.CHAccounts.hints.Name.displayWidth}"
+                                maximumLength="#{bindings.CHAccounts.hints.Name.precision}" shortDesc="#{bindings.CHAccounts.hints.Name.tooltip}"
+                                id="it26">
+                    <f:validator binding="#{row.bindings.Name.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Priority" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.Priority.label}"
+                           id="c52">
+                  <af:inputText value="#{row.bindings.Priority.inputValue}" label="#{bindings.CHAccounts.hints.Priority.label}"
+                                required="#{bindings.CHAccounts.hints.Priority.mandatory}"
+                                columns="#{bindings.CHAccounts.hints.Priority.displayWidth}"
+                                maximumLength="#{bindings.CHAccounts.hints.Priority.precision}"
+                                shortDesc="#{bindings.CHAccounts.hints.Priority.tooltip}" id="it22">
+                    <f:validator binding="#{row.bindings.Priority.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.Priority.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="Разовые" id="c38">
+                  <af:column sortProperty="SingleAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.CHAccounts.hints.SingleAmount.label}" id="c40">
+                    <af:inputText value="#{row.bindings.SingleAmount.inputValue}" label="#{bindings.CHAccounts.hints.SingleAmount.label}"
+                                  required="#{bindings.CHAccounts.hints.SingleAmount.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.SingleAmount.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.SingleAmount.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.SingleAmount.tooltip}" id="it23">
+                      <f:validator binding="#{row.bindings.SingleAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.SingleAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="SingleCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.CHAccounts.hints.SingleCurrency.label}" id="c56">
+                    <af:selectOneChoice value="#{row.bindings.SingleCurrency.inputValue}" label="#{row.bindings.SingleCurrency.label}"
+                                        required="#{bindings.CHAccounts.hints.SingleCurrency.mandatory}"
+                                        shortDesc="#{bindings.CHAccounts.hints.SingleCurrency.tooltip}" id="soc13">
+                      <f:selectItems value="#{row.bindings.SingleCurrency.items}" id="si9"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:column>
+                <af:column headerText="Суточные" id="c43">
+                  <af:column sortProperty="DayAmount" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.DayAmount.label}"
+                             id="c47">
+                    <af:inputText value="#{row.bindings.DayAmount.inputValue}" label="#{bindings.CHAccounts.hints.DayAmount.label}"
+                                  required="#{bindings.CHAccounts.hints.DayAmount.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.DayAmount.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.DayAmount.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.DayAmount.tooltip}" id="it25">
+                      <f:validator binding="#{row.bindings.DayAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.DayAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayCurrency" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.DayCurrency.label}"
+                             id="c42">
+                    <af:selectOneChoice value="#{row.bindings.DayCurrency.inputValue}" label="#{row.bindings.DayCurrency.label}"
+                                        required="#{bindings.CHAccounts.hints.DayCurrency.mandatory}"
+                                        shortDesc="#{bindings.CHAccounts.hints.DayCurrency.tooltip}" id="soc9">
+                      <f:selectItems value="#{row.bindings.DayCurrency.items}" id="si13"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="DayQuantity" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.DayQuantity.label}"
+                             id="c37">
+                    <af:inputText value="#{row.bindings.DayQuantity.inputValue}" label="#{bindings.CHAccounts.hints.DayQuantity.label}"
+                                  required="#{bindings.CHAccounts.hints.DayQuantity.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.DayQuantity.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.DayQuantity.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.DayQuantity.tooltip}" id="it18">
+                      <f:validator binding="#{row.bindings.DayQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.DayQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="Месячные" id="c39">
+                  <af:column sortProperty="MonthAmount" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.MonthAmount.label}"
+                             id="c45">
+                    <af:inputText value="#{row.bindings.MonthAmount.inputValue}" label="#{bindings.CHAccounts.hints.MonthAmount.label}"
+                                  required="#{bindings.CHAccounts.hints.MonthAmount.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.MonthAmount.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.MonthAmount.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.MonthAmount.tooltip}" id="it21">
+                      <f:validator binding="#{row.bindings.MonthAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.MonthAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="MonthCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.CHAccounts.hints.MonthCurrency.label}" id="c36">
+                    <af:selectOneChoice value="#{row.bindings.MonthCurrency.inputValue}" label="#{row.bindings.MonthCurrency.label}"
+                                        required="#{bindings.CHAccounts.hints.MonthCurrency.mandatory}"
+                                        shortDesc="#{bindings.CHAccounts.hints.MonthCurrency.tooltip}" id="soc11">
+                      <f:selectItems value="#{row.bindings.MonthCurrency.items}" id="si11"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="MonthQuantity" filterable="true" sortable="true"
+                             headerText="#{bindings.CHAccounts.hints.MonthQuantity.label}" id="c50">
+                    <af:inputText value="#{row.bindings.MonthQuantity.inputValue}" label="#{bindings.CHAccounts.hints.MonthQuantity.label}"
+                                  required="#{bindings.CHAccounts.hints.MonthQuantity.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.MonthQuantity.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.MonthQuantity.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.MonthQuantity.tooltip}" id="it29">
+                      <f:validator binding="#{row.bindings.MonthQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.MonthQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="С" id="c58">
+                  <af:column sortProperty="FromHour" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.FromHour.label}"
+                             id="c59">
+                    <af:inputText value="#{row.bindings.FromHour.inputValue}" label="#{bindings.CHAccounts.hints.FromHour.label}"
+                                  required="#{bindings.CHAccounts.hints.FromHour.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.FromHour.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.FromHour.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.FromHour.tooltip}" id="it19">
+                      <f:validator binding="#{row.bindings.FromHour.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.FromHour.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="FromMin" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.FromMin.label}"
+                             id="c49">
+                    <af:inputText value="#{row.bindings.FromMin.inputValue}" label="#{bindings.CHAccounts.hints.FromMin.label}"
+                                  required="#{bindings.CHAccounts.hints.FromMin.mandatory}"
+                                  columns="#{bindings.CHAccounts.hints.FromMin.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.FromMin.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.FromMin.tooltip}" id="it30">
+                      <f:validator binding="#{row.bindings.FromMin.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.FromMin.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="По" id="c55">
+                  <af:column sortProperty="ToHour" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.ToHour.label}" id="c51">
+                    <af:inputText value="#{row.bindings.ToHour.inputValue}" label="#{bindings.CHAccounts.hints.ToHour.label}"
+                                  required="#{bindings.CHAccounts.hints.ToHour.mandatory}" columns="#{bindings.CHAccounts.hints.ToHour.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.ToHour.precision}"
+                                  shortDesc="#{bindings.CHAccounts.hints.ToHour.tooltip}" id="it27">
+                      <f:validator binding="#{row.bindings.ToHour.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.ToHour.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="ToMin" filterable="true" sortable="true" headerText="#{bindings.CHAccounts.hints.ToMin.label}" id="c41">
+                    <af:inputText value="#{row.bindings.ToMin.inputValue}" label="#{bindings.CHAccounts.hints.ToMin.label}"
+                                  required="#{bindings.CHAccounts.hints.ToMin.mandatory}" columns="#{bindings.CHAccounts.hints.ToMin.displayWidth}"
+                                  maximumLength="#{bindings.CHAccounts.hints.ToMin.precision}" shortDesc="#{bindings.CHAccounts.hints.ToMin.tooltip}"
+                                  id="it28">
+                      <f:validator binding="#{row.bindings.ToMin.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CHAccounts.hints.ToMin.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+    <f:attribute name="title" value="История изменений"/>
+  </af:pageTemplate>
+</jsp:root>

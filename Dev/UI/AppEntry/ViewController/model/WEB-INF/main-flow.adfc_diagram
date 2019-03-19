@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowCall
+      id="TaskFlowCall2">
+      <property
+         name="taskFlowId">enroll-flow</property>
+      <property
+         name="activityId">enroll-flow</property>
+      <property
+         name="documentReference">/WEB-INF/enroll-flow.xml</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>enroll-flow&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">316.79883</property>
+      <property
+         name="x">249.5</property>
+   </TaskFlowCall>
+   <View
+      id="View7">
+      <property
+         name="activityId">confirmation</property>
+      <property
+         name="page">/confirmation.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>confirmation&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">316.98828</property>
+      <property
+         name="x">533.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="TaskFlowCall2"
+      to="View7">
+      <property
+         name="fromOutcome">toConfirmation</property>
+      <property
+         name="sdm:polyPoints">R50,290.5,316.44824,492.0,316.6377,L50</property>
+   </ControlFlowCase>
+</SDM>

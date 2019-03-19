@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <exception-handler id="__1">error</exception-handler>
+  <view id="error">
+    <page>/error.jspx</page>
+  </view>
+  <view id="setup">
+    <page>/setup.jspx</page>
+  </view>
+  <control-flow-rule id="__2">
+    <from-activity-id id="__3">error</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome id="__6">toSetup</from-outcome>
+      <to-activity-id id="__5">setup</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__7">
+    <managed-bean-name id="__8">mainBean</managed-bean-name>
+    <managed-bean-class id="__9">kz.paysoft.paymobile.ui.setup.view.MainBean</managed-bean-class>
+    <managed-bean-scope id="__10">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__13">
+    <managed-bean-name id="__11">loginBean</managed-bean-name>
+    <managed-bean-class id="__14">kz.paysoft.paymobile.ui.declarativecomponents.LoginBean</managed-bean-class>
+    <managed-bean-scope id="__12">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

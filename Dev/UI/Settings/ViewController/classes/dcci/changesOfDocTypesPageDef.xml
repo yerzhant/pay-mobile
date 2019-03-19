@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfDocTypesPageDef" Package="dcci">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CDocTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="CDocTypesIterator"/>
+    <searchRegion Binds="CDocTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CDocTypesQuery"/>
+    <iterator Binds="CHDocTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="CHDocTypesIterator"/>
+    <searchRegion Binds="CHDocTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CHDocTypesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CDocTypesIterator" id="CDocTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HDocTypesView" Name="CDocTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHDocTypesIterator" id="CHDocTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HDocTypesView" Name="CHDocTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CDocTypesIterator" id="Execute" InstanceName="SetupServiceDataControl.CDocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHDocTypesIterator" id="Execute1" InstanceName="SetupServiceDataControl.CHDocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

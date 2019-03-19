@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Editor"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="PAY_MOBILE.USERS"
+  AliasName="Editor"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="kz.paysoft.paymobile.ui.adfextensions.ExtendedEntityImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="Id"
+    IsNotNull="true"
+    Precision="12"
+    Scale="0"
+    ColumnName="ID$"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.USERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="STATUS$"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SysName"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="SYS_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FullName"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="250"
+    ColumnName="FULL_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AnInterface"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.AnInterfaceEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.AnInterfaceEditor.AnInterface"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.AnInterfaceEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="CipherSuite"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.CipherSuiteEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.CipherSuiteEditor.CipherSuite"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.CipherSuiteEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Country"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.CountryEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.CountryEditor.Country"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.CountryEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Currency"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.CurrencyEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.CurrencyEditor.Currency"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.CurrencyEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DocType"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.DocTypeEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.DocTypeEditor.DocType"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.DocTypeEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlobalParam"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.GlobalParamEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.GlobalParamEditor.GlobalParam"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.GlobalParamEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrType"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeEditor.SrType"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SrTypeCode"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeCodeEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeCodeEditor.SrTypeCode"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeCodeEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="StatusDetail"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.StatusDetailEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.StatusDetailEditor.StatusDetail"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.StatusDetailEditor.Editor"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="UsersCkStatus">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="USERS_CK_STATUS$"/>
+      <Attr Name="_checkCondition" Value="status$ IN('C', 'D', 'H')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsersNnFullName">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="USERS_NN_FULL_NAME"/>
+      <Attr Name="_checkCondition" Value='"FULL_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.FullName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsersNnId">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="USERS_NN_ID$"/>
+      <Attr Name="_checkCondition" Value='"ID$" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsersNnStatus">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="USERS_NN_STATUS$"/>
+      <Attr Name="_checkCondition" Value='"STATUS$" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsersNnSysName">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="USERS_NN_SYS_NAME"/>
+      <Attr Name="_checkCondition" Value='"SYS_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.SysName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsersPkId"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="USERS_PK_ID$"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.Id"/>
+    </AttrArray>
+  </Key>
+</Entity>

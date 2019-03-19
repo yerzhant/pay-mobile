@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/WEB-INF/notes-template.jspx" id="pt1">
+    <f:facet name="contents">
+      <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
+          <af:panelFormLayout id="pfl1">
+            <af:group id="g2">
+              <af:inputText value="#{bindings.LastName.inputValue}"
+                            label="#{bindings.LastName.hints.label}"
+                            required="#{bindings.LastName.hints.mandatory}"
+                            maximumLength="#{bindings.LastName.hints.precision}"
+                            shortDesc="#{bindings.LastName.hints.tooltip}"
+                            id="it3"
+                            columns="#{bindings.LastName.displayWidth}">
+                <f:validator binding="#{bindings.LastName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FirstName.inputValue}"
+                            label="#{bindings.FirstName.hints.label}"
+                            required="#{bindings.FirstName.hints.mandatory}"
+                            columns="#{bindings.FirstName.hints.displayWidth}"
+                            maximumLength="#{bindings.FirstName.hints.precision}"
+                            shortDesc="#{bindings.FirstName.hints.tooltip}"
+                            id="it2">
+                <f:validator binding="#{bindings.FirstName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.MiddleName.inputValue}"
+                            label="#{bindings.MiddleName.hints.label}"
+                            required="#{bindings.MiddleName.hints.mandatory}"
+                            columns="#{bindings.MiddleName.hints.displayWidth}"
+                            maximumLength="#{bindings.MiddleName.hints.precision}"
+                            shortDesc="#{bindings.MiddleName.hints.tooltip}"
+                            id="it6">
+                <f:validator binding="#{bindings.MiddleName.validator}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.BirthDate.inputValue}"
+                            label="#{bindings.BirthDate.hints.label}"
+                            required="#{bindings.BirthDate.hints.mandatory}"
+                            shortDesc="#{bindings.BirthDate.hints.tooltip}"
+                            id="id2">
+                <f:validator binding="#{bindings.BirthDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.BirthDate.format}"/>
+              </af:inputDate>
+              <af:selectOneChoice value="#{bindings.CountryId.inputValue}"
+                                  label="#{bindings.CountryId.label}"
+                                  required="#{bindings.CountryId.hints.mandatory}"
+                                  shortDesc="#{bindings.CountryId.hints.tooltip}"
+                                  id="soc3">
+                <f:selectItems value="#{bindings.CountryId.items}" id="si3"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                            label="#{bindings.PhoneNumber.hints.label}"
+                            required="#{bindings.PhoneNumber.hints.mandatory}"
+                            columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                            maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                            shortDesc="#{bindings.PhoneNumber.hints.tooltip}"
+                            id="it5">
+                <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PhoneNumber.format}"/>
+              </af:inputText>
+            </af:group>
+            <af:group id="g1">
+              <af:selectOneChoice value="#{bindings.DocTypeId.inputValue}"
+                                  label="#{bindings.DocTypeId.label}"
+                                  required="#{bindings.DocTypeId.hints.mandatory}"
+                                  shortDesc="#{bindings.DocTypeId.hints.tooltip}"
+                                  id="soc1">
+                <f:selectItems value="#{bindings.DocTypeId.items}" id="si2"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.DocId.inputValue}"
+                            label="#{bindings.DocId.hints.label}"
+                            required="#{bindings.DocId.hints.mandatory}"
+                            columns="#{bindings.DocId.hints.displayWidth}"
+                            maximumLength="#{bindings.DocId.hints.precision}"
+                            shortDesc="#{bindings.DocId.hints.tooltip}"
+                            id="it7">
+                <f:validator binding="#{bindings.DocId.validator}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.DocDate.inputValue}"
+                            label="#{bindings.DocDate.hints.label}"
+                            required="#{bindings.DocDate.hints.mandatory}"
+                            shortDesc="#{bindings.DocDate.hints.tooltip}"
+                            id="id1">
+                <f:validator binding="#{bindings.DocDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DocDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.DocIssuer.inputValue}"
+                            label="#{bindings.DocIssuer.hints.label}"
+                            required="#{bindings.DocIssuer.hints.mandatory}"
+                            columns="#{bindings.DocIssuer.hints.displayWidth}"
+                            maximumLength="#{bindings.DocIssuer.hints.precision}"
+                            shortDesc="#{bindings.DocIssuer.hints.tooltip}"
+                            id="it1">
+                <f:validator binding="#{bindings.DocIssuer.validator}"/>
+              </af:inputText>
+            </af:group>
+            <af:group id="g3">
+              <af:selectOneChoice value="#{bindings.BranchId.inputValue}"
+                                  label="#{bindings.BranchId.label}"
+                                  required="#{bindings.BranchId.hints.mandatory}"
+                                  shortDesc="#{bindings.BranchId.hints.tooltip}"
+                                  id="soc2">
+                <f:selectItems value="#{bindings.BranchId.items}" id="si1"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.TaxPayerId.inputValue}"
+                            label="#{bindings.TaxPayerId.hints.label}"
+                            required="#{bindings.TaxPayerId.hints.mandatory}"
+                            columns="#{bindings.TaxPayerId.hints.displayWidth}"
+                            maximumLength="#{bindings.TaxPayerId.hints.precision}"
+                            shortDesc="#{bindings.TaxPayerId.hints.tooltip}"
+                            id="it8">
+                <f:validator binding="#{bindings.TaxPayerId.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Address.inputValue}"
+                            label="#{bindings.Address.hints.label}"
+                            required="#{bindings.Address.hints.mandatory}"
+                            maximumLength="#{bindings.Address.hints.precision}"
+                            shortDesc="#{bindings.Address.hints.tooltip}"
+                            id="it4"
+                            rows="#{bindings.Address.hints.displayHeight}"
+                            columns="#{bindings.Address.hints.displayWidth}">
+                <f:validator binding="#{bindings.Address.validator}"/>
+              </af:inputText>
+            </af:group>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="notes">
+      <af:panelList id="pl1">
+        <af:outputText value="Поля помеченные * являются обязательными." id="ot1"/>
+        <af:outputText value="Если с Вами заключали договор (не важно на какой № телефона) на оказание данной услуги и информация о Вас имеется в базе данных, то достаточно указать только обязательные поля." id="ot2"/>
+      </af:panelList>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

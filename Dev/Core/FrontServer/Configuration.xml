@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.paysoft.kz/PayMobile/FrontServer/1.0.0">
+  <database server="supernova:1521/pm.paysoft.kz"
+            a="-49617465925222812556068343116201924486"
+            b="19050042770912955826353"/>
+  <srController address="supernova" port="1555"/>
+  <crypto storeType="JCEKS" keyId="1"
+          a="139207498776705072573935027716238857170359375303015469613"
+          b="19048873547427887560206">
+    <!--cipherSuite name="TLS_RSA_WITH_AES_128_CBC_SHA"/>
+    <cipherSuite name="TLS_DHE_RSA_WITH_AES_128_CBC_SHA"/>
+    <cipherSuite name="TLS_DHE_DSS_WITH_AES_128_CBC_SHA"/>
+    <cipherSuite name="SSL_RSA_WITH_RC4_128_SHA"/-->
+  </crypto>
+  <server port="5557" processorId="1"/>
+  <passwordValidation minLength="4" minLetters="0" minSpecials="0"/>
+  <logging level="9" file="frontserver.log"/>
+</configuration>

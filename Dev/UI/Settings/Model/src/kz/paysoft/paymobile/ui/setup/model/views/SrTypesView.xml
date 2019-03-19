@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SrTypesView"
+  Version="11.1.1.56.60"
+  SelectList="SrType.ID$, 
+       SrType.STATUS$, 
+       SrType.DATE$, 
+       SrType.USER$, 
+       NVL(FULL_NAME, SrType.USER$) AS EDITOR_NAME, 
+       SrType.NAME, 
+       SrType.IS_2_PHASE, 
+       SrType.IS_CANCELLABLE, 
+       SrType.CHECK_FIELDS, 
+       SrType.SRC_INTERFACE, 
+       SrType.HU$, 
+       SrType.CID$"
+  FromList="PAY_MOBILE.SR_TYPES SrType, PAY_MOBILE.USERS Editor"
+  Where="SrType.USER$ = Editor.SYS_NAME(+)
+AND SrType.STATUS$ = 'C'
+AND (Editor.STATUS$ = 'C' OR Editor.STATUS$ IS NULL)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="Interfaces"
+    ViewObjectName="kz.paysoft.paymobile.ui.setup.model.views.InterfacesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YesNo"
+    ViewObjectName="kz.paysoft.paymobile.ui.setup.model.views.YesNoVew"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_SrcInterface"
+    ListVOName="Interfaces"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SrcInterface"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Is2Phase"
+    ListVOName="YesNo"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Is2Phase_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Is2Phase"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IsCancellable"
+    ListVOName="YesNo"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_IsCancellable_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsCancellable"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SrType"
+    Entity="kz.paysoft.paymobile.ui.setup.model.entities.SrType"/>
+  <EntityUsage
+    Name="Editor"
+    Entity="kz.paysoft.paymobile.ui.setup.model.entities.Editor"
+    Association="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeEditor"
+    AssociationEnd="kz.paysoft.paymobile.ui.setup.model.entities.associations.SrTypeEditor.Editor"
+    SourceUsage="kz.paysoft.paymobile.ui.setup.model.views.SrTypesView.SrType"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.SrType.User"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.SysName"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="SrType"
+    AliasName="ID$"/>
+  <ViewAttribute
+    Name="Status"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="SrType"
+    AliasName="STATUS$"/>
+  <ViewAttribute
+    Name="Date"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Date"
+    EntityUsage="SrType"
+    AliasName="DATE$"/>
+  <ViewAttribute
+    Name="User1"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="User"
+    EntityUsage="SrType"
+    AliasName="USER$"/>
+  <ViewAttribute
+    Name="EditorName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="EDITOR_NAME"
+    Expression="NVL(FULL_NAME, SrType.USER$)"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.setup.model.views.EditorName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Name"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="SrType"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="Is2Phase"
+    LOVName="LOV_Is2Phase"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Is2Phase"
+    EntityUsage="SrType"
+    AliasName="IS_2_PHASE">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsCancellable"
+    LOVName="LOV_IsCancellable"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsCancellable"
+    EntityUsage="SrType"
+    AliasName="IS_CANCELLABLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CheckFields"
+    PrecisionRule="true"
+    EntityAttrName="CheckFields"
+    EntityUsage="SrType"
+    AliasName="CHECK_FIELDS"/>
+  <ViewAttribute
+    Name="SrcInterface"
+    LOVName="LOV_SrcInterface"
+    PrecisionRule="true"
+    EntityAttrName="SrcInterface"
+    EntityUsage="SrType"
+    AliasName="SRC_INTERFACE">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Hu"
+    IsUpdateable="false"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="Hu"
+    EntityUsage="SrType"
+    AliasName="HU$"/>
+  <ViewAttribute
+    Name="Cid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Cid"
+    EntityUsage="SrType"
+    AliasName="CID$"/>
+  <ViewLinkAccessor
+    Name="SrTypeCodesView"
+    ViewLink="kz.paysoft.paymobile.ui.setup.model.views.links.SrTypeCodesToSrTypeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="kz.paysoft.paymobile.ui.setup.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

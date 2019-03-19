@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.56.60" id="DataBindings" SeparateXMLFiles="false"
+             Package="kz.paysoft.paymobile.ui.pmclient.view"
+             ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/pmClient.jspx" usageId="kz_paysoft_paymobile_ui_pmclient_view_pmClientPageDef"/>
+    <page path="/app/search.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_searchPageDef"/>
+    <page path="/app/check.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_checkPageDef"/>
+    <page path="/app/clientAndContract.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_clientAndContractPageDef"/>
+    <page path="/WEB-INF/app-processing-flow.xml#app-processing-flow@prepareToDecline"
+          usageId="kz_paysoft_paymobile_ui_pmclient_view_app_processing_flow_app_processing_flow_prepareToDeclinePageDef"/>
+    <page path="/app/decline.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_declinePageDef"/>
+    <page path="/WEB-INF/app-processing-flow.xml#app-processing-flow@getClientAndContract"
+          usageId="kz_paysoft_paymobile_ui_pmclient_view_app_processing_flow_app_processing_flow_getClientAndContractPageDef"/>
+    <page path="/contractiv/main.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef"/>
+    <page path="/contracts/main.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef1"/>
+    <page path="/clients/main.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef2"/>
+    <page path="/fxrates/main.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef3"/>
+    <page path="/fxrates/deletedFxRates.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_deletedFxRatesPageDef"/>
+    <page path="/fxrates/changesOfFxRates.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_changesOfFxRatesPageDef"/>
+    <page path="/history/deletedContracts.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_deletedContractsPageDef"/>
+    <page path="/history/deletedAccounts.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_deletedAccountsPageDef"/>
+    <page path="/history/deletedClients.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_deletedClientsPageDef"/>
+    <page path="/history/changesOfClients.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_changesOfClientsPageDef"/>
+    <page path="/history/changesOfContracts.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_changesOfContractsPageDef"/>
+    <page path="/history/changesOfAccounts.jsff" usageId="kz_paysoft_paymobile_ui_pmclient_view_changesOfAccountsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_pmClientPageDef" path="kz.paysoft.paymobile.ui.pmclient.view.pageDefs.pmClientPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_searchPageDef" path="app.searchPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_checkPageDef" path="app.checkPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_clientAndContractPageDef" path="app.clientAndContractPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_app_processing_flow_app_processing_flow_prepareToDeclinePageDef"
+          path="kz.paysoft.paymobile.ui.pmclient.view.pageDefs.app_processing_flow_app_processing_flow_prepareToDeclinePageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_declinePageDef" path="app.declinePageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_app_processing_flow_app_processing_flow_getClientAndContractPageDef"
+          path="kz.paysoft.paymobile.ui.pmclient.view.pageDefs.app_processing_flow_app_processing_flow_getClientAndContractPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef" path="contractiv.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef1" path="contracts.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef2" path="clients.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_mainPageDef3" path="fxrates.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_deletedFxRatesPageDef" path="fxrates.deletedFxRatesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_changesOfFxRatesPageDef" path="fxrates.changesOfFxRatesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_deletedContractsPageDef" path="history.deletedContractsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_deletedAccountsPageDef" path="history.deletedAccountsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_deletedClientsPageDef" path="history.deletedClientsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_changesOfClientsPageDef" path="history.changesOfClientsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_changesOfContractsPageDef" path="history.changesOfContractsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_pmclient_view_changesOfAccountsPageDef" path="history.changesOfAccountsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="PMClientServiceDataControl" Package="kz.paysoft.paymobile.ui.pmclient.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true" SupportsSortCollection="true" Configuration="PMClientServiceLocal"
+                     syncMode="Immediate" xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

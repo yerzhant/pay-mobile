@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HSrTypeCodesView"
+  Version="11.1.1.56.60"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="RS"
+    Kind="where"
+    Type="java.lang.String"
+    IsUpdateable="false"/>
+  <ViewAccessor
+    Name="SrTypeCodeTypes"
+    ViewObjectName="kz.paysoft.paymobile.ui.setup.model.views.SrTypeCodeTypesView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Type"
+    ListVOName="SrTypeCodeTypes"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Type_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT SrTypeCodes.ID$,
+       SrTypeCodes.DATE$,
+       NVL(FULL_NAME, SrTypeCodes.USER$) EDITOR,
+       SrTypeCodes.SR_TYPE_ID$,
+       Interfaces.NAME INTERFACE,
+       SrTypeCodes.TYPE,
+       SrTypeCodes.CODE,
+       SrTypeCodes.CID$
+  FROM PAY_MOBILE.SR_TYPE_CODES SrTypeCodes,
+       PAY_MOBILE.USERS Editors,
+       PAY_MOBILE.INTERFACES Interfaces
+ WHERE SrTypeCodes.STATUS$ = :RS
+   AND SrTypeCodes.USER$ = Editors.SYS_NAME(+)
+   AND (Editors.STATUS$ IN ('C', 'D') OR Editors.STATUS$ IS NULL)
+   AND SrTypeCodes.INTERFACE = Interfaces.CODE(+)
+   AND (Interfaces.STATUS$ IN ('C', 'D') OR Interfaces.STATUS$ IS NULL)]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="12"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ID$"
+    Expression="ID$"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Date"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="DATE$"
+    Expression="DATE$"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.setup.model.entities.Date_LABEL"/>
+        <FMT_FORMATTER
+          ResId="kz.paysoft.paymobile.ui.setup.model.history.HSrTypeCodesView.Date_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="kz.paysoft.paymobile.ui.setup.model.history.HSrTypeCodesView.Date_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Editor"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="EDITOR"
+    Expression="EDITOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.setup.model.views.EditorName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SrTypeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="12"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SR_TYPE_ID$"
+    Expression="SR_TYPE_ID$"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AnInterface"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="128"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    Expression="INTERFACE"
+    SQLType="VARCHAR"
+    AliasName="AN_INTERFACE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.setup.model.entities.SrTypeCode.AnInterface_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Type"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TYPE"
+    Expression="TYPE"
+    SQLType="VARCHAR"
+    LOVName="LOV_Type">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.setup.model.entities.SrTypeCode.Type_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Code"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CODE"
+    Expression="CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.setup.model.entities.Code_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Cid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="12"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CID$"
+    Expression="CID$"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="CidHSrTypeCodesView"
+    ViewLink="kz.paysoft.paymobile.ui.setup.model.history.links.HSrTypeCodesLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="kz.paysoft.paymobile.ui.setup.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

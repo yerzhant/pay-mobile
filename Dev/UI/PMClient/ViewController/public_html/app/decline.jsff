@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="scroll" halign="center">
+        <af:panelFormLayout id="pfl1" labelAlignment="top">
+          <f:facet name="footer">
+            <af:panelGroupLayout id="pgl2">
+              <af:commandButton text="ОК" id="cb1" action="toSave"/>
+              <af:commandButton text="Отмена" id="cb2" action="toCancel"/>
+              <f:facet name="separator">
+                <af:spacer width="4" id="s1"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </f:facet>
+          <af:inputText value="#{bindings.DeclineReason.inputValue}" label="#{bindings.DeclineReason.hints.label}"
+                        required="#{bindings.DeclineReason.hints.mandatory}" columns="#{bindings.DeclineReason.hints.displayWidth}"
+                        maximumLength="#{bindings.DeclineReason.hints.precision}" shortDesc="#{bindings.DeclineReason.hints.tooltip}" id="it1"
+                        rows="#{bindings.DeclineReason.hints.displayHeight}">
+            <f:validator binding="#{bindings.DeclineReason.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelGroupLayout id="pgl4">
+        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="center">
+          <af:commandButton text="Назад" id="cb3" disabled="true"/>
+          <af:commandButton text="Далее" id="cb4" disabled="true"/>
+          <f:facet name="separator">
+            <af:spacer width="4" id="s2"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dcci-flow">
+    <default-activity id="__1">main</default-activity>
+    <data-control-scope id="__33">
+      <shared/>
+    </data-control-scope>
+    <view id="main">
+      <page>/dcci/main.jsff</page>
+    </view>
+    <view id="changesOfDocTypes">
+      <page>/dcci/changesOfDocTypes.jsff</page>
+    </view>
+    <view id="deletedDocTypes">
+      <page>/dcci/deletedDocTypes.jsff</page>
+    </view>
+    <view id="changesOfCountries">
+      <page>/dcci/changesOfCountries.jsff</page>
+    </view>
+    <view id="deletedCountries">
+      <page>/dcci/deletedCountries.jsff</page>
+    </view>
+    <view id="changesOfCurrencies">
+      <page>/dcci/changesOfCurrencies.jsff</page>
+    </view>
+    <view id="deletedCurrencies">
+      <page>/dcci/deletedCurrencies.jsff</page>
+    </view>
+    <view id="changesOfInterfaces">
+      <page>/dcci/changesOfInterfaces.jsff</page>
+    </view>
+    <view id="deletedInterfaces">
+      <page>/dcci/deletedInterfaces.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">toMain</from-outcome>
+        <to-activity-id id="__5">main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">main</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">toChangesOfDocTypes</from-outcome>
+        <to-activity-id id="__9">changesOfDocTypes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">toDeletedDocTypes</from-outcome>
+        <to-activity-id id="__12">deletedDocTypes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">toChangesOfCountries</from-outcome>
+        <to-activity-id id="__16">changesOfCountries</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__20">toDeletedCountries</from-outcome>
+        <to-activity-id id="__19">deletedCountries</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome id="__23">toChangesOfCurrencies</from-outcome>
+        <to-activity-id id="__22">changesOfCurrencies</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome id="__26">toDeletedCurrencies</from-outcome>
+        <to-activity-id id="__24">deletedCurrencies</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome id="__29">toChangesOfInterfaces</from-outcome>
+        <to-activity-id id="__27">changesOfInterfaces</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome id="__32">toDeletedInterfaces</from-outcome>
+        <to-activity-id id="__31">deletedInterfaces</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

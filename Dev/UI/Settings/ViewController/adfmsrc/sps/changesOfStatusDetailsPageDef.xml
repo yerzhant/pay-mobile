@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfStatusDetailsPageDef" Package="sps">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CStatusDetails" RangeSize="-1" DataControl="SetupServiceDataControl" id="CStatusDetailsIterator"/>
+    <searchRegion Binds="CStatusDetailsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CStatusDetailsQuery"/>
+    <iterator Binds="CHStatusDetails" RangeSize="-1" DataControl="SetupServiceDataControl" id="CHStatusDetailsIterator"/>
+    <searchRegion Binds="CHStatusDetailsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CHStatusDetailsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CStatusDetailsIterator" id="CStatusDetails">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HStatusDetailsView" Name="CStatusDetails0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+          <Item Value="SendSms"/>
+          <Item Value="SmsText"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHStatusDetailsIterator" id="CHStatusDetails">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HStatusDetailsView" Name="CHStatusDetails0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+          <Item Value="SendSms"/>
+          <Item Value="SmsText"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CStatusDetailsIterator" id="Execute" InstanceName="SetupServiceDataControl.CStatusDetails"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHStatusDetailsIterator" id="Execute1" InstanceName="SetupServiceDataControl.CHStatusDetails"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

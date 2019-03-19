@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">418.90234</property>
+      <property
+         name="x">88.01758</property>
+   </OverallProperties>
+   <View
+      id="View17">
+      <property
+         name="activityId">security</property>
+      <property
+         name="page">/security.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>security&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">429.79883</property>
+      <property
+         name="x">523.0176</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">error</property>
+      <property
+         name="page">/error.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>error&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">true</property>
+      <property
+         name="y">430.09766</property>
+      <property
+         name="x">762.0176</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View3"
+      to="View17">
+      <property
+         name="fromOutcome">toSecurity</property>
+      <property
+         name="sdm:polyPoints">L50,721.0176,429.74707,564.0176,429.44824,R50</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserUser"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="UserUser"
+    Cardinality="1"
+    Source="true"
+    Owner="kz.paysoft.paymobile.ui.security.model.entities.User"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="UserUser"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.security.model.entities.User.SysName"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SysNameUser"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.security.model.entities.User">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysNameUser"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.security.model.entities.User.User"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

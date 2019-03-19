@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<rows>
+   <row>
+      <key>cf</key>
+      <value>CREATE FUNCTION function_name
+          [ (parameter) ]
+          RETURN return_datatype
+          IS
+              [declaration_section]
+          BEGIN
+              ...
+          END function_name;
+      </value>
+   </row>
+   <row>
+      <key>conck</key>
+      <value> CONSTRAINT @table_ck_@field                CHECK(@field),
+</value>
+   </row>
+   <row>
+      <key>confk</key>
+      <value> CONSTRAINT @table_fk_@field__id            FOREIGN KEY(@field__id)                      REFERENCES @fields(id$),
+</value>
+   </row>
+   <row>
+      <key>conuk</key>
+      <value> CONSTRAINT @table_uk_@field                UNIQUE(@field, hu$)
+                                            USING INDEX (CREATE UNIQUE INDEX @table_ux_@field ON @table(@field, hu$) TABLESPACE @space_i),
+</value>
+   </row>
+   <row>
+      <key>cp</key>
+      <value>CREATE PROCEDURE procedure_name
+      [ (parameter]) ]
+      IS
+          [declaration_section]
+      BEGIN
+          ...
+      END procedure_name;
+      </value>
+   </row>
+   <row>
+      <key>ct</key>
+      <value>CREATE TABLE table ()</value>
+   </row>
+   <row>
+      <key>df</key>
+      <value>DELETE FROM table WHERE </value>
+   </row>
+   <row>
+      <key>fileheader</key>
+      <value>/*
+ * Copyright (C) 2010 Yerzhan Tulepov. All rights reserved.
+ *
+ * YOUR DESCRIPTION HERE.
+ *
+ * 2010.XX.XX Yerzhan Tulepov         Created.
+ */
+</value>
+   </row>
+   <row>
+      <key>ii</key>
+      <value>INSERT INTO table VALUES ()</value>
+   </row>
+   <row>
+      <key>ix</key>
+      <value>CREATE INDEX ix_ ON ) TABLESPACE _i;
+</value>
+   </row>
+   <row>
+      <key>seq</key>
+      <value>CREATE SEQUENCE _seq
+       INCREMENT BY 1
+       START WITH 1
+       MAXVALUE &amp;pk_maxvalue
+       MINVALUE 1
+       CYCLE;
+</value>
+   </row>
+   <row>
+      <key>ssf</key>
+      <value>SELECT * FROM table</value>
+   </row>
+   <row>
+      <key>tab</key>
+      <value>--                                          *                     *                      *                                          *
+CREATE TABLE @table(
+ id$                                        &amp;pk_type                                     CONSTRAINT @table_nn_id$                   NOT NULL,
+ status$                                    VARCHAR2(1)           DEFAULT 'C'            CONSTRAINT @table_nn_status$               NOT NULL,
+ date$                                      DATE                  DEFAULT SYSDATE        CONSTRAINT @table_nn_date$                 NOT NULL,
+ user$                                      &amp;user_type                                   CONSTRAINT @table_nn_user$                 NOT NULL,
+ hu$                                        &amp;pk_type,
+ cid$                                       &amp;pk_type,
+ CONSTRAINT @table_pk_id$                   PRIMARY KEY(id$)
+                                            USING INDEX (CREATE UNIQUE INDEX @table_ux_id$ ON @table(id$) TABLESPACE @space_i),
+ CONSTRAINT @table_ck_status$               CHECK(status$ IN('C', 'D', 'H'))
+)TABLESPACE @space_d;
+</value>
+   </row>
+   <row>
+      <key>tr</key>
+      <value>CREATE OR REPLACE TRIGGER @table_tr
+BEFORE INSERT ON @table
+FOR EACH ROW
+BEGIN
+  SELECT @table_seq.NEXTVAL INTO :NEW.id$ FROM dual;
+END @table;
+/
+SHOW ERRORS
+</value>
+   </row>
+</rows>

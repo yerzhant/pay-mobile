@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="accountsPageDef"
+                Package="kz.paysoft.paymobile.ui.appentry.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AppAccounts"
+              DataControl="AppEntryServiceDataControl"
+              id="AppAccountsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AppAccountsIterator" id="AppAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.appentry.model.views.AppAccountsView"
+                      Name="AppAccounts0">
+        <AttrNames>
+          <Item Value="Kind"/>
+          <Item Value="Interface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AppAccountsIterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="AppAccountsIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

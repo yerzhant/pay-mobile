@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="personalPageDef"
+                Package="kz.paysoft.paymobile.ui.appentry.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Applications" RangeSize="25"
+              DataControl="AppEntryServiceDataControl"
+              id="ApplicationsIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ApplicationsIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="MiddleName">
+      <AttrNames>
+        <Item Value="MiddleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="BirthDate">
+      <AttrNames>
+        <Item Value="BirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ApplicationsIterator" StaticList="false"
+          Uses="LOV_CountryId" id="CountryId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ApplicationsIterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ApplicationsIterator" StaticList="false"
+          Uses="LOV_DocTypeId" id="DocTypeId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ApplicationsIterator" id="DocId">
+      <AttrNames>
+        <Item Value="DocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="DocDate">
+      <AttrNames>
+        <Item Value="DocDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="DocIssuer">
+      <AttrNames>
+        <Item Value="DocIssuer"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ApplicationsIterator" StaticList="false"
+          Uses="LOV_BranchId" id="BranchId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ApplicationsIterator" id="TaxPayerId">
+      <AttrNames>
+        <Item Value="TaxPayerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelAccordion id="pa1">
+    <af:showDetailItem text="Удаленные глобальные параметры" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps1" positionedFromEnd="true" orientation="vertical">
+        <f:facet name="first">
+          <dc:TableDef id="td1" baseView="Main" refresh="#{bindings.Execute.execute}" refreshEnabled="true"
+                       rows="#{bindings.DGlobalParams.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.DGlobalParams.collectionModel}" var="row" rows="#{bindings.DGlobalParams.rangeSize}"
+                        emptyText="#{bindings.DGlobalParams.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.DGlobalParams.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.DGlobalParamsQuery.queryDescriptor}" queryListener="#{bindings.DGlobalParamsQuery.processQuery}" varStatus="vs" selectedRowKeys="#{bindings.DGlobalParams.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DGlobalParams.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                        partialTriggers="::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DGlobalParams.hints.Id.label}" id="c4">
+                  <af:outputText value="#{row.Id}" id="ot3">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DGlobalParams.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DGlobalParams.hints.Date.label}" id="c1">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id1"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot5">
+                    <af:convertDateTime pattern="#{bindings.DGlobalParams.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.DGlobalParams.hints.Editor.label}" id="c3">
+                  <af:outputText value="#{row.Editor}" id="ot4"/>
+                </af:column>
+                <af:column sortProperty="Param" filterable="true" sortable="true" headerText="#{bindings.DGlobalParams.hints.Param.label}" id="c5">
+                  <af:outputText value="#{row.Param}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="Value" filterable="true" sortable="true" headerText="#{bindings.DGlobalParams.hints.Value.label}" id="c2">
+                  <af:outputText value="#{row.Value}" id="ot1"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td2" baseView="Main" refresh="#{bindings.Execute1.execute}" refreshEnabled="true"
+                       rows="#{bindings.DHGlobalParams.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.DHGlobalParams.collectionModel}" var="row" rows="#{bindings.DHGlobalParams.rangeSize}"
+                        emptyText="#{bindings.DHGlobalParams.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.DHGlobalParams.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.DHGlobalParamsQuery.queryDescriptor}" queryListener="#{bindings.DHGlobalParamsQuery.processQuery}" varStatus="vs" selectedRowKeys="#{bindings.DHGlobalParams.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DHGlobalParams.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                        partialTriggers="::::td1:dc_pc1:t1 ::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DHGlobalParams.hints.Id.label}" id="c6">
+                  <af:outputText value="#{row.Id}" id="ot7">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DHGlobalParams.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DHGlobalParams.hints.Date.label}" id="c9">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id2"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot9">
+                    <af:convertDateTime pattern="#{bindings.DHGlobalParams.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.DHGlobalParams.hints.Editor.label}"
+                           id="c10">
+                  <af:outputText value="#{row.Editor}" id="ot6"/>
+                </af:column>
+                <af:column sortProperty="Param" filterable="true" sortable="true" headerText="#{bindings.DHGlobalParams.hints.Param.label}" id="c8">
+                  <af:outputText value="#{row.Param}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="Value" filterable="true" sortable="true" headerText="#{bindings.DHGlobalParams.hints.Value.label}" id="c7">
+                  <af:outputText value="#{row.Value}" id="ot10"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</jsp:root>

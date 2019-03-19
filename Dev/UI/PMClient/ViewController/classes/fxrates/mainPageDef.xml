@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef" Package="fxrates">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FxRates" RangeSize="25" DataControl="PMClientServiceDataControl" id="FxRatesIterator"/>
+    <searchRegion Binds="FxRatesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FxRatesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="FxRatesIterator" id="FxRates">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.FxRatesView" Name="FxRates0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Currency"/>
+          <Item Value="Buy"/>
+          <Item Value="Sell"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="FxRatesIterator" id="CreateInsert" InstanceName="PMClientServiceDataControl.FxRates" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="FxRatesIterator" id="Delete" InstanceName="PMClientServiceDataControl.FxRates" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="FxRatesIterator" id="Execute" InstanceName="PMClientServiceDataControl.FxRates" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" InstanceName="PMClientServiceDataControl" DataControl="PMClientServiceDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" InstanceName="PMClientServiceDataControl" DataControl="PMClientServiceDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/WEB-INF/enroll-template.jspx" id="pt1">
+    <f:facet name="contents">
+      <af:panelList id="pl1">
+        <af:outputText value="Запустите мидлет на Вашем телефоне." id="ot1"/>
+        <af:outputText value="Введите № телефона: #{bindings.PhoneNumber.inputValue}." id="ot8">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.PhoneNumber.format}"/>
+        </af:outputText>
+        <af:outputText value="Введите № заявки: #{bindings.Id.inputValue}." id="ot3"/>
+        <af:outputText value="Придумайте пароль удовлетворяющий требованиям банка." id="ot4"/>
+        <af:outputText value="Введите пароль. Если не уверены в введенном значении и никто не может подсмотреть его, то можете установить галочку Отобразить." id="ot5"/>
+        <af:outputText value="Выберите команду Ок." id="ot6"/>
+        <af:outputText value="При успешной инициализации заключите договор на оказание услуг с банком." id="ot7"/>
+      </af:panelList>
+    </f:facet>
+    <f:attribute name="showTrain" value="false"/>
+  </af:pageTemplate>
+</jsp:root>

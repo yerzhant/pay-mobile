@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60"
+                id="app_processing_flow_app_processing_flow_getClientAndContractPageDef" Package="kz.paysoft.paymobile.ui.pmclient.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="getClientAndContract" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getClientAndContract" IsViewObjectMethod="false"
+            DataControl="PMClientServiceDataControl" InstanceName="PMClientServiceDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

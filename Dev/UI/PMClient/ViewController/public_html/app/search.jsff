@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelStretchLayout id="psl2">
+    <f:facet name="center">
+      <af:panelStretchLayout id="psl1" topHeight="auto" bottomHeight="auto">
+        <f:facet name="center">
+          <dc:TableDef id="td1" rows="#{bindings.Applications.estimatedRowCount}" binding="#{backingBeanScope.mainBean.appProcessingSearch}">
+            <f:facet name="table">
+              <af:table value="#{bindings.Applications.collectionModel}" var="row" rows="#{bindings.Applications.rangeSize}"
+                        emptyText="#{bindings.Applications.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.Applications.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.ApplicationCriteriaQuery.queryDescriptor}"
+                        queryListener="#{bindings.ApplicationCriteriaQuery.processQuery}" filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.Applications.collectionModel.selectedRow}" rowSelection="single" id="t1" editingMode="clickToEdit"
+                        selectionListener="#{bindings.Applications.collectionModel.makeCurrent}"
+                        binding="#{backingBeanScope.appProcessingBean.searchTable}" summary="Applications" shortDesc="Заявления">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.Id.label}" id="c16"
+                           rowHeader="unstyled">
+                  <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.Applications.hints.Id.label}"
+                                required="#{bindings.Applications.hints.Id.mandatory}" columns="#{bindings.Applications.hints.Id.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.Id.precision}" shortDesc="#{bindings.Applications.hints.Id.tooltip}"
+                                id="it3">
+                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Applications.hints.Id.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Status" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.Status.label}" id="c17">
+                  <af:selectOneChoice value="#{row.bindings.Status.inputValue}" label="#{row.bindings.Status.label}"
+                                      required="#{bindings.Applications.hints.Status.mandatory}"
+                                      shortDesc="#{bindings.Applications.hints.Status.tooltip}" id="soc4" readOnly="true">
+                    <f:selectItems value="#{row.bindings.Status.items}" id="si1"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="AppliedAt" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.AppliedAt.label}"
+                           id="c13">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.AppliedAt}" id="id8" label="Applied at"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.AppliedAt.inputValue}" label="#{bindings.Applications.hints.AppliedAt.label}"
+                                required="#{bindings.Applications.hints.AppliedAt.mandatory}"
+                                shortDesc="#{bindings.Applications.hints.AppliedAt.tooltip}" id="id3">
+                    <f:validator binding="#{row.bindings.AppliedAt.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.Applications.hints.AppliedAt.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="PhoneNumber" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.PhoneNumber.label}"
+                           id="c5">
+                  <af:inputText value="#{row.bindings.PhoneNumber.inputValue}" label="#{bindings.Applications.hints.PhoneNumber.label}"
+                                required="#{bindings.Applications.hints.PhoneNumber.mandatory}"
+                                columns="#{bindings.Applications.hints.PhoneNumber.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.PhoneNumber.precision}"
+                                shortDesc="#{bindings.Applications.hints.PhoneNumber.tooltip}" id="it1">
+                    <f:validator binding="#{row.bindings.PhoneNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Applications.hints.PhoneNumber.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="LastName" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.LastName.label}"
+                           id="c9">
+                  <af:inputText value="#{row.bindings.LastName.inputValue}" label="#{bindings.Applications.hints.LastName.label}"
+                                required="#{bindings.Applications.hints.LastName.mandatory}"
+                                columns="#{bindings.Applications.hints.LastName.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.LastName.precision}"
+                                shortDesc="#{bindings.Applications.hints.LastName.tooltip}" id="it9" readOnly="true">
+                    <f:validator binding="#{row.bindings.LastName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="FirstName" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.FirstName.label}"
+                           id="c18">
+                  <af:inputText value="#{row.bindings.FirstName.inputValue}" label="#{bindings.Applications.hints.FirstName.label}"
+                                required="#{bindings.Applications.hints.FirstName.mandatory}"
+                                columns="#{bindings.Applications.hints.FirstName.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.FirstName.precision}"
+                                shortDesc="#{bindings.Applications.hints.FirstName.tooltip}" id="it6" readOnly="true">
+                    <f:validator binding="#{row.bindings.FirstName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="MiddleName" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.MiddleName.label}"
+                           id="c2">
+                  <af:inputText value="#{row.bindings.MiddleName.inputValue}" label="#{bindings.Applications.hints.MiddleName.label}"
+                                required="#{bindings.Applications.hints.MiddleName.mandatory}"
+                                columns="#{bindings.Applications.hints.MiddleName.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.MiddleName.precision}"
+                                shortDesc="#{bindings.Applications.hints.MiddleName.tooltip}" id="it2" readOnly="true">
+                    <f:validator binding="#{row.bindings.MiddleName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="BirthDate" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.BirthDate.label}"
+                           id="c12">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.BirthDate}" id="id7" label="Birthday"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.BirthDate.inputValue}" label="#{bindings.Applications.hints.BirthDate.label}"
+                                required="#{bindings.Applications.hints.BirthDate.mandatory}"
+                                shortDesc="#{bindings.Applications.hints.BirthDate.tooltip}" id="id5" readOnly="true">
+                    <f:validator binding="#{row.bindings.BirthDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.Applications.hints.BirthDate.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="DocTypeId" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.DocTypeId.label}"
+                           id="c11">
+                  <af:selectOneChoice value="#{row.bindings.DocTypeId.inputValue}" label="#{row.bindings.DocTypeId.label}"
+                                      required="#{bindings.Applications.hints.DocTypeId.mandatory}"
+                                      shortDesc="#{bindings.Applications.hints.DocTypeId.tooltip}" id="soc3" readOnly="true">
+                    <f:selectItems value="#{row.bindings.DocTypeId.items}" id="si4"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="DocId" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.DocId.label}" id="c3">
+                  <af:inputText value="#{row.bindings.DocId.inputValue}" label="#{bindings.Applications.hints.DocId.label}"
+                                required="#{bindings.Applications.hints.DocId.mandatory}" columns="#{bindings.Applications.hints.DocId.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.DocId.precision}"
+                                shortDesc="#{bindings.Applications.hints.DocId.tooltip}" id="it7" readOnly="true">
+                    <f:validator binding="#{row.bindings.DocId.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="DocDate" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.DocDate.label}"
+                           id="c10">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.DocDate}" id="id6" label="Doc date"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.DocDate.inputValue}" label="#{bindings.Applications.hints.DocDate.label}"
+                                required="#{bindings.Applications.hints.DocDate.mandatory}" shortDesc="#{bindings.Applications.hints.DocDate.tooltip}"
+                                id="id1" readOnly="true">
+                    <f:validator binding="#{row.bindings.DocDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.Applications.hints.DocDate.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="DocIssuer" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.DocIssuer.label}"
+                           id="c4">
+                  <af:inputText value="#{row.bindings.DocIssuer.inputValue}" label="#{bindings.Applications.hints.DocIssuer.label}"
+                                required="#{bindings.Applications.hints.DocIssuer.mandatory}"
+                                columns="#{bindings.Applications.hints.DocIssuer.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.DocIssuer.precision}"
+                                shortDesc="#{bindings.Applications.hints.DocIssuer.tooltip}" id="it5" readOnly="true">
+                    <f:validator binding="#{row.bindings.DocIssuer.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="TaxPayerId" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.TaxPayerId.label}"
+                           id="c14">
+                  <af:inputText value="#{row.bindings.TaxPayerId.inputValue}" label="#{bindings.Applications.hints.TaxPayerId.label}"
+                                required="#{bindings.Applications.hints.TaxPayerId.mandatory}"
+                                columns="#{bindings.Applications.hints.TaxPayerId.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.TaxPayerId.precision}"
+                                shortDesc="#{bindings.Applications.hints.TaxPayerId.tooltip}" id="it4" readOnly="true">
+                    <f:validator binding="#{row.bindings.TaxPayerId.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="CountryId" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.CountryId.label}"
+                           id="c7">
+                  <af:selectOneChoice value="#{row.bindings.CountryId.inputValue}" label="#{row.bindings.CountryId.label}"
+                                      required="#{bindings.Applications.hints.CountryId.mandatory}"
+                                      shortDesc="#{bindings.Applications.hints.CountryId.tooltip}" id="soc1" readOnly="true">
+                    <f:selectItems value="#{row.bindings.CountryId.items}" id="si3"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="BranchId" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.BranchId.label}"
+                           id="c15">
+                  <af:selectOneChoice value="#{row.bindings.BranchId.inputValue}" label="#{row.bindings.BranchId.label}"
+                                      required="#{bindings.Applications.hints.BranchId.mandatory}"
+                                      shortDesc="#{bindings.Applications.hints.BranchId.tooltip}" id="soc2" readOnly="true">
+                    <f:selectItems value="#{row.bindings.BranchId.items}" id="si2"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="Address" sortable="true" headerText="#{bindings.Applications.hints.Address.label}" id="c1" filterable="true">
+                  <af:inputText value="#{row.bindings.Address.inputValue}" label="#{bindings.Applications.hints.Address.label}"
+                                required="#{bindings.Applications.hints.Address.mandatory}"
+                                columns="#{bindings.Applications.hints.Address.displayWidth}"
+                                maximumLength="#{bindings.Applications.hints.Address.precision}"
+                                shortDesc="#{bindings.Applications.hints.Address.tooltip}" id="it8" readOnly="true">
+                    <f:validator binding="#{row.bindings.Address.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Manager" sortable="true" headerText="#{bindings.Applications.hints.Manager.label}" id="c8" filterable="true">
+                  <af:selectOneChoice value="#{row.bindings.Manager.inputValue}" label="#{row.bindings.Manager.label}"
+                                      required="#{bindings.Applications.hints.Manager.mandatory}"
+                                      shortDesc="#{bindings.Applications.hints.Manager.tooltip}" id="soc5">
+                    <f:selectItems value="#{row.bindings.Manager.items}" id="si5"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="ManagerDate" filterable="true" sortable="true" headerText="#{bindings.Applications.hints.ManagerDate.label}"
+                           id="c6">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.ManagerDate}" id="id4" label="Manage date"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.ManagerDate.inputValue}" label="#{bindings.Applications.hints.ManagerDate.label}"
+                                required="#{bindings.Applications.hints.ManagerDate.mandatory}"
+                                shortDesc="#{bindings.Applications.hints.ManagerDate.tooltip}" id="id2" readOnly="true">
+                    <f:validator binding="#{row.bindings.ManagerDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.Applications.hints.ManagerDate.format}"/>
+                  </af:inputDate>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="top">
+          <af:query id="qryId1" headerText="Поиск" disclosed="true" value="#{bindings.ApplicationCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.ApplicationCriteriaQuery.queryModel}" queryListener="#{bindings.ApplicationCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.ApplicationCriteriaQuery.processQueryOperation}" resultComponentId="::td1:dc_pc1:t1"/>
+        </f:facet>
+        <f:facet name="bottom">
+          <af:panelGroupLayout id="pgl1" layout="vertical">
+            <af:outputLabel value="#{bindings.DeclineReason.hints.label}" id="ol1"
+                            partialTriggers="td1:dc_pc1:t1"/>
+            <af:outputText value="#{bindings.DeclineReason.inputValue}" id="ot18" partialTriggers="td1:dc_pc1:t1"/>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelGroupLayout id="pgl2">
+        <af:panelGroupLayout id="pgl3" layout="horizontal" halign="center">
+          <af:commandButton text="Назад" id="cb2" disabled="true"/>
+          <af:commandButton text="Далее" id="cb1" action="toCheck"/>
+          <f:facet name="separator">
+            <af:spacer width="4" id="s1"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

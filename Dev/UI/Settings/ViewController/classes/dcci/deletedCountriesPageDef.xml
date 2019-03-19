@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedCountriesPageDef" Package="dcci">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DCountries" RangeSize="-1" DataControl="SetupServiceDataControl" id="DCountriesIterator"/>
+    <searchRegion Binds="DCountriesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DCountriesQuery"/>
+    <iterator Binds="DHCountries" RangeSize="-1" DataControl="SetupServiceDataControl" id="DHCountriesIterator"/>
+    <searchRegion Binds="DHCountriesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHCountriesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DCountriesIterator" id="DCountries">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HCountriesView" Name="DCountries0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHCountriesIterator" id="DHCountries">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HCountriesView" Name="DHCountries0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DCountriesIterator" id="Execute" InstanceName="SetupServiceDataControl.DCountries" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DHCountriesIterator" id="Execute1" InstanceName="SetupServiceDataControl.DHCountries" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

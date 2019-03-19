@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="checkPageDef" Package="app">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Applications" RangeSize="25" DataControl="PMClientServiceDataControl" id="ApplicationsIterator"/>
+    <iterator Binds="AppAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="AppAccountsIterator"/>
+    <searchRegion Binds="AppAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AppAccountsQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ApplicationsIterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="AppliedAt">
+      <AttrNames>
+        <Item Value="AppliedAt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ApplicationsIterator" StaticList="false" Uses="LOV_BranchId" id="BranchId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ApplicationsIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="MiddleName">
+      <AttrNames>
+        <Item Value="MiddleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="BirthDate">
+      <AttrNames>
+        <Item Value="BirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ApplicationsIterator" StaticList="false" Uses="LOV_DocTypeId" id="DocTypeId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ApplicationsIterator" id="DocId">
+      <AttrNames>
+        <Item Value="DocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="DocDate">
+      <AttrNames>
+        <Item Value="DocDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="DocIssuer">
+      <AttrNames>
+        <Item Value="DocIssuer"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ApplicationsIterator" StaticList="false" Uses="LOV_CountryId" id="CountryId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ApplicationsIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApplicationsIterator" id="TaxPayerId">
+      <AttrNames>
+        <Item Value="TaxPayerId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="AppAccountsIterator" id="AppAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.AppAccountsView" Name="AppAccounts0">
+        <AttrNames>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

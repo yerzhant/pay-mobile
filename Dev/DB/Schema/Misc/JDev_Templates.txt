@@ -1,0 +1,75 @@
+Copyright (C) 2010 Yerzhan Tulepov. All rights reserved.
+
+Environment setup
+=================
+
+For JDeveloper 11g
+Studio Edition Version 11.1.1.1.0
+Build JDEVADF_11.1.1.1.0_GENERIC_090615.0017.5407
+
+1. Menu: Tools->Preferences.
+2. In the tree Shortcut Keys.
+3. Search by "templ".
+4. Select Other/Code Template.
+5. Click New Shortcut.
+6. Press Ctrl and NumPad-0 (this wasn't conflicting to anything at the time of writing this).
+7. Press Assign.
+8. Go to Database->SQL Editor Code Tempaltes in the tree.
+9. Add the following templates.
+
+Templates
+=========
+
+1. fileheader
+/*
+ * Copyright (C) 2010 Yerzhan Tulepov. All rights reserved.
+ *
+ * YOUR DESCRIPTION HERE.
+ *
+ * 2010.XX.XX Yerzhan Tulepov         Created.
+ */
+
+2. tab
+--                                          *                     *                      *                                          *
+CREATE TABLE @table(
+ id$                                        &pk_type                                     CONSTRAINT @table_nn_id$                   NOT NULL,
+ status$                                    VARCHAR2(1)           DEFAULT 'C'            CONSTRAINT @table_nn_status$               NOT NULL,
+ date$                                      DATE                  DEFAULT SYSDATE        CONSTRAINT @table_nn_date$                 NOT NULL,
+ user$                                      &user_type                                   CONSTRAINT @table_nn_user$                 NOT NULL,
+ hu$                                        &pk_type,
+ cid$                                       &pk_type,
+ CONSTRAINT @table_pk_id$                   PRIMARY KEY(id$)
+                                            USING INDEX (CREATE UNIQUE INDEX @table_ux_id$ ON @table(id$) TABLESPACE @space_i),
+ CONSTRAINT @table_ck_status$               CHECK(status$ IN('C', 'D', 'H'))
+)TABLESPACE @space_d;
+
+3. conuk
+ CONSTRAINT @table_uk_@field                UNIQUE(@field, hu$)
+                                            USING INDEX (CREATE UNIQUE INDEX @table_ux_@field ON @table(@field, hu$) TABLESPACE @space_i),
+
+4. confk
+ CONSTRAINT @table_fk_@field__id            FOREIGN KEY(@field__id)                      REFERENCES @fields(id$),
+
+5. conck
+ CONSTRAINT @table_ck_@field                CHECK(@field),
+
+6. seq
+CREATE SEQUENCE _seq
+       INCREMENT BY 1
+       START WITH 1
+       MAXVALUE &pk_maxvalue
+       MINVALUE 1
+       CYCLE;
+
+7. ix
+CREATE INDEX ix_ ON () TABLESPACE _i;
+
+8. tr
+CREATE OR REPLACE TRIGGER @table_tr
+BEFORE INSERT ON @table
+FOR EACH ROW
+BEGIN
+  SELECT @table_seq.NEXTVAL INTO :NEW.id$ FROM dual;
+END @table;
+/
+SHOW ERRORS

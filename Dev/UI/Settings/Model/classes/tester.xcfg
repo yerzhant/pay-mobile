@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="kz.paysoft.paymobile.ui.setup.model.SetupService">
+      <AppModuleConfig name="12BC8F3903B" DeployPlatform="LOCAL" BC4JConfigName="SetupServiceLocal" ApplicationName="kz.paysoft.paymobile.ui.setup.model.SetupService" JDBCName="SetupConnection" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" jbo.project="kz.paysoft.paymobile.ui.setup.model.Model">
+         <Database jbo.locking.mode="optimistic" jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle"/>
+         <Security AppModuleJndiName="kz.paysoft.paymobile.ui.setup.model.SetupService"/>
+         <Tester FullProxyInterfaceName="kz.paysoft.paymobile.ui.setup.model.common.SetupService"/>
+         <Custom LastUsedConfiguration="SetupServiceLocal"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

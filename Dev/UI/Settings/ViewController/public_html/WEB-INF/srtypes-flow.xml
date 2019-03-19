@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="srtypes-flow">
+    <default-activity id="__1">main</default-activity>
+    <data-control-scope id="__21">
+      <shared/>
+    </data-control-scope>
+    <view id="main">
+      <page>/srtypes/main.jsff</page>
+    </view>
+    <view id="changesOfSrTypes">
+      <page>/srtypes/changesOfSrTypes.jsff</page>
+    </view>
+    <view id="deletedSrTypes">
+      <page>/srtypes/deletedSrTypes.jsff</page>
+    </view>
+    <view id="changesOfSrTypeCodes">
+      <page>/srtypes/changesOfSrTypeCodes.jsff</page>
+    </view>
+    <view id="deletedSrTypeCodes">
+      <page>/srtypes/deletedSrTypeCodes.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">toMain</from-outcome>
+        <to-activity-id id="__5">main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">main</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">toChangesOfSrTypeCodes</from-outcome>
+        <to-activity-id id="__9">changesOfSrTypeCodes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__14">toDeletedSrTypeCodes</from-outcome>
+        <to-activity-id id="__13">deletedSrTypeCodes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome id="__17">toChangesOfSrTypes</from-outcome>
+        <to-activity-id id="__15">changesOfSrTypes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome id="__20">toDeletedSrTypes</from-outcome>
+        <to-activity-id id="__18">deletedSrTypes</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

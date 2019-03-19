@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.paysoft.kz/PayMobile/SMPPModem/1.0.0">
+  <modem port="COM7">
+    <init string="atz"/>
+    <init string="at+cmee=2"/>
+    <init string="at+cmgf=1"/>
+  </modem>
+  <server port="2556"/>
+  <logging level="2" file="smppmodem.log"/>
+</configuration>

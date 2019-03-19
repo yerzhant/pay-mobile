@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelAccordion id="pa1">
+    <af:showDetailItem text="История изменений валют" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps1" positionedFromEnd="true" orientation="vertical">
+        <f:facet name="first">
+          <dc:TableDef id="td1" baseView="Main" refreshEnabled="true" refresh="#{bindings.Execute.execute}"
+                       rows="#{bindings.CCurrencies.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CCurrencies.collectionModel}" var="row" rows="#{bindings.CCurrencies.rangeSize}"
+                        emptyText="#{bindings.CCurrencies.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.CCurrencies.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.CCurrenciesQuery.queryDescriptor}" queryListener="#{bindings.CCurrenciesQuery.processQuery}" varStatus="vs" selectedRowKeys="#{bindings.CCurrencies.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CCurrencies.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                        partialTriggers="::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CCurrencies.hints.Id.label}" id="c5">
+                  <af:outputText value="#{row.Id}" id="ot3">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CCurrencies.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CCurrencies.hints.Date.label}" id="c1">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id1"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot1">
+                    <af:convertDateTime pattern="#{bindings.CCurrencies.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.CCurrencies.hints.Editor.label}" id="c3">
+                  <af:outputText value="#{row.Editor}" id="ot4"/>
+                </af:column>
+                <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.CCurrencies.hints.Code.label}" id="c2">
+                  <af:outputText value="#{row.Code}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CCurrencies.hints.Name.label}" id="c4">
+                  <af:outputText value="#{row.Name}" id="ot5"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td2" baseView="Main" refreshEnabled="true" refresh="#{bindings.Execute1.execute}"
+                       rows="#{bindings.CHCurrencies.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CHCurrencies.collectionModel}" var="row" rows="#{bindings.CHCurrencies.rangeSize}"
+                        emptyText="#{bindings.CHCurrencies.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.CHCurrencies.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.CHCurrenciesQuery.queryDescriptor}" queryListener="#{bindings.CHCurrenciesQuery.processQuery}" varStatus="vs" selectedRowKeys="#{bindings.CHCurrencies.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CHCurrencies.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                        partialTriggers="::::td1:dc_pc1:t1 ::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CHCurrencies.hints.Id.label}" id="c6">
+                  <af:outputText value="#{row.Id}" id="ot9">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CHCurrencies.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CHCurrencies.hints.Date.label}" id="c10">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id2"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot10">
+                    <af:convertDateTime pattern="#{bindings.CHCurrencies.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.CHCurrencies.hints.Editor.label}" id="c9">
+                  <af:outputText value="#{row.Editor}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.CHCurrencies.hints.Code.label}" id="c7">
+                  <af:outputText value="#{row.Code}" id="ot6"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CHCurrencies.hints.Name.label}" id="c8">
+                  <af:outputText value="#{row.Name}" id="ot8"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</jsp:root>

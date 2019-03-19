@@ -1,0 +1,1 @@
+sqlplus smpp_server/qwerty@devpm

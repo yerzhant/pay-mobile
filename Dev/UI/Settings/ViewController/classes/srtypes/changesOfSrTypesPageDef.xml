@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfSrTypesPageDef" Package="srtypes">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CSrTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="CSrTypesIterator"/>
+    <searchRegion Binds="CSrTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CSrTypesQuery"/>
+    <iterator Binds="CHSrTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="CHSrTypesIterator"/>
+    <searchRegion Binds="CHSrTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CHSrTypesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CSrTypesIterator" id="CSrTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HSrTypesView" Name="CSrTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+          <Item Value="Is2Phase"/>
+          <Item Value="IsCancellable"/>
+          <Item Value="CheckFields"/>
+          <Item Value="SrcInterface"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHSrTypesIterator" id="CHSrTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HSrTypesView" Name="CHSrTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+          <Item Value="Is2Phase"/>
+          <Item Value="IsCancellable"/>
+          <Item Value="CheckFields"/>
+          <Item Value="SrcInterface"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CSrTypesIterator" id="Execute" InstanceName="SetupServiceDataControl.CSrTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHSrTypesIterator" id="Execute1" InstanceName="SetupServiceDataControl.CHSrTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UsersBranchesToUserLink"
+  Version="11.1.1.56.60"
+  EntityAssociation="kz.paysoft.paymobile.ui.security.model.entities.associations.UserBranchToUser">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="UsersView"
+    Cardinality="1"
+    Owner="kz.paysoft.paymobile.ui.security.model.views.UsersView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="UsersView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.security.model.views.UsersView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="UsersBranchesOfUserView"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfUserView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="UsersBranchesOfUserView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfUserView.UserId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

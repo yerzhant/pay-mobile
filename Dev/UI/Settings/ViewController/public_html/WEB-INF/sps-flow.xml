@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sps-flow">
+    <default-activity id="__1">main</default-activity>
+    <data-control-scope id="__2">
+      <shared/>
+    </data-control-scope>
+    <view id="main">
+      <page>/sps/main.jsff</page>
+    </view>
+    <view id="changesOfStatusDetails">
+      <page>/sps/changesOfStatusDetails.jsff</page>
+    </view>
+    <view id="deletedStatusDetails">
+      <page>/sps/deletedStatusDetails.jsff</page>
+    </view>
+    <view id="changesOfGlobalParams">
+      <page>/sps/changesOfGlobalParams.jsff</page>
+    </view>
+    <view id="deletedGlobalParams">
+      <page>/sps/deletedGlobalParams.jsff</page>
+    </view>
+    <view id="changesOfCipherSuites">
+      <page>/sps/changesOfCipherSuites.jsff</page>
+    </view>
+    <view id="deletedCipherSuites">
+      <page>/sps/deletedCipherSuites.jsff</page>
+    </view>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">toMain</from-outcome>
+        <to-activity-id id="__5">main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">main</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">toChangesOfCipherSuites</from-outcome>
+        <to-activity-id id="__10">changesOfCipherSuites</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome id="__15">toDeletedCipherSuites</from-outcome>
+        <to-activity-id id="__13">deletedCipherSuites</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome id="__18">toChangesOfStatusDetails</from-outcome>
+        <to-activity-id id="__16">changesOfStatusDetails</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome id="__21">toDeletedStatusDetails</from-outcome>
+        <to-activity-id id="__20">deletedStatusDetails</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome id="__24">toChangesOfGlobalParams</from-outcome>
+        <to-activity-id id="__22">changesOfGlobalParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome id="__27">toDeletedGlobalParams</from-outcome>
+        <to-activity-id id="__25">deletedGlobalParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

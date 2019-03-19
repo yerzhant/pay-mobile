@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>pay-mobile.desktop</id>
+    <family>pay-mobile</family>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <extends>fusion.desktop</extends>
+    <style-sheet-name>skins/pay-mobile.css</style-sheet-name>
+    <!--
+    <translation-source>
+    </translation-source>-->
+    <!--
+    <bundle-name>
+    </bundle-name>-->
+  </skin>
+</skins>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="fx-rates-flow">
+    <default-activity id="__1">main</default-activity>
+    <view id="main">
+      <page>/fxrates/main.jsff</page>
+    </view>
+    <view id="changesOfFxRates">
+      <page>/fxrates/changesOfFxRates.jsff</page>
+    </view>
+    <view id="deletedFxRates">
+      <page>/fxrates/deletedFxRates.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">toMain</from-outcome>
+        <to-activity-id id="__5">main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">main</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">toDeletedFxRates</from-outcome>
+        <to-activity-id id="__9">deletedFxRates</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__14">toChangesOfFxRates</from-outcome>
+        <to-activity-id id="__13">changesOfFxRates</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

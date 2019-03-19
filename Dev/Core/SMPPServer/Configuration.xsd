@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.paysoft.kz/PayMobile/SMPPServer/1.0.0"
+            targetNamespace="http://www.paysoft.kz/PayMobile/SMPPServer/1.0.0"
+            elementFormDefault="qualified">
+  <xsd:element name="configuration">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="database">
+          <xsd:complexType>
+            <xsd:attribute name="server" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="5"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="user" default="SMPP_SERVER">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                  <xsd:maxLength value="30"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="a" type="xsd:integer" use="required"/>
+            <xsd:attribute name="b" type="xsd:integer" use="required"/>
+            <xsd:attribute name="x"
+                           default="-1079113916523382802151481070964371665047962925387329234459"/>
+            <xsd:attribute name="interface" default="SMPP">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="32"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="srController">
+          <xsd:complexType>
+            <xsd:attribute name="address" use="required"/>
+            <xsd:attribute name="port" type="xsd:unsignedShort" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="smsCenter">
+          <xsd:complexType>
+            <xsd:attribute name="address" use="required"/>
+            <xsd:attribute name="port" type="xsd:unsignedShort" use="required"/>
+            <xsd:attribute name="systemId">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="15"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="password">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="8"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="systemType">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="12"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="ton" default="00">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:hexBinary">
+                  <xsd:length value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="npi" default="00">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:hexBinary">
+                  <xsd:length value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="serviceType">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="5"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="sourceAddr">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="20"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="esmClass" default="00">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:hexBinary">
+                  <xsd:length value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="protocolId" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:hexBinary">
+                  <xsd:length value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="priorityFlag"
+                           use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte">
+                  <xsd:maxInclusive value="3"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="validityPeriod">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:length value="16"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="dataCoding" default="00">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:hexBinary">
+                  <xsd:length value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="logging">
+          <xsd:complexType>
+            <xsd:attribute name="level" default="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte"/>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="file" use="required"/>
+            <xsd:attribute name="size" type="xsd:positiveInteger"
+                           default="1048576"/>
+            <xsd:attribute name="delimiter" default=" | "/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

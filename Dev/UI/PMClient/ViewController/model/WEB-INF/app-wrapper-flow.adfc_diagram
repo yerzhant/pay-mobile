@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowCall
+      id="TaskFlowCall2">
+      <property
+         name="taskFlowId">app-processing-flow</property>
+      <property
+         name="activityId">app-processing-flow</property>
+      <property
+         name="documentReference">/WEB-INF/app-processing-flow.xml</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>app-processing-flow&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">364.6953</property>
+      <property
+         name="x">631.6924</property>
+   </TaskFlowCall>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule3">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">364.59766</property>
+      <property
+         name="x">351.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="WildcardControlFlowRule3"
+      to="TaskFlowCall2">
+      <property
+         name="fromOutcome">toAppProcessing</property>
+      <property
+         name="sdm:polyPoints">R50,387.0,364.74707,590.6924,364.34473,L50</property>
+   </ControlFlowCase>
+</SDM>

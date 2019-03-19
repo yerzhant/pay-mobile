@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfInterfacesPageDef" Package="dcci">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CInterfaces" RangeSize="-1" DataControl="SetupServiceDataControl" id="CInterfacesIterator"/>
+    <searchRegion Binds="CInterfacesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CInterfacesQuery"/>
+    <iterator Binds="CHInterfaces" RangeSize="-1" DataControl="SetupServiceDataControl" id="CHInterfacesIterator"/>
+    <searchRegion Binds="CHInterfacesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CHInterfacesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CInterfacesIterator" id="CInterfaces">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HInterfacesView" Name="CInterfaces0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Format"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHInterfacesIterator" id="CHInterfaces">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HInterfacesView" Name="CHInterfaces0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Format"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CInterfacesIterator" id="Execute" InstanceName="SetupServiceDataControl.CInterfaces" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHInterfacesIterator" id="Execute1" InstanceName="SetupServiceDataControl.CHInterfaces" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

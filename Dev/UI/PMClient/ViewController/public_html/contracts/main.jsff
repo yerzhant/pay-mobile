@@ -1,0 +1,850 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelSplitter id="ps3" orientation="vertical" positionedFromEnd="true">
+    <f:facet name="first">
+      <af:panelSplitter id="ps1" orientation="vertical" positionedFromEnd="true">
+        <f:facet name="first">
+          <af:panelSplitter id="ps2" positionedFromEnd="true" splitterPosition="400">
+            <f:facet name="first">
+              <af:panelStretchLayout id="psl1" topHeight="auto" bottomHeight="auto">
+                <f:facet name="center">
+                  <dc:TableDef id="td1" binding="#{backingBeanScope.mainBean.contracts}" historyEnabled="true" viewObject="Contracts"
+                               rows="#{bindings.Contracts.estimatedRowCount}" refreshEnabled="#{bindings.RefreshContacts.enabled}"
+                               refresh="#{bindings.RefreshContacts.execute}" rollbackEnabled="#{bindings.Rollback.enabled}"
+                               rollback="#{bindings.Rollback.execute}" commitEnabled="#{bindings.Commit.enabled}" commit="#{bindings.Commit.execute}"
+                               deleteEnabled="#{bindings.DeleteContract.enabled}" delete="#{bindings.DeleteContract.execute}">
+                    <f:facet name="table">
+                      <af:table value="#{bindings.Contracts.collectionModel}" var="row" rows="#{bindings.Contracts.rangeSize}"
+                                emptyText="#{bindings.Contracts.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                                fetchSize="#{bindings.Contracts.rangeSize}" rowBandingInterval="0"
+                                filterModel="#{bindings.ContractsByPhoneNumberCriteriaQuery.queryDescriptor}"
+                                queryListener="#{bindings.ContractsByPhoneNumberCriteriaQuery.processQuery}" varStatus="vs"
+                                selectedRowKeys="#{bindings.Contracts.collectionModel.selectedRow}"
+                                selectionListener="#{bindings.Contracts.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                                editingMode="clickToEdit" summary="Contracts" shortDesc="Договоры"
+                                partialTriggers="::dc_delete ::dc_commit ::dc_rollback ::dc_refresh">
+                        <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.Id.label}" id="c1"
+                                   rowHeader="unstyled">
+                          <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.Contracts.hints.Id.label}"
+                                        required="#{bindings.Contracts.hints.Id.mandatory}" columns="#{bindings.Contracts.hints.Id.displayWidth}"
+                                        maximumLength="#{bindings.Contracts.hints.Id.precision}" shortDesc="#{bindings.Contracts.hints.Id.tooltip}"
+                                        id="it5">
+                            <f:validator binding="#{row.bindings.Id.validator}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.Date.label}" id="c6">
+                          <f:facet name="filter">
+                            <af:inputDate value="#{vs.filterCriteria.Date}" id="id2" label="L"/>
+                          </f:facet>
+                          <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.Contracts.hints.Date.label}"
+                                        required="#{bindings.Contracts.hints.Date.mandatory}" shortDesc="#{bindings.Contracts.hints.Date.tooltip}"
+                                        id="id4">
+                            <f:validator binding="#{row.bindings.Date.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.Contracts.hints.Date.format}"/>
+                          </af:inputDate>
+                        </af:column>
+                        <af:column sortProperty="User" sortable="true" headerText="#{bindings.Contracts.hints.User.label}" id="c7" filterable="true">
+                          <af:selectOneChoice value="#{row.bindings.User.inputValue}" label="#{row.bindings.User.label}"
+                                              required="#{bindings.Contracts.hints.User.mandatory}"
+                                              shortDesc="#{bindings.Contracts.hints.User.tooltip}" id="soc10">
+                            <f:selectItems value="#{row.bindings.User.items}" id="si10"/>
+                          </af:selectOneChoice>
+                        </af:column>
+                        <af:column sortProperty="Status" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.Status.label}"
+                                   id="c9">
+                          <af:selectOneChoice value="#{row.bindings.Status.inputValue}" label="#{row.bindings.Status.label}"
+                                              required="#{bindings.Contracts.hints.Status.mandatory}"
+                                              shortDesc="#{bindings.Contracts.hints.Status.tooltip}" id="soc1" readOnly="true">
+                            <f:selectItems value="#{row.bindings.Status.items}" id="si1"/>
+                          </af:selectOneChoice>
+                        </af:column>
+                        <af:column sortProperty="OpenDate" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.OpenDate.label}"
+                                   id="c2">
+                          <f:facet name="filter">
+                            <af:inputDate value="#{vs.filterCriteria.OpenDate}" id="id6" label="L"/>
+                          </f:facet>
+                          <af:inputDate value="#{row.bindings.OpenDate.inputValue}" label="#{bindings.Contracts.hints.OpenDate.label}"
+                                        required="#{bindings.Contracts.hints.OpenDate.mandatory}"
+                                        shortDesc="#{bindings.Contracts.hints.OpenDate.tooltip}" id="id1">
+                            <f:validator binding="#{row.bindings.OpenDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.Contracts.hints.OpenDate.format}"/>
+                          </af:inputDate>
+                        </af:column>
+                        <af:column sortProperty="AppliedAt" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.AppliedAt.label}"
+                                   id="c10">
+                          <f:facet name="filter">
+                            <af:inputDate value="#{vs.filterCriteria.AppliedAt}" id="id5" label="L"/>
+                          </f:facet>
+                          <af:inputDate value="#{row.bindings.AppliedAt.inputValue}" label="#{bindings.Contracts.hints.AppliedAt.label}"
+                                        required="#{bindings.Contracts.hints.AppliedAt.mandatory}"
+                                        shortDesc="#{bindings.Contracts.hints.AppliedAt.tooltip}" id="id7" readOnly="true">
+                            <f:validator binding="#{row.bindings.AppliedAt.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.Contracts.hints.AppliedAt.format}"/>
+                          </af:inputDate>
+                        </af:column>
+                        <af:column sortProperty="PhoneNumber" filterable="true" sortable="true"
+                                   headerText="#{bindings.Contracts.hints.PhoneNumber.label}" id="c3">
+                          <af:inputText value="#{row.bindings.PhoneNumber.inputValue}" label="#{bindings.Contracts.hints.PhoneNumber.label}"
+                                        required="#{bindings.Contracts.hints.PhoneNumber.mandatory}"
+                                        columns="#{bindings.Contracts.hints.PhoneNumber.displayWidth}"
+                                        maximumLength="#{bindings.Contracts.hints.PhoneNumber.precision}"
+                                        shortDesc="#{bindings.Contracts.hints.PhoneNumber.tooltip}" id="it4">
+                            <f:validator binding="#{row.bindings.PhoneNumber.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Contracts.hints.PhoneNumber.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="PasswordTries" filterable="true" sortable="true"
+                                   headerText="#{bindings.Contracts.hints.PasswordTries.label}" id="c5">
+                          <af:inputText value="#{row.bindings.PasswordTries.inputValue}" label="#{bindings.Contracts.hints.PasswordTries.label}"
+                                        required="#{bindings.Contracts.hints.PasswordTries.mandatory}"
+                                        columns="#{bindings.Contracts.hints.PasswordTries.displayWidth}"
+                                        maximumLength="#{bindings.Contracts.hints.PasswordTries.precision}"
+                                        shortDesc="#{bindings.Contracts.hints.PasswordTries.tooltip}" id="it1" readOnly="true">
+                            <f:validator binding="#{row.bindings.PasswordTries.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Contracts.hints.PasswordTries.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="CloseDate" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.CloseDate.label}"
+                                   id="c8">
+                          <f:facet name="filter">
+                            <af:inputDate value="#{vs.filterCriteria.CloseDate}" id="id3" label="L"/>
+                          </f:facet>
+                          <af:inputDate value="#{row.bindings.CloseDate.inputValue}" label="#{bindings.Contracts.hints.CloseDate.label}"
+                                        required="#{bindings.Contracts.hints.CloseDate.mandatory}"
+                                        shortDesc="#{bindings.Contracts.hints.CloseDate.tooltip}" id="id8" readOnly="true">
+                            <f:validator binding="#{row.bindings.CloseDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.Contracts.hints.CloseDate.format}"/>
+                          </af:inputDate>
+                        </af:column>
+                        <af:column sortProperty="ANumber" filterable="true" sortable="true" headerText="#{bindings.Contracts.hints.ANumber.label}"
+                                   id="c4">
+                          <af:inputText value="#{row.bindings.ANumber.inputValue}" label="#{bindings.Contracts.hints.ANumber.label}"
+                                        required="#{bindings.Contracts.hints.ANumber.mandatory}"
+                                        columns="#{bindings.Contracts.hints.ANumber.displayWidth}"
+                                        maximumLength="#{bindings.Contracts.hints.ANumber.precision}"
+                                        shortDesc="#{bindings.Contracts.hints.ANumber.tooltip}" id="it2">
+                            <f:validator binding="#{row.bindings.ANumber.validator}"/>
+                          </af:inputText>
+                        </af:column>
+                      </af:table>
+                    </f:facet>
+                  </dc:TableDef>
+                </f:facet>
+                <f:facet name="top">
+                  <af:query id="qryId1" headerText="Поиск" disclosed="true" value="#{bindings.ContractsByPhoneNumberCriteriaQuery.queryDescriptor}"
+                            model="#{bindings.ContractsByPhoneNumberCriteriaQuery.queryModel}"
+                            queryListener="#{bindings.ContractsByPhoneNumberCriteriaQuery.processQuery}"
+                            queryOperationListener="#{bindings.ContractsByPhoneNumberCriteriaQuery.processQueryOperation}"
+                            resultComponentId="::td1:dc_pc1:t1"/>
+                </f:facet>
+                <f:facet name="bottom">
+                  <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:commandButton actionListener="#{bindings.check.execute}" text="Проверить" disabled="#{!bindings.check.enabled}" id="cb1"
+                                      partialTriggers="td1:dc_pc1:t1"/>
+                    <af:commandButton actionListener="#{bindings.resetPasswordTries.execute}" text="Сбросить"
+                                      disabled="#{!bindings.resetPasswordTries.enabled}" id="cb3" partialTriggers="td1:dc_pc1:t1"
+                                      shortDesc="Сбросить количество неверно введенных паролей"
+                                      rendered="#{securityContext.userInRole['passwordTriesResetter']}"/>
+                    <af:commandButton actionListener="#{bindings.close.execute}" text="Закрыть" disabled="#{!bindings.close.enabled}" id="cb2"
+                                      partialTriggers="td1:dc_pc1:t1"/>
+                    <f:facet name="separator">
+                      <af:spacer width="4" id="s1"/>
+                    </f:facet>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelStretchLayout>
+            </f:facet>
+            <f:facet name="second">
+              <af:panelGroupLayout id="pgl1" layout="scroll">
+                <af:panelHeader text="Клиент" id="ph1">
+                  <f:facet name="menuBar">
+                    <af:menuBar id="mb1">
+                      <af:menu text="История" id="m1">
+                        <af:commandMenuItem text="Изменения" id="cmi1" action="toChangesOfClients"/>
+                        <af:commandMenuItem text="Удаленные" id="cmi2" action="toDeletedClients"/>
+                      </af:menu>
+                    </af:menuBar>
+                  </f:facet>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="tb1">
+                      <af:commandToolbarButton actionListener="#{bindings.Commit.execute}" text="Сохранить" disabled="#{!bindings.Commit.enabled}"
+                                               id="ctb1" partialTriggers="ctb1 ctb2 it12 it13 it7 id9 soc3 it8 id12 it10 soc4 soc2 it9 it11"/>
+                      <af:commandToolbarButton actionListener="#{bindings.Rollback.execute}" text="Отменить" disabled="#{!bindings.Rollback.enabled}"
+                                               immediate="true" id="ctb2"
+                                               partialTriggers="ctb1 ctb2 it12 it13 it7 id9 soc3 it8 id12 it10 soc4 soc2 it9 it11">
+                        <af:resetActionListener/>
+                      </af:commandToolbarButton>
+                    </af:toolbar>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl1" partialTriggers="td1:dc_pc1:t1 qryId1">
+                    <af:group id="g1">
+                      <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                                    required="#{bindings.LastName.hints.mandatory}" columns="#{bindings.LastName.hints.displayWidth}"
+                                    maximumLength="#{bindings.LastName.hints.precision}" shortDesc="#{bindings.LastName.hints.tooltip}" id="it12"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.LastName.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                                    required="#{bindings.FirstName.hints.mandatory}" columns="#{bindings.FirstName.hints.displayWidth}"
+                                    maximumLength="#{bindings.FirstName.hints.precision}" shortDesc="#{bindings.FirstName.hints.tooltip}" id="it13"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.FirstName.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.MiddleName.inputValue}" label="#{bindings.MiddleName.hints.label}"
+                                    required="#{bindings.MiddleName.hints.mandatory}" columns="#{bindings.MiddleName.hints.displayWidth}"
+                                    maximumLength="#{bindings.MiddleName.hints.precision}" shortDesc="#{bindings.MiddleName.hints.tooltip}" id="it7"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.MiddleName.validator}"/>
+                      </af:inputText>
+                      <af:inputDate value="#{bindings.BirthDate.inputValue}" label="#{bindings.BirthDate.hints.label}"
+                                    required="#{bindings.BirthDate.hints.mandatory}" shortDesc="#{bindings.BirthDate.hints.tooltip}" id="id9"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.BirthDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.BirthDate.format}"/>
+                      </af:inputDate>
+                    </af:group>
+                    <af:group id="g2">
+                      <af:selectOneChoice value="#{bindings.DocTypeId.inputValue}" label="#{bindings.DocTypeId.label}"
+                                          required="#{bindings.DocTypeId.hints.mandatory}" shortDesc="#{bindings.DocTypeId.hints.tooltip}" id="soc3"
+                                          autoSubmit="true">
+                        <f:selectItems value="#{bindings.DocTypeId.items}" id="si3"/>
+                      </af:selectOneChoice>
+                      <af:inputText value="#{bindings.DocId.inputValue}" label="#{bindings.DocId.hints.label}"
+                                    required="#{bindings.DocId.hints.mandatory}" columns="#{bindings.DocId.hints.displayWidth}"
+                                    maximumLength="#{bindings.DocId.hints.precision}" shortDesc="#{bindings.DocId.hints.tooltip}" id="it8"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.DocId.validator}"/>
+                      </af:inputText>
+                      <af:inputDate value="#{bindings.DocDate.inputValue}" label="#{bindings.DocDate.hints.label}"
+                                    required="#{bindings.DocDate.hints.mandatory}" shortDesc="#{bindings.DocDate.hints.tooltip}" id="id12"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.DocDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.DocDate.format}"/>
+                      </af:inputDate>
+                      <af:inputText value="#{bindings.DocIssuer.inputValue}" label="#{bindings.DocIssuer.hints.label}"
+                                    required="#{bindings.DocIssuer.hints.mandatory}" columns="#{bindings.DocIssuer.hints.displayWidth}"
+                                    maximumLength="#{bindings.DocIssuer.hints.precision}" shortDesc="#{bindings.DocIssuer.hints.tooltip}" id="it10"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.DocIssuer.validator}"/>
+                      </af:inputText>
+                    </af:group>
+                    <af:group id="g3">
+                      <af:selectOneChoice value="#{bindings.CountryId.inputValue}" label="#{bindings.CountryId.label}"
+                                          required="#{bindings.CountryId.hints.mandatory}" shortDesc="#{bindings.CountryId.hints.tooltip}" id="soc4"
+                                          autoSubmit="true">
+                        <f:selectItems value="#{bindings.CountryId.items}" id="si2"/>
+                      </af:selectOneChoice>
+                      <af:selectOneChoice value="#{bindings.BranchId.inputValue}" label="#{bindings.BranchId.label}"
+                                          required="#{bindings.BranchId.hints.mandatory}" shortDesc="#{bindings.BranchId.hints.tooltip}" id="soc2"
+                                          autoSubmit="true">
+                        <f:selectItems value="#{bindings.BranchId.items}" id="si4"/>
+                      </af:selectOneChoice>
+                      <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
+                                    required="#{bindings.Address.hints.mandatory}" columns="#{bindings.Address.hints.displayWidth}"
+                                    maximumLength="#{bindings.Address.hints.precision}" shortDesc="#{bindings.Address.hints.tooltip}" id="it9"
+                                    rows="#{bindings.Address.hints.displayHeight}" autoSubmit="true">
+                        <f:validator binding="#{bindings.Address.validator}"/>
+                      </af:inputText>
+                    </af:group>
+                    <af:group id="g4">
+                      <af:inputText value="#{bindings.TaxPayerId.inputValue}" label="#{bindings.TaxPayerId.hints.label}"
+                                    required="#{bindings.TaxPayerId.hints.mandatory}" columns="#{bindings.TaxPayerId.hints.displayWidth}"
+                                    maximumLength="#{bindings.TaxPayerId.hints.precision}" shortDesc="#{bindings.TaxPayerId.hints.tooltip}" id="it11"
+                                    autoSubmit="true">
+                        <f:validator binding="#{bindings.TaxPayerId.validator}"/>
+                      </af:inputText>
+                      <af:inputDate value="#{bindings.FromDate.inputValue}" label="#{bindings.FromDate.hints.label}"
+                                    required="#{bindings.FromDate.hints.mandatory}" shortDesc="#{bindings.FromDate.hints.tooltip}" id="id10">
+                        <f:validator binding="#{bindings.FromDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.FromDate.format}"/>
+                      </af:inputDate>
+                    </af:group>
+                    <af:group id="g5">
+                      <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
+                                    required="#{bindings.Date.hints.mandatory}" shortDesc="#{bindings.Date.hints.tooltip}" id="id11">
+                        <f:validator binding="#{bindings.Date.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.Date.format}"/>
+                      </af:inputDate>
+                      <af:selectOneChoice value="#{bindings.User.inputValue}" label="#{bindings.User.label}"
+                                          required="#{bindings.User.hints.mandatory}" shortDesc="#{bindings.User.hints.tooltip}" id="soc12">
+                        <f:selectItems value="#{bindings.User.items}" id="si12"/>
+                      </af:selectOneChoice>
+                    </af:group>
+                  </af:panelFormLayout>
+                </af:panelHeader>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td2" binding="#{backingBeanScope.mainBean.contractAccounts}" rows="#{bindings.ContractAccounts.estimatedRowCount}"
+                       historyEnabled="true" viewObject="Accounts" refreshEnabled="#{bindings.RefreshAccounts.enabled}"
+                       refresh="#{bindings.RefreshAccounts.execute}" rollbackEnabled="#{bindings.Rollback.enabled}"
+                       rollback="#{bindings.Rollback.execute}" commitEnabled="#{bindings.Commit.enabled}" commit="#{bindings.Commit.execute}"
+                       addEnabled="#{bindings.AddAccount.enabled}" add="#{bindings.AddAccount.execute}"
+                       deleteEnabled="#{bindings.DeleteAccount.enabled}" delete="#{bindings.DeleteAccount.execute}">
+            <f:facet name="table">
+              <af:table value="#{bindings.ContractAccounts.collectionModel}" var="row" rows="#{bindings.ContractAccounts.rangeSize}"
+                        emptyText="#{bindings.ContractAccounts.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.ContractAccounts.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.ContractAccountsQuery.queryDescriptor}" queryListener="#{bindings.ContractAccountsQuery.processQuery}"
+                        varStatus="vs" selectedRowKeys="#{bindings.ContractAccounts.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.ContractAccounts.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                        editingMode="clickToEdit" summary="Accounts"
+                        partialTriggers="::::td1:dc_pc1:t1 ::::qryId1 ::dc_add ::dc_delete ::dc_commit ::dc_rollback ::dc_refresh" shortDesc="Счета">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.Id.label}" id="c25"
+                           rowHeader="unstyled">
+                  <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.ContractAccounts.hints.Id.label}"
+                                required="#{bindings.ContractAccounts.hints.Id.mandatory}"
+                                columns="#{bindings.ContractAccounts.hints.Id.displayWidth}"
+                                maximumLength="#{bindings.ContractAccounts.hints.Id.precision}"
+                                shortDesc="#{bindings.ContractAccounts.hints.Id.tooltip}" id="it27">
+                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.Date.label}" id="c26">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id17" label="L"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.ContractAccounts.hints.Date.label}"
+                                required="#{bindings.ContractAccounts.hints.Date.mandatory}"
+                                shortDesc="#{bindings.ContractAccounts.hints.Date.tooltip}" id="id16">
+                    <f:validator binding="#{row.bindings.Date.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.ContractAccounts.hints.Date.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="User" sortable="true" headerText="#{bindings.ContractAccounts.hints.User.label}" id="c35" filterable="true">
+                  <af:selectOneChoice value="#{row.bindings.User.inputValue}" label="#{row.bindings.User.label}"
+                                      required="#{bindings.ContractAccounts.hints.User.mandatory}"
+                                      shortDesc="#{bindings.ContractAccounts.hints.User.tooltip}" id="soc11">
+                    <f:selectItems value="#{row.bindings.User.items}" id="si11"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="Kind" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.Kind.label}" id="c13">
+                  <af:selectOneChoice value="#{row.bindings.Kind.inputValue}" label="#{row.bindings.Kind.label}"
+                                      required="#{bindings.ContractAccounts.hints.Kind.mandatory}"
+                                      shortDesc="#{bindings.ContractAccounts.hints.Kind.tooltip}" id="soc5">
+                    <f:selectItems value="#{row.bindings.Kind.items}" id="si5"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="AnInterface" filterable="true" sortable="true"
+                           headerText="#{bindings.ContractAccounts.hints.AnInterface.label}" id="c16">
+                  <af:selectOneChoice value="#{row.bindings.AnInterface.inputValue}" label="#{row.bindings.AnInterface.label}"
+                                      required="#{bindings.ContractAccounts.hints.AnInterface.mandatory}"
+                                      shortDesc="#{bindings.ContractAccounts.hints.AnInterface.tooltip}" id="soc7">
+                    <f:selectItems value="#{row.bindings.AnInterface.items}" id="si8"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="ANumber" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.ANumber.label}"
+                           id="c24">
+                  <af:inputText value="#{row.bindings.ANumber.inputValue}" label="#{bindings.ContractAccounts.hints.ANumber.label}"
+                                required="#{bindings.ContractAccounts.hints.ANumber.mandatory}"
+                                columns="#{bindings.ContractAccounts.hints.ANumber.displayWidth}"
+                                maximumLength="#{bindings.ContractAccounts.hints.ANumber.precision}"
+                                shortDesc="#{bindings.ContractAccounts.hints.ANumber.tooltip}" id="it23">
+                    <f:validator binding="#{row.bindings.ANumber.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.Name.label}" id="c23">
+                  <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.ContractAccounts.hints.Name.label}"
+                                required="#{bindings.ContractAccounts.hints.Name.mandatory}"
+                                columns="#{bindings.ContractAccounts.hints.Name.displayWidth}"
+                                maximumLength="#{bindings.ContractAccounts.hints.Name.precision}"
+                                shortDesc="#{bindings.ContractAccounts.hints.Name.tooltip}" id="it31">
+                    <f:validator binding="#{row.bindings.Name.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Priority" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.Priority.label}"
+                           id="c33">
+                  <af:inputText value="#{row.bindings.Priority.inputValue}" label="#{bindings.ContractAccounts.hints.Priority.label}"
+                                required="#{bindings.ContractAccounts.hints.Priority.mandatory}"
+                                columns="#{bindings.ContractAccounts.hints.Priority.displayWidth}"
+                                maximumLength="#{bindings.ContractAccounts.hints.Priority.precision}"
+                                shortDesc="#{bindings.ContractAccounts.hints.Priority.tooltip}" id="it29">
+                    <f:validator binding="#{row.bindings.Priority.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.Priority.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="Разовые" id="c37">
+                  <af:column sortProperty="SingleAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.SingleAmount.label}" id="c41">
+                    <af:inputText value="#{row.bindings.SingleAmount.inputValue}" label="#{bindings.ContractAccounts.hints.SingleAmount.label}"
+                                  required="#{bindings.ContractAccounts.hints.SingleAmount.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.SingleAmount.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.SingleAmount.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.SingleAmount.tooltip}" id="it14">
+                      <f:validator binding="#{row.bindings.SingleAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.SingleAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="SingleCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.SingleCurrency.label}" id="c27">
+                    <af:selectOneChoice value="#{row.bindings.SingleCurrency.inputValue}" label="#{row.bindings.SingleCurrency.label}"
+                                        required="#{bindings.ContractAccounts.hints.SingleCurrency.mandatory}"
+                                        shortDesc="#{bindings.ContractAccounts.hints.SingleCurrency.tooltip}" id="soc8">
+                      <f:selectItems value="#{row.bindings.SingleCurrency.items}" id="si6"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:column>
+                <af:column headerText="Суточные" id="c28">
+                  <af:column sortProperty="DayAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.DayAmount.label}" id="c12">
+                    <af:inputText value="#{row.bindings.DayAmount.inputValue}" label="#{bindings.ContractAccounts.hints.DayAmount.label}"
+                                  required="#{bindings.ContractAccounts.hints.DayAmount.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.DayAmount.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.DayAmount.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.DayAmount.tooltip}" id="it21">
+                      <f:validator binding="#{row.bindings.DayAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.DayAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayTotalAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.DayTotalAmount.label}" id="c31">
+                    <af:inputText value="#{row.bindings.DayTotalAmount.inputValue}" label="#{bindings.ContractAccounts.hints.DayTotalAmount.label}"
+                                  required="#{bindings.ContractAccounts.hints.DayTotalAmount.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.DayTotalAmount.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.DayTotalAmount.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.DayTotalAmount.tooltip}" id="it18" readOnly="true">
+                      <f:validator binding="#{row.bindings.DayTotalAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.DayTotalAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.DayCurrency.label}" id="c19">
+                    <af:selectOneChoice value="#{row.bindings.DayCurrency.inputValue}" label="#{row.bindings.DayCurrency.label}"
+                                        required="#{bindings.ContractAccounts.hints.DayCurrency.mandatory}"
+                                        shortDesc="#{bindings.ContractAccounts.hints.DayCurrency.tooltip}" id="soc6">
+                      <f:selectItems value="#{row.bindings.DayCurrency.items}" id="si7"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="DayQuantity" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.DayQuantity.label}" id="c36">
+                    <af:inputText value="#{row.bindings.DayQuantity.inputValue}" label="#{bindings.ContractAccounts.hints.DayQuantity.label}"
+                                  required="#{bindings.ContractAccounts.hints.DayQuantity.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.DayQuantity.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.DayQuantity.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.DayQuantity.tooltip}" id="it24">
+                      <f:validator binding="#{row.bindings.DayQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.DayQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayTotalQuantity" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.DayTotalQuantity.label}" id="c30">
+                    <af:inputText value="#{row.bindings.DayTotalQuantity.inputValue}"
+                                  label="#{bindings.ContractAccounts.hints.DayTotalQuantity.label}"
+                                  required="#{bindings.ContractAccounts.hints.DayTotalQuantity.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.DayTotalQuantity.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.DayTotalQuantity.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.DayTotalQuantity.tooltip}" id="it15">
+                      <f:validator binding="#{row.bindings.DayTotalQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.DayTotalQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayDate" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.DayDate.label}"
+                             id="c14">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.DayDate}" id="id14" label="L"/>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.DayDate.inputValue}" label="#{bindings.ContractAccounts.hints.DayDate.label}"
+                                  required="#{bindings.ContractAccounts.hints.DayDate.mandatory}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.DayDate.tooltip}" id="id13">
+                      <f:validator binding="#{row.bindings.DayDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.ContractAccounts.hints.DayDate.format}"/>
+                    </af:inputDate>
+                  </af:column>
+                </af:column>
+                <af:column headerText="Месячные" id="c21">
+                  <af:column sortProperty="MonthAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.MonthAmount.label}" id="c39">
+                    <af:inputText value="#{row.bindings.MonthAmount.inputValue}" label="#{bindings.ContractAccounts.hints.MonthAmount.label}"
+                                  required="#{bindings.ContractAccounts.hints.MonthAmount.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.MonthAmount.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.MonthAmount.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.MonthAmount.tooltip}" id="it22">
+                      <f:validator binding="#{row.bindings.MonthAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.MonthAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="MonthTotalAmount" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.MonthTotalAmount.label}" id="c29">
+                    <af:inputText value="#{row.bindings.MonthTotalAmount.inputValue}"
+                                  label="#{bindings.ContractAccounts.hints.MonthTotalAmount.label}"
+                                  required="#{bindings.ContractAccounts.hints.MonthTotalAmount.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.MonthTotalAmount.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.MonthTotalAmount.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.MonthTotalAmount.tooltip}" id="it26" readOnly="true">
+                      <f:validator binding="#{row.bindings.MonthTotalAmount.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.MonthTotalAmount.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="MonthCurrency" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.MonthCurrency.label}" id="c15">
+                    <af:selectOneChoice value="#{row.bindings.MonthCurrency.inputValue}" label="#{row.bindings.MonthCurrency.label}"
+                                        required="#{bindings.ContractAccounts.hints.MonthCurrency.mandatory}"
+                                        shortDesc="#{bindings.ContractAccounts.hints.MonthCurrency.tooltip}" id="soc9">
+                      <f:selectItems value="#{row.bindings.MonthCurrency.items}" id="si9"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="MonthQuantity" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.MonthQuantity.label}" id="c22">
+                    <af:inputText value="#{row.bindings.MonthQuantity.inputValue}" label="#{bindings.ContractAccounts.hints.MonthQuantity.label}"
+                                  required="#{bindings.ContractAccounts.hints.MonthQuantity.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.MonthQuantity.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.MonthQuantity.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.MonthQuantity.tooltip}" id="it25">
+                      <f:validator binding="#{row.bindings.MonthQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.MonthQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="MonthTotalQuantity" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.MonthTotalQuantity.label}" id="c20">
+                    <af:inputText value="#{row.bindings.MonthTotalQuantity.inputValue}"
+                                  label="#{bindings.ContractAccounts.hints.MonthTotalQuantity.label}"
+                                  required="#{bindings.ContractAccounts.hints.MonthTotalQuantity.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.MonthTotalQuantity.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.MonthTotalQuantity.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.MonthTotalQuantity.tooltip}" id="it20">
+                      <f:validator binding="#{row.bindings.MonthTotalQuantity.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.MonthTotalQuantity.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="MonthDate" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractAccounts.hints.MonthDate.label}" id="c18">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.MonthDate}" id="id15" label="L"/>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.MonthDate.inputValue}" label="#{bindings.ContractAccounts.hints.MonthDate.label}"
+                                  required="#{bindings.ContractAccounts.hints.MonthDate.mandatory}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.MonthDate.tooltip}" id="id18">
+                      <f:validator binding="#{row.bindings.MonthDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.ContractAccounts.hints.MonthDate.format}"/>
+                    </af:inputDate>
+                  </af:column>
+                </af:column>
+                <af:column headerText="С" id="c11">
+                  <af:column sortProperty="FromHour" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.FromHour.label}"
+                             id="c38">
+                    <af:inputText value="#{row.bindings.FromHour.inputValue}" label="#{bindings.ContractAccounts.hints.FromHour.label}"
+                                  required="#{bindings.ContractAccounts.hints.FromHour.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.FromHour.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.FromHour.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.FromHour.tooltip}" id="it30">
+                      <f:validator binding="#{row.bindings.FromHour.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.FromHour.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="FromMin" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.FromMin.label}"
+                             id="c34">
+                    <af:inputText value="#{row.bindings.FromMin.inputValue}" label="#{bindings.ContractAccounts.hints.FromMin.label}"
+                                  required="#{bindings.ContractAccounts.hints.FromMin.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.FromMin.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.FromMin.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.FromMin.tooltip}" id="it19">
+                      <f:validator binding="#{row.bindings.FromMin.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.FromMin.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column headerText="По" id="c32">
+                  <af:column sortProperty="ToHour" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.ToHour.label}"
+                             id="c40">
+                    <af:inputText value="#{row.bindings.ToHour.inputValue}" label="#{bindings.ContractAccounts.hints.ToHour.label}"
+                                  required="#{bindings.ContractAccounts.hints.ToHour.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.ToHour.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.ToHour.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.ToHour.tooltip}" id="it16">
+                      <f:validator binding="#{row.bindings.ToHour.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.ToHour.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="ToMin" filterable="true" sortable="true" headerText="#{bindings.ContractAccounts.hints.ToMin.label}"
+                             id="c17">
+                    <af:inputText value="#{row.bindings.ToMin.inputValue}" label="#{bindings.ContractAccounts.hints.ToMin.label}"
+                                  required="#{bindings.ContractAccounts.hints.ToMin.mandatory}"
+                                  columns="#{bindings.ContractAccounts.hints.ToMin.displayWidth}"
+                                  maximumLength="#{bindings.ContractAccounts.hints.ToMin.precision}"
+                                  shortDesc="#{bindings.ContractAccounts.hints.ToMin.tooltip}" id="it17">
+                      <f:validator binding="#{row.bindings.ToMin.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractAccounts.hints.ToMin.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelSplitter id="ps4" orientation="vertical" positionedFromEnd="true" collapsed="true">
+        <f:facet name="first">
+          <dc:TableDef id="td3" rows="#{bindings.ContractSrs.estimatedRowCount}" refreshEnabled="#{bindings.RefreshSrs.enabled}"
+                       refresh="#{bindings.RefreshSrs.execute}">
+            <f:facet name="table">
+              <af:table value="#{bindings.ContractSrs.collectionModel}" var="row" rows="#{bindings.ContractSrs.rangeSize}"
+                        emptyText="#{bindings.ContractSrs.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.ContractSrs.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.ContractSrsQuery.queryDescriptor}" queryListener="#{bindings.ContractSrsQuery.processQuery}" varStatus="vs" selectedRowKeys="#{bindings.ContractSrs.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.ContractSrs.collectionModel.makeCurrent}" rowSelection="single" id="t3"
+                        editingMode="clickToEdit" partialTriggers="::::qryId1 ::::td1:dc_pc1:t1 ::dc_refresh" summary="Service requests"
+                        shortDesc="Запросы на обслуживание">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.Id.label}" id="c57"
+                           rowHeader="unstyled">
+                  <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.ContractSrs.hints.Id.label}"
+                                required="#{bindings.ContractSrs.hints.Id.mandatory}" columns="#{bindings.ContractSrs.hints.Id.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.Id.precision}" shortDesc="#{bindings.ContractSrs.hints.Id.tooltip}"
+                                id="it33">
+                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractSrs.hints.Id.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Status" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.Status.label}" id="c42">
+                  <af:selectOneChoice value="#{row.bindings.Status.inputValue}" label="#{row.bindings.Status.label}"
+                                      required="#{bindings.ContractSrs.hints.Status.mandatory}"
+                                      shortDesc="#{bindings.ContractSrs.hints.Status.tooltip}" id="soc19">
+                    <f:selectItems value="#{row.bindings.Status.items}" id="si14"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="ADate" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.ADate.label}" id="c53">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.ADate}" id="id20" label="L"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.ADate.inputValue}" label="#{bindings.ContractSrs.hints.ADate.label}"
+                                required="#{bindings.ContractSrs.hints.ADate.mandatory}" shortDesc="#{bindings.ContractSrs.hints.ADate.tooltip}"
+                                id="id19">
+                    <f:validator binding="#{row.bindings.ADate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.ContractSrs.hints.ADate.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="PhoneNumber" sortable="true" headerText="#{bindings.ContractSrs.hints.PhoneNumber.label}"
+                           id="c43">
+                  <af:inputText value="#{row.bindings.PhoneNumber.inputValue}" label="#{bindings.ContractSrs.hints.PhoneNumber.label}"
+                                required="#{bindings.ContractSrs.hints.PhoneNumber.mandatory}"
+                                columns="#{bindings.ContractSrs.hints.PhoneNumber.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.PhoneNumber.precision}"
+                                shortDesc="#{bindings.ContractSrs.hints.PhoneNumber.tooltip}" id="it37">
+                    <f:validator binding="#{row.bindings.PhoneNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractSrs.hints.PhoneNumber.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="CipherSuite" sortable="true" headerText="#{bindings.ContractSrs.hints.CipherSuite.label}"
+                           id="c45">
+                  <af:inputText value="#{row.bindings.CipherSuite.inputValue}" label="#{bindings.ContractSrs.hints.CipherSuite.label}"
+                                required="#{bindings.ContractSrs.hints.CipherSuite.mandatory}"
+                                columns="#{bindings.ContractSrs.hints.CipherSuite.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.CipherSuite.precision}"
+                                shortDesc="#{bindings.ContractSrs.hints.CipherSuite.tooltip}" id="it38">
+                    <f:validator binding="#{row.bindings.CipherSuite.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="InitInterface" filterable="true" sortable="true"
+                           headerText="#{bindings.ContractSrs.hints.InitInterface.label}" id="c54">
+                  <af:selectOneChoice value="#{row.bindings.InitInterface.inputValue}" label="#{row.bindings.InitInterface.label}"
+                                      required="#{bindings.ContractSrs.hints.InitInterface.mandatory}"
+                                      shortDesc="#{bindings.ContractSrs.hints.InitInterface.tooltip}" id="soc13">
+                    <f:selectItems value="#{row.bindings.InitInterface.items}" id="si19"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="TypeCode" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.TypeCode.label}"
+                           id="c47">
+                  <af:inputText value="#{row.bindings.TypeCode.inputValue}" label="#{bindings.ContractSrs.hints.TypeCode.label}"
+                                required="#{bindings.ContractSrs.hints.TypeCode.mandatory}"
+                                columns="#{bindings.ContractSrs.hints.TypeCode.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.TypeCode.precision}"
+                                shortDesc="#{bindings.ContractSrs.hints.TypeCode.tooltip}" id="it35">
+                    <f:validator binding="#{row.bindings.TypeCode.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="SrTypeId" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.SrTypeId.label}"
+                           id="c56">
+                  <af:selectOneChoice value="#{row.bindings.SrTypeId.inputValue}" label="#{row.bindings.SrTypeId.label}"
+                                      required="#{bindings.ContractSrs.hints.SrTypeId.mandatory}"
+                                      shortDesc="#{bindings.ContractSrs.hints.SrTypeId.tooltip}" id="soc18">
+                    <f:selectItems value="#{row.bindings.SrTypeId.items}" id="si16"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="SmsSent" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.SmsSent.label}" id="c59">
+                  <af:selectOneChoice value="#{row.bindings.SmsSent.inputValue}" label="#{row.bindings.SmsSent.label}"
+                                      required="#{bindings.ContractSrs.hints.SmsSent.mandatory}"
+                                      shortDesc="#{bindings.ContractSrs.hints.SmsSent.tooltip}" id="soc14">
+                    <f:selectItems value="#{row.bindings.SmsSent.items}" id="si13"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="StatusDetail" filterable="true" sortable="true"
+                           headerText="#{bindings.ContractSrs.hints.StatusDetail.label}" id="c52">
+                  <af:selectOneChoice value="#{row.bindings.StatusDetail.inputValue}" label="#{row.bindings.StatusDetail.label}"
+                                      required="#{bindings.ContractSrs.hints.StatusDetail.mandatory}"
+                                      shortDesc="#{bindings.ContractSrs.hints.StatusDetail.tooltip}" id="soc20">
+                    <f:selectItems value="#{row.bindings.StatusDetail.items}" id="si20"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column id="c69" headerText="Счет отправителя">
+                  <af:column sortProperty="SrcName" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.SrcName.label}"
+                             id="c51">
+                    <af:inputText value="#{row.bindings.SrcName.inputValue}" label="#{bindings.ContractSrs.hints.SrcName.label}"
+                                  required="#{bindings.ContractSrs.hints.SrcName.mandatory}"
+                                  columns="#{bindings.ContractSrs.hints.SrcName.displayWidth}"
+                                  maximumLength="#{bindings.ContractSrs.hints.SrcName.precision}"
+                                  shortDesc="#{bindings.ContractSrs.hints.SrcName.tooltip}" id="it36">
+                      <f:validator binding="#{row.bindings.SrcName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="SrcInterface" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractSrs.hints.SrcInterface.label}" id="c55">
+                    <af:selectOneChoice value="#{row.bindings.SrcInterface.inputValue}" label="#{row.bindings.SrcInterface.label}"
+                                        required="#{bindings.ContractSrs.hints.SrcInterface.mandatory}"
+                                        shortDesc="#{bindings.ContractSrs.hints.SrcInterface.tooltip}" id="soc17">
+                      <f:selectItems value="#{row.bindings.SrcInterface.items}" id="si15"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="SrcAccount" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.SrcAccount.label}"
+                             id="c61">
+                    <af:inputText value="#{row.bindings.SrcAccount.inputValue}" label="#{bindings.ContractSrs.hints.SrcAccount.label}"
+                                  required="#{bindings.ContractSrs.hints.SrcAccount.mandatory}"
+                                  columns="#{bindings.ContractSrs.hints.SrcAccount.displayWidth}"
+                                  maximumLength="#{bindings.ContractSrs.hints.SrcAccount.precision}"
+                                  shortDesc="#{bindings.ContractSrs.hints.SrcAccount.tooltip}" id="it32">
+                      <f:validator binding="#{row.bindings.SrcAccount.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column id="c70" headerText="Счет получателя">
+                  <af:column sortProperty="DstName" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.DstName.label}"
+                             id="c58">
+                    <af:inputText value="#{row.bindings.DstName.inputValue}" label="#{bindings.ContractSrs.hints.DstName.label}"
+                                  required="#{bindings.ContractSrs.hints.DstName.mandatory}"
+                                  columns="#{bindings.ContractSrs.hints.DstName.displayWidth}"
+                                  maximumLength="#{bindings.ContractSrs.hints.DstName.precision}"
+                                  shortDesc="#{bindings.ContractSrs.hints.DstName.tooltip}" id="it40">
+                      <f:validator binding="#{row.bindings.DstName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DstInterface" filterable="true" sortable="true"
+                             headerText="#{bindings.ContractSrs.hints.DstInterface.label}" id="c44">
+                    <af:selectOneChoice value="#{row.bindings.DstInterface.inputValue}" label="#{row.bindings.DstInterface.label}"
+                                        required="#{bindings.ContractSrs.hints.DstInterface.mandatory}"
+                                        shortDesc="#{bindings.ContractSrs.hints.DstInterface.tooltip}" id="soc15">
+                      <f:selectItems value="#{row.bindings.DstInterface.items}" id="si17"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="DstAccount" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.DstAccount.label}"
+                             id="c62">
+                    <af:inputText value="#{row.bindings.DstAccount.inputValue}" label="#{bindings.ContractSrs.hints.DstAccount.label}"
+                                  required="#{bindings.ContractSrs.hints.DstAccount.mandatory}"
+                                  columns="#{bindings.ContractSrs.hints.DstAccount.displayWidth}"
+                                  maximumLength="#{bindings.ContractSrs.hints.DstAccount.precision}"
+                                  shortDesc="#{bindings.ContractSrs.hints.DstAccount.tooltip}" id="it3">
+                      <f:validator binding="#{row.bindings.DstAccount.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:column>
+                <af:column sortProperty="Amount" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.Amount.label}" id="c48">
+                  <af:inputText value="#{row.bindings.Amount.inputValue}" label="#{bindings.ContractSrs.hints.Amount.label}"
+                                required="#{bindings.ContractSrs.hints.Amount.mandatory}" columns="#{bindings.ContractSrs.hints.Amount.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.Amount.precision}"
+                                shortDesc="#{bindings.ContractSrs.hints.Amount.tooltip}" id="it34">
+                    <f:validator binding="#{row.bindings.Amount.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractSrs.hints.Amount.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Currency" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.Currency.label}"
+                           id="c50">
+                  <af:selectOneChoice value="#{row.bindings.Currency.inputValue}" label="#{row.bindings.Currency.label}"
+                                      required="#{bindings.ContractSrs.hints.Currency.mandatory}"
+                                      shortDesc="#{bindings.ContractSrs.hints.Currency.tooltip}" id="soc16">
+                    <f:selectItems value="#{row.bindings.Currency.items}" id="si18"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="Ptc" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.Ptc.label}" id="c49">
+                  <af:inputText value="#{row.bindings.Ptc.inputValue}" label="#{bindings.ContractSrs.hints.Ptc.label}"
+                                required="#{bindings.ContractSrs.hints.Ptc.mandatory}" columns="#{bindings.ContractSrs.hints.Ptc.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.Ptc.precision}" shortDesc="#{bindings.ContractSrs.hints.Ptc.tooltip}"
+                                id="it28">
+                    <f:validator binding="#{row.bindings.Ptc.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Description" filterable="true" sortable="true" headerText="#{bindings.ContractSrs.hints.Description.label}"
+                           id="c60">
+                  <af:inputText value="#{row.bindings.Description.inputValue}" label="#{bindings.ContractSrs.hints.Description.label}"
+                                required="#{bindings.ContractSrs.hints.Description.mandatory}"
+                                columns="#{bindings.ContractSrs.hints.Description.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.Description.precision}"
+                                shortDesc="#{bindings.ContractSrs.hints.Description.tooltip}" id="it39">
+                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="StType" sortable="true" headerText="#{bindings.ContractSrs.hints.StType.label}" id="c46">
+                  <af:inputText value="#{row.bindings.StType.inputValue}" label="#{bindings.ContractSrs.hints.StType.label}"
+                                required="#{bindings.ContractSrs.hints.StType.mandatory}" columns="#{bindings.ContractSrs.hints.StType.displayWidth}"
+                                maximumLength="#{bindings.ContractSrs.hints.StType.precision}"
+                                shortDesc="#{bindings.ContractSrs.hints.StType.tooltip}" id="it6">
+                    <f:validator binding="#{row.bindings.StType.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractSrs.hints.StType.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td4" rows="#{bindings.ContractSystemLog.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.ContractSystemLog.collectionModel}" var="row" rows="#{bindings.ContractSystemLog.rangeSize}"
+                        emptyText="#{bindings.ContractSystemLog.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.ContractSystemLog.rangeSize}" rowBandingInterval="0"
+                        filterModel="#{bindings.ContractSystemLogQuery.queryDescriptor}"
+                        queryListener="#{bindings.ContractSystemLogQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.ContractSystemLog.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.ContractSystemLog.collectionModel.makeCurrent}" rowSelection="single" id="t4"
+                        editingMode="clickToEdit" partialTriggers="::::td3:dc_pc1:t3 ::::qryId1" summary="System log" shortDesc="Системный журнал">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.ContractSystemLog.hints.Id.label}" id="c65"
+                           rowHeader="unstyled">
+                  <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.ContractSystemLog.hints.Id.label}"
+                                required="#{bindings.ContractSystemLog.hints.Id.mandatory}"
+                                columns="#{bindings.ContractSystemLog.hints.Id.displayWidth}"
+                                maximumLength="#{bindings.ContractSystemLog.hints.Id.precision}"
+                                shortDesc="#{bindings.ContractSystemLog.hints.Id.tooltip}" id="it41">
+                    <f:validator binding="#{row.bindings.Id.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractSystemLog.hints.Id.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="OccurredAt" filterable="true" sortable="true"
+                           headerText="#{bindings.ContractSystemLog.hints.OccurredAt.label}" id="c63">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.OccurredAt}" id="id22" label="L"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.OccurredAt.inputValue}" label="#{bindings.ContractSystemLog.hints.OccurredAt.label}"
+                                required="#{bindings.ContractSystemLog.hints.OccurredAt.mandatory}"
+                                shortDesc="#{bindings.ContractSystemLog.hints.OccurredAt.tooltip}" id="id21">
+                    <f:validator binding="#{row.bindings.OccurredAt.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.ContractSystemLog.hints.OccurredAt.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.ContractSystemLog.hints.Code.label}" id="c66">
+                  <af:inputText value="#{row.bindings.Code.inputValue}" label="#{bindings.ContractSystemLog.hints.Code.label}"
+                                required="#{bindings.ContractSystemLog.hints.Code.mandatory}"
+                                columns="#{bindings.ContractSystemLog.hints.Code.displayWidth}"
+                                maximumLength="#{bindings.ContractSystemLog.hints.Code.precision}"
+                                shortDesc="#{bindings.ContractSystemLog.hints.Code.tooltip}" id="it44">
+                    <f:validator binding="#{row.bindings.Code.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Description" filterable="true" sortable="true"
+                           headerText="#{bindings.ContractSystemLog.hints.Description.label}" id="c67">
+                  <af:inputText value="#{row.bindings.Description.inputValue}" label="#{bindings.ContractSystemLog.hints.Description.label}"
+                                required="#{bindings.ContractSystemLog.hints.Description.mandatory}"
+                                columns="#{bindings.ContractSystemLog.hints.Description.displayWidth}"
+                                maximumLength="#{bindings.ContractSystemLog.hints.Description.precision}"
+                                shortDesc="#{bindings.ContractSystemLog.hints.Description.tooltip}" id="it42">
+                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+  </af:panelSplitter>
+</jsp:root>

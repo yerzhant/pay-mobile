@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UsersBranchesOfBranchView"
+  Version="11.1.1.56.60"
+  SelectList="UserBranchOfBranch.ID$, 
+       UserBranchOfBranch.STATUS$, 
+       UserBranchOfBranch.DATE$, 
+       UserBranchOfBranch.USER$, 
+       NVL(FULL_NAME, UserBranchOfBranch.USER$) AS USER_NAME, 
+       UserBranchOfBranch.USER_ID$, 
+       UserBranchOfBranch.BRANCH_ID$, 
+       UserBranchOfBranch.HU$, 
+       UserBranchOfBranch.CID$, 
+       User2.ID$ AS ID1"
+  FromList="PAY_MOBILE.USERS_BRANCHES UserBranchOfBranch, PAY_MOBILE.USERS User2"
+  Where="UserBranchOfBranch.STATUS$ = 'C' AND UserBranchOfBranch.USER$ = User2.SYS_NAME(+)
+AND (User2.STATUS$ = 'C' OR User2.STATUS$ IS NULL)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="UsersList"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.UsersView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_UserId"
+    ListVOName="UsersList"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_UserId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FullName"/>
+      <Item Value="SysName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="UserBranchOfBranch"
+    Entity="kz.paysoft.paymobile.ui.security.model.entities.UserBranchOfBranch"/>
+  <EntityUsage
+    Name="User2"
+    Entity="kz.paysoft.paymobile.ui.security.model.entities.User"
+    Association="kz.paysoft.paymobile.ui.security.model.entities.associations.UserBranchOfBranchUser"
+    AssociationEnd="kz.paysoft.paymobile.ui.security.model.entities.associations.UserBranchOfBranchUser.User1"
+    SourceUsage="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfBranchView.UserBranchOfBranch"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="kz.paysoft.paymobile.ui.security.model.entities.UserBranchOfBranch.User"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="kz.paysoft.paymobile.ui.security.model.entities.User.SysName"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="ID$"/>
+  <ViewAttribute
+    Name="Status"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="STATUS$"/>
+  <ViewAttribute
+    Name="Date"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Date"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="DATE$"/>
+  <ViewAttribute
+    Name="User"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="User"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="USER$"/>
+  <ViewAttribute
+    Name="UserName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="USER_NAME"
+    Expression="NVL(FULL_NAME, UserBranchOfBranch.USER$)"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.security.model.views.Editor_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserId"
+    LOVName="LOV_UserId"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="USER_ID$">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BranchId"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BranchId"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="BRANCH_ID$"/>
+  <ViewAttribute
+    Name="Hu"
+    IsUpdateable="false"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="Hu"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="HU$"/>
+  <ViewAttribute
+    Name="Cid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Cid"
+    EntityUsage="UserBranchOfBranch"
+    AliasName="CID$"/>
+  <ViewAttribute
+    Name="Id1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="User2"
+    AliasName="ID1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="kz.paysoft.paymobile.ui.security.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

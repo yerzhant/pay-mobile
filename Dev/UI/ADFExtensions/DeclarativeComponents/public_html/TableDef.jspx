@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:componentDef var="attrs" componentVar="component">
+    <af:panelCollection id="dc_pc1">
+      <f:facet name="menus">
+        <af:menu text="История" id="dc_m1"
+                 disabled="#{!attrs.historyEnabled}">
+          <af:commandMenuItem text="Изменения" id="dc_cmi1"
+                              action="#{backingBeanScope.tableBean.toChangesOf}"/>
+          <af:commandMenuItem text="Удаленные" id="dc_cmi2"
+                              action="#{backingBeanScope.tableBean.toDeleted}"/>
+        </af:menu>
+      </f:facet>
+      <f:facet name="toolbar">
+        <af:toolbar id="dc_t1">
+          <af:group id="dc_g1">
+            <af:commandToolbarButton id="dc_add" icon="/images/Add.png"
+                                     disabledIcon="/images/AddDisabled.png"
+                                     shortDesc="Добавить"
+                                     disabled="#{!attrs.historyEnabled or !attrs.addEnabled}"
+                                     actionListener="#{component.handleAdd}"/>
+            <af:commandToolbarButton id="dc_delete" icon="/images/Delete.png"
+                                     disabledIcon="/images/DeleteDisabled.png"
+                                     shortDesc="Удалить"
+                                     disabled="#{!attrs.historyEnabled or !attrs.deleteEnabled}"
+                                     actionListener="#{component.handleDelete}"/>
+            <af:commandToolbarButton id="dc_commit" shortDesc="Сохранить"
+                                     icon="/images/Commit.png"
+                                     disabledIcon="/images/CommitDisabled.png"
+                                     disabled="#{!attrs.historyEnabled or !attrs.commitEnabled}"
+                                     actionListener="#{component.handleCommit}"
+                                     clientComponent="true"/>
+            <af:commandToolbarButton id="dc_rollback" shortDesc="Отменить"
+                                     icon="/images/Rollback.png"
+                                     disabledIcon="/images/RollbackDisabled.png"
+                                     disabled="#{!attrs.historyEnabled or !attrs.rollbackEnabled}"
+                                     actionListener="#{component.handleRollback}"
+                                     clientComponent="true"/>
+          </af:group>
+          <af:group id="dc_g2">
+            <af:commandToolbarButton id="dc_first" icon="/images/First.png"
+                                     disabledIcon="/images/FirstDisabled.png"
+                                     shortDesc="К началу"
+                                     disabled="#{!attrs.firstEnabled}"
+                                     actionListener="#{component.handleFirst}"/>
+            <af:commandToolbarButton id="dc_previous" icon="/images/Previous.png"
+                                     disabledIcon="/images/PreviousDisabled.png"
+                                     shortDesc="Предыдущий"
+                                     disabled="#{!attrs.previousEnabled}"
+                                     actionListener="#{component.handlePrevious}"/>
+            <af:commandToolbarButton id="dc_next" icon="/images/Next.png"
+                                     disabledIcon="/images/NextDisabled.png"
+                                     shortDesc="Следующий"
+                                     disabled="#{!attrs.nextEnabled}"
+                                     actionListener="#{component.handleNext}"/>
+            <af:commandToolbarButton id="dc_last" icon="/images/Last.png"
+                                     disabledIcon="/images/LastDisabled.png"
+                                     shortDesc="В конец"
+                                     disabled="#{!attrs.lastEnabled}"
+                                     actionListener="#{component.handleLast}"/>
+          </af:group>
+          <af:group id="dc_g4">
+            <af:commandToolbarButton id="dc_refresh" icon="/images/Refresh.png"
+                                     disabledIcon="/images/RefreshDisabled.png"
+                                     shortDesc="Обновить"
+                                     disabled="#{!attrs.refreshEnabled}"
+                                     actionListener="#{component.handleRefresh}"/>
+            <af:commandToolbarButton
+                                     id="dc_ctb5" shortDesc="Назад"
+                                     icon="/images/Back.png"
+                                     disabledIcon="/images/BackDisabled.png"
+                                     action="#{backingBeanScope.tableBean.toBase}"
+                                     disabled="#{attrs.historyEnabled}"/>
+          </af:group>
+        </af:toolbar>
+      </f:facet>
+      <af:facetRef facetName="table"/>
+      <f:facet name="statusbar">
+        <af:toolbar id="dc_t2">
+          <af:outputText value="Количество записей: #{attrs.rows}" id="dc_rowsCount"
+                         partialTriggers="dc_add dc_delete dc_rollback dc_refresh" clientComponent="true"/>
+        </af:toolbar>
+      </f:facet>
+    </af:panelCollection>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>TableDef</display-name>
+        <facet>
+          <facet-name>table</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>
+            rows
+          </attribute-name>
+          <attribute-class>
+            java.lang.String
+          </attribute-class>
+          <default-value>
+            ?
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            addEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            deleteEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            commitEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            rollbackEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            historyEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            refreshEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            firstEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            previousEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            nextEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            lastEnabled
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            viewObject
+          </attribute-name>
+          <attribute-class>
+            java.lang.String
+          </attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            baseView
+          </attribute-name>
+          <attribute-class>
+            java.lang.String
+          </attribute-class>
+        </attribute>
+        <component-extension>
+          <component-tag-namespace>kz.paysoft.paymobile.ui.declarativecomponents</component-tag-namespace>
+          <component-taglib-uri>http://www.paysoft.kz/paymobile/ui/DeclarativeComponents</component-taglib-uri>
+          <method-attribute xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+            <attribute-name>
+              add
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+            <attribute-name>
+              delete
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+            <attribute-name>
+              commit
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+            <attribute-name>
+              rollback
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+            <attribute-name>
+              refresh
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute>
+            <attribute-name>
+              first
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute>
+            <attribute-name>
+              previous
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute>
+            <attribute-name>
+              next
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+          <method-attribute>
+            <attribute-name>
+              last
+            </attribute-name>
+            <method-signature>
+              void method(javax.faces.event.ActionEvent)
+            </method-signature>
+          </method-attribute>
+        </component-extension>
+      </component>
+    </af:xmlContent>
+  </af:componentDef>
+</jsp:root>

@@ -1,0 +1,3 @@
+Created-By: Yerzhan Tulepov
+SRController-Version: 1.0.0
+Copyright: (C) 2010 Yerzhan Tulepov. All rights reserved.

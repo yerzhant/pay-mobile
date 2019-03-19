@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedUsersBranchesPageDef"
+                Package="kz.paysoft.paymobile.ui.security.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DUsersBranches" RangeSize="25" DataControl="SecurityServiceDataControl" id="DUsersBranchesIterator"/>
+    <searchRegion Binds="DUsersBranchesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DUsersBranchesQuery"/>
+    <iterator Binds="DHUsersBranches" RangeSize="25" DataControl="SecurityServiceDataControl" id="DHUsersBranchesIterator"/>
+    <searchRegion Binds="DHUsersBranchesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DHUsersBranchesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DUsersBranchesIterator" id="DUsersBranches">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView" Name="DUsersBranches0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="AUser"/>
+          <Item Value="Branch"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHUsersBranchesIterator" id="DHUsersBranches">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView" Name="DHUsersBranches0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="AUser"/>
+          <Item Value="Branch"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DUsersBranchesIterator" id="RefreshDUsersBranches" InstanceName="SecurityServiceDataControl.DUsersBranches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DHUsersBranchesIterator" id="RefreshDHUsersBranches" InstanceName="SecurityServiceDataControl.DHUsersBranches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

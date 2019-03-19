@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config"
+            xmlns:adf="http://xmlns.oracle.com/adf/config/properties"
+            xmlns:sec="http://xmlns.oracle.com/adf/security/config">
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <adf-property name="adfAppUID"
+                  value="AppEntry.kz.paysoft.paymobile.ui.appentry"/>
+  </adf:adf-properties-child>
+  <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
+    <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"
+                            credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+  </sec:adf-security-child>
+  <adf-mds-config xmlns="http://xmlns.oracle.com/adf/mds/config">
+    <mds-config xmlns="http://xmlns.oracle.com/mds/config" version="11.1.1.000">
+      <cust-config>
+        <match path="/">
+          <customization-class name="kz.paysoft.paymobile.ui.appentry.model.CustomerCC"/>
+        </match>
+      </cust-config>
+    </mds-config>
+  </adf-mds-config>
+</adf-config>

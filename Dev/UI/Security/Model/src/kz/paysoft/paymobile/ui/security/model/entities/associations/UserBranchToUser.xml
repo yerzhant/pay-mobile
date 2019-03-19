@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserBranchToUser"
+  Version="11.1.1.56.60"
+  Where=":Bind_Id = UserBranchOfUser.USER_ID$ AND UserBranchOfUser.STATUS$ = 'C'">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="User7"
+    Cardinality="1"
+    Source="true"
+    Owner="kz.paysoft.paymobile.ui.security.model.entities.User"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="User7"/>
+      <Attr Name="_foreignKey"
+        Value="kz.paysoft.paymobile.ui.security.model.entities.User.UsersPkId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.security.model.entities.User.Id"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="UserBranchOfUser"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.security.model.entities.UserBranchOfUser"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="UserBranchOfUser"/>
+      <Attr Name="_foreignKey"
+        Value="kz.paysoft.paymobile.ui.security.model.entities.UserBranchOfUser.UsersBranchesFkUserId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.security.model.entities.UserBranchOfUser.UserId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

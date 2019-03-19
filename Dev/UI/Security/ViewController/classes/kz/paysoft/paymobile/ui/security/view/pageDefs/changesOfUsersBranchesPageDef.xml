@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfUsersBranchesPageDef"
+                Package="kz.paysoft.paymobile.ui.security.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CUsers" RangeSize="25" DataControl="SecurityServiceDataControl" id="CUsersIterator"/>
+    <searchRegion Binds="CUsersIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CUsersQuery"/>
+    <iterator Binds="CBranchesOfUser" RangeSize="25" DataControl="SecurityServiceDataControl" id="CBranchesOfUserIterator"/>
+    <searchRegion Binds="CBranchesOfUserIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CBranchesOfUserQuery"/>
+    <iterator Binds="CHUsersBranches" RangeSize="25" DataControl="SecurityServiceDataControl" id="CHUsersBranchesIterator"/>
+    <searchRegion Binds="CHUsersBranchesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CHUsersBranchesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CUsersIterator" id="CUsers">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersView" Name="CUsers0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="SysName"/>
+          <Item Value="FullName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CBranchesOfUserIterator" id="CBranchesOfUser">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView" Name="CBranchesOfUser0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="AUser"/>
+          <Item Value="Branch"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHUsersBranchesIterator" id="CHUsersBranches">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView" Name="CHUsersBranches0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="AUser"/>
+          <Item Value="Branch"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CUsersIterator" id="RefreshCUsers" InstanceName="SecurityServiceDataControl.CUsers" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CBranchesOfUserIterator" id="RefreshCBranchesOfUser" InstanceName="SecurityServiceDataControl.CBranchesOfUser"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHUsersBranchesIterator" id="RefreshCHUsersBranches" InstanceName="SecurityServiceDataControl.CHUsersBranches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

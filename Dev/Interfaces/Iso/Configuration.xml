@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.paysoft.kz/PayMobile/IsoInterface/1.0.0">
+  <database server="supernova:1521/pm.paysoft.kz"
+            a="-49617465925222812556068343116201924486"
+            b="19050042770912955826353"/>
+  <srController address="supernova" port="1557"/>
+  <logging level="9" file="iso.log"/>
+  <isoSystem address="supernova" port="2557">
+    <message code="Balanse" type="100">
+      <field number="3" value="300000"/>
+      <field number="4" value="0"/>
+      <field number="18" value="6010"/>
+      <field number="22" value="082"/>
+      <field number="41" value="12345678"/>
+      <field number="49" value="398"/>
+    </message>
+    <message code="Debit" type="200">
+      <field number="3" value="010000"/>
+      <field number="18" value="6010"/>
+      <field number="22" value="082"/>
+      <field number="41" value="12345678"/>
+    </message>
+    <message code="Credit" type="220">
+      <field number="3" value="240000"/>
+      <field number="18" value="6010"/>
+      <field number="22" value="082"/>
+      <field number="41" value="12345678"/>
+    </message>
+    <message code="Reversal" type="420">
+      <field number="3" value="010000"/>
+      <field number="18" value="6010"/>
+      <field number="22" value="082"/>
+      <field number="41" value="12345678"/>
+    </message>
+    <rcMapping iso="00" system="0"/>
+    <rcMapping iso="14" system="218"/>
+    <rcMapping iso="41" system="218"/>
+    <rcMapping iso="42" system="218"/>
+    <rcMapping iso="51" system="219"/>
+    <rcMapping iso="57" system="218"/>
+    <rcMapping iso="58" system="218"/>
+    <rcMapping iso="61" system="219"/>
+    <rcMapping iso="96" system="229"/>
+    <currencyMapping system="KZT" iso="398"/>
+    <currencyMapping system="USD" iso="840"/>
+    <currencyMapping system="EUR" iso="978"/>
+    <currencyMapping system="JPY" iso="392" isoPointPos="0"/>
+    <fieldDef number="2" lengthType="LLVAR" valueType="BCD" maxLength="19"/>
+    <fieldDef number="3" lengthType="FIXED" valueType="BCD" maxLength="6"/>
+    <fieldDef number="4" lengthType="FIXED" valueType="BCD" maxLength="12"/>
+    <fieldDef number="7" lengthType="FIXED" valueType="BCD" maxLength="10"/>
+    <fieldDef number="11" lengthType="FIXED" valueType="BCD" maxLength="6"/>
+    <fieldDef number="12" lengthType="FIXED" valueType="BCD" maxLength="6"/>
+    <fieldDef number="13" lengthType="FIXED" valueType="BCD" maxLength="4"/>
+    <fieldDef number="18" lengthType="FIXED" valueType="BCD" maxLength="4"/>
+    <fieldDef number="22" lengthType="FIXED" valueType="BCD" maxLength="3"/>
+    <fieldDef number="32" lengthType="LLVAR" valueType="BCD" maxLength="11"/>
+    <fieldDef number="37" lengthType="FIXED" valueType="ANS" maxLength="12"/>
+    <fieldDef number="38" lengthType="FIXED" valueType="ANS" maxLength="6"/>
+    <fieldDef number="39" lengthType="FIXED" valueType="ANS" maxLength="2"/>
+    <fieldDef number="41" lengthType="FIXED" valueType="ANS" maxLength="8"/>
+    <fieldDef number="42" lengthType="FIXED" valueType="ANS" maxLength="15"/>
+    <fieldDef number="49" lengthType="FIXED" valueType="BCD" maxLength="3"/>
+    <fieldDef number="54" lengthType="LLLVAR" valueType="ANS" maxLength="120"/>
+    <balanse>
+      <amount code="01" text="Собственные средства%n"/>
+      <amount code="02" text="Доступный баланс%n"/>
+      <account code="00" text=""/>
+      <account code="10" text="Сберегательный счёт%n"/>
+      <account code="20" text="Чековы счёт%n"/>
+      <account code="30" text="Счёт кредитной карты%n"/>
+      <account code="40" text="Универсальный счёт%n"/>
+    </balanse>
+  </isoSystem>
+</configuration>

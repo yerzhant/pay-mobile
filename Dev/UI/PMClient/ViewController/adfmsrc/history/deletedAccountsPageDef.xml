@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedAccountsPageDef" Package="history">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="DAccountsIterator"/>
+    <searchRegion Binds="DAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DAccountsQuery"/>
+    <iterator Binds="DHAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="DHAccountsIterator"/>
+    <searchRegion Binds="DHAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHAccountsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DAccountsIterator" id="DAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.AccountsView" Name="DAccounts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHAccountsIterator" id="DHAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.AccountsView" Name="DHAccounts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DAccountsIterator" id="Execute" InstanceName="PMClientServiceDataControl.DAccounts" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

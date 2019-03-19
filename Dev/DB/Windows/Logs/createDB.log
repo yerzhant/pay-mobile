@@ -1,0 +1,32 @@
+SQL> startup nomount pfile=init.ora;
+ORACLE instance started.
+
+Total System Global Area  536870912 bytes                                       
+Fixed Size                  1250016 bytes                                       
+Variable Size             150998304 bytes                                       
+Database Buffers          381681664 bytes                                       
+Redo Buffers                2940928 bytes                                       
+SQL> CREATE DATABASE pm
+  2  	MAXINSTANCES 1
+  3  	MAXLOGHISTORY 1
+  4  	MAXLOGFILES 16
+  5  	MAXLOGMEMBERS 3
+  6  	MAXDATAFILES 128
+  7  	DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\system01.dbf' SIZE 1G AUTOEXTEND ON NEXT 512M MAXSIZE UNLIMITED EXTENT MANAGEMENT LOCAL
+  8  	SYSAUX
+  9  	DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\sysaux01.dbf' SIZE 128M AUTOEXTEND ON NEXT 128M MAXSIZE UNLIMITED
+ 10  	DEFAULT TEMPORARY TABLESPACE TEMP1
+ 11  	TEMPFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\temp01.dbf'   SIZE 512M   AUTOEXTEND ON NEXT 256M   MAXSIZE UNLIMITED
+ 12  	UNDO TABLESPACE UNDO1
+ 13  	DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\undo01.dbf'   SIZE 1G   AUTOEXTEND ON NEXT 512M   MAXSIZE UNLIMITED
+ 14  	CHARACTER SET CL8MSWIN1251
+ 15  	NATIONAL CHARACTER SET AL16UTF16
+ 16  	SET TIME_ZONE = 'UTC'
+ 17  	LOGFILE GROUP 1 ('C:\Oracle\product\10.2.0\oradata\pm\redo01\redo01.log') SIZE 128M,
+ 18  		GROUP 2 ('C:\Oracle\product\10.2.0\oradata\pm\redo01\redo02.log') SIZE 128M,
+ 19  		GROUP 3 ('C:\Oracle\product\10.2.0\oradata\pm\redo01\redo03.log') SIZE 128M
+ 20  	USER SYS IDENTIFIED BY qwerty USER SYSTEM IDENTIFIED BY qwerty;
+
+Database created.
+
+SQL> spool off

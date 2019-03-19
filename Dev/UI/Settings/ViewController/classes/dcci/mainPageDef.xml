@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef" Package="dcci">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Interfaces" RangeSize="-1" DataControl="SetupServiceDataControl" id="InterfacesIterator"/>
+    <searchRegion Binds="InterfacesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterfacesQuery"/>
+    <iterator Binds="Currencies" RangeSize="-1" DataControl="SetupServiceDataControl" id="CurrenciesIterator"/>
+    <searchRegion Binds="CurrenciesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CurrenciesQuery"/>
+    <iterator Binds="Countries" RangeSize="-1" DataControl="SetupServiceDataControl" id="CountriesIterator"/>
+    <searchRegion Binds="CountriesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CountriesQuery"/>
+    <iterator Binds="DocTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="DocTypesIterator"/>
+    <searchRegion Binds="DocTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DocTypesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DocTypesIterator" id="DocTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.DocTypesView" Name="DocTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CountriesIterator" id="Countries">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.CountriesView" Name="Countries0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CurrenciesIterator" id="Currencies">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.CurrenciesView" Name="Currencies0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="InterfacesIterator" id="Interfaces">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.InterfacesView" Name="Interfaces0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Format"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" InstanceName="SetupServiceDataControl" DataControl="SetupServiceDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" InstanceName="SetupServiceDataControl" DataControl="SetupServiceDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="DocTypesIterator" id="CreateInsert" InstanceName="SetupServiceDataControl.DocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="DocTypesIterator" id="Delete" InstanceName="SetupServiceDataControl.DocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="DocTypesIterator" id="Execute" InstanceName="SetupServiceDataControl.DocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CountriesIterator" id="CreateInsert1" InstanceName="SetupServiceDataControl.Countries" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CountriesIterator" id="Delete1" InstanceName="SetupServiceDataControl.Countries" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CountriesIterator" id="Execute1" InstanceName="SetupServiceDataControl.Countries" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CurrenciesIterator" id="CreateInsert2" InstanceName="SetupServiceDataControl.Currencies"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CurrenciesIterator" id="Delete2" InstanceName="SetupServiceDataControl.Currencies" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CurrenciesIterator" id="Execute2" InstanceName="SetupServiceDataControl.Currencies" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="InterfacesIterator" id="CreateInsert3" InstanceName="SetupServiceDataControl.Interfaces"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="InterfacesIterator" id="Delete3" InstanceName="SetupServiceDataControl.Interfaces" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="InterfacesIterator" id="Execute3" InstanceName="SetupServiceDataControl.Interfaces" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

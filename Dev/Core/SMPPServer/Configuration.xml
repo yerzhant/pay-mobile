@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.paysoft.kz/PayMobile/SMPPServer/1.0.0">
+  <database server="supernova:1521/pm.paysoft.kz"
+            a="-49617465925222812556068343116201924486"
+            b="19050042770912955826353"/>
+  <srController address="supernova" port="1556"/>
+  <smsCenter address="supernova" port="2556" priorityFlag="0" protocolId="00"/>
+  <logging level="9" file="smppserver.log"/>
+</configuration>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef" Package="sps">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StatusDetails" RangeSize="-1" DataControl="SetupServiceDataControl" id="StatusDetailsIterator"/>
+    <searchRegion Binds="StatusDetailsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="StatusDetailsQuery"/>
+    <iterator Binds="GlobalParams" RangeSize="-1" DataControl="SetupServiceDataControl" id="GlobalParamsIterator"/>
+    <searchRegion Binds="GlobalParamsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="GlobalParamsQuery"/>
+    <iterator Binds="CipherSuites" RangeSize="-1" DataControl="SetupServiceDataControl" id="CipherSuitesIterator"/>
+    <searchRegion Binds="CipherSuitesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CipherSuitesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="StatusDetailsIterator" id="StatusDetails">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.StatusDetailsView" Name="StatusDetails0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+          <Item Value="SendSms"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="StatusDetailsIterator" id="SmsText">
+      <AttrNames>
+        <Item Value="SmsText"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="GlobalParamsIterator" id="GlobalParams">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.GlobalParamsView" Name="GlobalParams0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Param"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CipherSuitesIterator" id="CipherSuites">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.CipherSuitesView" Name="CipherSuites0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Code"/>
+          <Item Value="ALevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" InstanceName="SetupServiceDataControl" DataControl="SetupServiceDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" InstanceName="SetupServiceDataControl" DataControl="SetupServiceDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="StatusDetailsIterator" id="Execute" InstanceName="SetupServiceDataControl.StatusDetails"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="GlobalParamsIterator" id="CreateInsert1" InstanceName="SetupServiceDataControl.GlobalParams"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="GlobalParamsIterator" id="Delete1" InstanceName="SetupServiceDataControl.GlobalParams" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="GlobalParamsIterator" id="Execute1" InstanceName="SetupServiceDataControl.GlobalParams" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CipherSuitesIterator" id="CreateInsert2" InstanceName="SetupServiceDataControl.CipherSuites"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CipherSuitesIterator" id="Delete2" InstanceName="SetupServiceDataControl.CipherSuites" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CipherSuitesIterator" id="Execute2" InstanceName="SetupServiceDataControl.CipherSuites" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

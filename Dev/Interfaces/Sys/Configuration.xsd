@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.paysoft.kz/PayMobile/SysInterface/1.0.0"
+            targetNamespace="http://www.paysoft.kz/PayMobile/SysInterface/1.0.0"
+            elementFormDefault="qualified">
+  <xsd:element name="configuration">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="database">
+          <xsd:complexType>
+            <xsd:attribute name="server" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="5"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="user" default="INTERFACE">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                  <xsd:maxLength value="30"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="a" type="xsd:integer" use="required"/>
+            <xsd:attribute name="b" type="xsd:integer" use="required"/>
+            <xsd:attribute name="x"
+                           default="-1079113916523382802151481070964371665047962925387329234459"/>
+            <xsd:attribute name="interfaceCode" default="SYS">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="32"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="srController">
+          <xsd:complexType>
+            <xsd:attribute name="address" use="required"/>
+            <xsd:attribute name="port" type="xsd:unsignedShort" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="logging">
+          <xsd:complexType>
+            <xsd:attribute name="level" default="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte"/>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="file" use="required"/>
+            <xsd:attribute name="size" type="xsd:positiveInteger"
+                           default="1048576"/>
+            <xsd:attribute name="delimiter" default=" | "/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

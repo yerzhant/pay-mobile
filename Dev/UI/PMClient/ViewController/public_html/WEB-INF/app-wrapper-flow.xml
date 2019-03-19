@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="app-wrapper-flow">
+    <default-activity id="__1">app-processing-flow</default-activity>
+    <task-flow-call id="app-processing-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/app-processing-flow.xml</document>
+        <id>app-processing-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__2">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__11">toAppProcessing</from-outcome>
+        <to-activity-id id="__5">app-processing-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

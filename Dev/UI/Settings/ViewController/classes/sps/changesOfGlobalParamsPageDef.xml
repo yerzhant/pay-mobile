@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfGlobalParamsPageDef" Package="sps">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CGlobalParams" RangeSize="-1" DataControl="SetupServiceDataControl" id="CGlobalParamsIterator"/>
+    <searchRegion Binds="CGlobalParamsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CGlobalParamsQuery"/>
+    <iterator Binds="CHGlobalParams" RangeSize="-1" DataControl="SetupServiceDataControl" id="CHGlobalParamsIterator"/>
+    <searchRegion Binds="CHGlobalParamsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CHGlobalParamsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CGlobalParamsIterator" id="CGlobalParams">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HGlobalParamsView" Name="CGlobalParams0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Param"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHGlobalParamsIterator" id="CHGlobalParams">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HGlobalParamsView" Name="CHGlobalParams0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Param"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CGlobalParamsIterator" id="Execute" InstanceName="SetupServiceDataControl.CGlobalParams"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHGlobalParamsIterator" id="Execute1" InstanceName="SetupServiceDataControl.CHGlobalParams"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

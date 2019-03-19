@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/WEB-INF/notes-template.jspx" id="pt1">
+    <f:facet name="contents">
+      <af:panelCollection id="pc1">
+        <f:facet name="toolbar">
+          <af:toolbar id="t2">
+            <af:commandToolbarButton actionListener="#{bindings.CreateInsert.execute}"
+                                     text="Добавить"
+                                     disabled="#{!bindings.CreateInsert.enabled}"
+                                     id="createAppAccount"
+                                     partialTriggers="t1"/>
+            <af:commandToolbarButton actionListener="#{bindings.Delete.execute}"
+                                     text="Удалить"
+                                     disabled="#{!bindings.Delete.enabled}"
+                                     id="deleteAppAccount"
+                                     partialTriggers="t1"/>
+          </af:toolbar>
+        </f:facet>
+        <af:table value="#{bindings.AppAccounts.collectionModel}" var="row"
+                  rows="#{bindings.AppAccounts.rangeSize}"
+                  emptyText="Для добавления счета нажмите кнопку &quot;Добавить&quot;."
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.AppAccounts.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.AppAccounts.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t1" editingMode="clickToEdit"
+                  partialTriggers="::createAppAccount ::deleteAppAccount"
+                  fetchSize="0" summary="Счета">
+          <af:column sortProperty="Kind" sortable="true"
+                     headerText="#{bindings.AppAccounts.hints.Kind.label}*"
+                     id="c2">
+            <af:selectOneChoice value="#{row.bindings.Kind.inputValue}"
+                                label="#{row.bindings.Kind.label}"
+                                required="#{bindings.AppAccounts.hints.Kind.mandatory}"
+                                shortDesc="#{bindings.AppAccounts.hints.Kind.tooltip}"
+                                id="soc1">
+              <f:selectItems value="#{row.bindings.Kind.items}" id="si4"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="Interface" sortable="true"
+                     headerText="#{bindings.AppAccounts.hints.Interface.label}*"
+                     id="c5">
+            <af:selectOneChoice value="#{row.bindings.Interface.inputValue}"
+                                label="#{row.bindings.Interface.label}"
+                                required="#{bindings.AppAccounts.hints.Interface.mandatory}"
+                                shortDesc="#{bindings.AppAccounts.hints.Interface.tooltip}"
+                                id="soc4">
+              <f:selectItems value="#{row.bindings.Interface.items}" id="si3"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="ANumber" sortable="true"
+                     headerText="#{bindings.AppAccounts.hints.ANumber.label}*"
+                     id="c10">
+            <af:inputText value="#{row.bindings.ANumber.inputValue}"
+                          label="#{bindings.AppAccounts.hints.ANumber.label}"
+                          required="#{bindings.AppAccounts.hints.ANumber.mandatory}"
+                          columns="#{bindings.AppAccounts.hints.ANumber.displayWidth}"
+                          maximumLength="#{bindings.AppAccounts.hints.ANumber.precision}"
+                          shortDesc="#{bindings.AppAccounts.hints.ANumber.tooltip}"
+                          id="it5">
+              <f:validator binding="#{row.bindings.ANumber.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="Name" sortable="true"
+                     headerText="#{bindings.AppAccounts.hints.Name.label}*"
+                     id="c7" rowHeader="true">
+            <af:inputText value="#{row.bindings.Name.inputValue}"
+                          label="#{bindings.AppAccounts.hints.Name.label}"
+                          required="#{bindings.AppAccounts.hints.Name.mandatory}"
+                          columns="#{bindings.AppAccounts.hints.Name.displayWidth}"
+                          maximumLength="#{bindings.AppAccounts.hints.Name.precision}"
+                          shortDesc="#{bindings.AppAccounts.hints.Name.tooltip}"
+                          id="it1">
+              <f:validator binding="#{row.bindings.Name.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="Priority" sortable="true"
+                     headerText="#{bindings.AppAccounts.hints.Priority.label}"
+                     id="c1">
+            <af:inputText value="#{row.bindings.Priority.inputValue}"
+                          label="#{bindings.AppAccounts.hints.Priority.label}"
+                          required="#{bindings.AppAccounts.hints.Priority.mandatory}"
+                          columns="#{bindings.AppAccounts.hints.Priority.displayWidth}"
+                          maximumLength="#{bindings.AppAccounts.hints.Priority.precision}"
+                          shortDesc="#{bindings.AppAccounts.hints.Priority.tooltip}"
+                          id="it10">
+              <f:validator binding="#{row.bindings.Priority.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AppAccounts.hints.Priority.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column id="c15" headerText="Разовые">
+            <af:column sortProperty="SingleAmount" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.SingleAmount.label}"
+                       id="c20">
+              <af:inputText value="#{row.bindings.SingleAmount.inputValue}"
+                            label="#{bindings.AppAccounts.hints.SingleAmount.label}"
+                            required="#{bindings.AppAccounts.hints.SingleAmount.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.SingleAmount.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.SingleAmount.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.SingleAmount.tooltip}"
+                            id="it6">
+                <f:validator binding="#{row.bindings.SingleAmount.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.SingleAmount.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="SingleCurrency" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.SingleCurrency.label}"
+                       id="c3">
+              <af:selectOneChoice value="#{row.bindings.SingleCurrency.inputValue}"
+                                  label="#{row.bindings.SingleCurrency.label}"
+                                  required="#{bindings.AppAccounts.hints.SingleCurrency.mandatory}"
+                                  shortDesc="#{bindings.AppAccounts.hints.SingleCurrency.tooltip}"
+                                  id="soc5">
+                <f:selectItems value="#{row.bindings.SingleCurrency.items}"
+                               id="si2"/>
+              </af:selectOneChoice>
+            </af:column>
+          </af:column>
+          <af:column id="c11" headerText="Суточные">
+            <af:column sortProperty="DayAmount" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.DayAmount.label}"
+                       id="c16">
+              <af:inputText value="#{row.bindings.DayAmount.inputValue}"
+                            label="#{bindings.AppAccounts.hints.DayAmount.label}"
+                            required="#{bindings.AppAccounts.hints.DayAmount.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.DayAmount.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.DayAmount.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.DayAmount.tooltip}"
+                            id="it2">
+                <f:validator binding="#{row.bindings.DayAmount.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.DayAmount.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="DayCurrency" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.DayCurrency.label}"
+                       id="c12">
+              <af:selectOneChoice value="#{row.bindings.DayCurrency.inputValue}"
+                                  label="#{row.bindings.DayCurrency.label}"
+                                  required="#{bindings.AppAccounts.hints.DayCurrency.mandatory}"
+                                  shortDesc="#{bindings.AppAccounts.hints.DayCurrency.tooltip}"
+                                  id="soc3">
+                <f:selectItems value="#{row.bindings.DayCurrency.items}"
+                               id="si5"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="DayQuantity" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.DayQuantity.label}"
+                       id="c13">
+              <af:inputText value="#{row.bindings.DayQuantity.inputValue}"
+                            label="#{bindings.AppAccounts.hints.DayQuantity.label}"
+                            required="#{bindings.AppAccounts.hints.DayQuantity.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.DayQuantity.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.DayQuantity.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.DayQuantity.tooltip}"
+                            id="it9">
+                <f:validator binding="#{row.bindings.DayQuantity.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.DayQuantity.format}"/>
+              </af:inputText>
+            </af:column>
+          </af:column>
+          <af:column id="c6" headerText="Месячные">
+            <af:column sortProperty="MonthAmount" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.MonthAmount.label}"
+                       id="c14">
+              <af:inputText value="#{row.bindings.MonthAmount.inputValue}"
+                            label="#{bindings.AppAccounts.hints.MonthAmount.label}"
+                            required="#{bindings.AppAccounts.hints.MonthAmount.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.MonthAmount.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.MonthAmount.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.MonthAmount.tooltip}"
+                            id="it8">
+                <f:validator binding="#{row.bindings.MonthAmount.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.MonthAmount.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="MonthCurrency" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.MonthCurrency.label}"
+                       id="c22">
+              <af:selectOneChoice value="#{row.bindings.MonthCurrency.inputValue}"
+                                  label="#{row.bindings.MonthCurrency.label}"
+                                  required="#{bindings.AppAccounts.hints.MonthCurrency.mandatory}"
+                                  shortDesc="#{bindings.AppAccounts.hints.MonthCurrency.tooltip}"
+                                  id="soc2">
+                <f:selectItems value="#{row.bindings.MonthCurrency.items}"
+                               id="si1"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="MonthQuantity" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.MonthQuantity.label}"
+                       id="c21">
+              <af:inputText value="#{row.bindings.MonthQuantity.inputValue}"
+                            label="#{bindings.AppAccounts.hints.MonthQuantity.label}"
+                            required="#{bindings.AppAccounts.hints.MonthQuantity.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.MonthQuantity.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.MonthQuantity.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.MonthQuantity.tooltip}"
+                            id="it4">
+                <f:validator binding="#{row.bindings.MonthQuantity.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.MonthQuantity.format}"/>
+              </af:inputText>
+            </af:column>
+          </af:column>
+          <af:column headerText="С" id="c18">
+            <af:column sortProperty="FromHour" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.FromHour.label}"
+                       id="c4">
+              <af:inputText value="#{row.bindings.FromHour.inputValue}"
+                            label="#{bindings.AppAccounts.hints.FromHour.label}"
+                            required="#{bindings.AppAccounts.hints.FromHour.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.FromHour.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.FromHour.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.FromHour.tooltip}"
+                            id="it11">
+                <f:validator binding="#{row.bindings.FromHour.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.FromHour.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="FromMin" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.FromMin.label}"
+                       id="c8">
+              <af:inputText value="#{row.bindings.FromMin.inputValue}"
+                            label="#{bindings.AppAccounts.hints.FromMin.label}"
+                            required="#{bindings.AppAccounts.hints.FromMin.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.FromMin.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.FromMin.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.FromMin.tooltip}"
+                            id="it7">
+                <f:validator binding="#{row.bindings.FromMin.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.FromMin.format}"/>
+              </af:inputText>
+            </af:column>
+          </af:column>
+          <af:column headerText="По" id="c17">
+            <af:column sortProperty="ToHour" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.ToHour.label}"
+                       id="c19">
+              <af:inputText value="#{row.bindings.ToHour.inputValue}"
+                            label="#{bindings.AppAccounts.hints.ToHour.label}"
+                            required="#{bindings.AppAccounts.hints.ToHour.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.ToHour.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.ToHour.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.ToHour.tooltip}"
+                            id="it3">
+                <f:validator binding="#{row.bindings.ToHour.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.ToHour.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="ToMin" sortable="true"
+                       headerText="#{bindings.AppAccounts.hints.ToMin.label}"
+                       id="c9">
+              <af:inputText value="#{row.bindings.ToMin.inputValue}"
+                            label="#{bindings.AppAccounts.hints.ToMin.label}"
+                            required="#{bindings.AppAccounts.hints.ToMin.mandatory}"
+                            columns="#{bindings.AppAccounts.hints.ToMin.displayWidth}"
+                            maximumLength="#{bindings.AppAccounts.hints.ToMin.precision}"
+                            shortDesc="#{bindings.AppAccounts.hints.ToMin.tooltip}"
+                            id="it12">
+                <f:validator binding="#{row.bindings.ToMin.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AppAccounts.hints.ToMin.format}"/>
+              </af:inputText>
+            </af:column>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </f:facet>
+    <f:attribute name="height" value="150"/>
+    <f:attribute name="register" value="true"/>
+    <f:facet name="notes">
+      <af:panelList id="pl1">
+        <af:outputText value="Обязательные поля обозначены звездочкой." id="ot2"/>
+        <af:outputText value="Приоритет задает порядок отображения списка счетов в телефоне."
+                       id="ot3"/>
+        <af:outputText value="Предельные значения ограничителей включаются в диапазон разрешенных значений." id="ot1"/>
+        <af:outputText value="Указание суммы не предполагает обязательного заполнения соответствующего количества, и наоборот." id="ot4"/>
+        <af:outputText value="Разовая сумма может быть равной 0. Это равносильно отключению финансовых операций, т.о. остаются только информационные." id="ot7"/>
+        <af:outputText value="Суточные ограничения действуют с 00:00 по 23:59." id="ot5"/>
+        <af:outputText value="Месячные ограничения действуют с первого числа каждого месяца по последнее число того же месяца." id="ot6"/>
+      </af:panelList>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

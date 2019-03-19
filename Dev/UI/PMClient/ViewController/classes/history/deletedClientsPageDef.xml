@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedClientsPageDef" Package="history">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DClients" RangeSize="25" DataControl="PMClientServiceDataControl" id="DClientsIterator"/>
+    <searchRegion Binds="DClientsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DClientsQuery"/>
+    <iterator Binds="DHClients" RangeSize="25" DataControl="PMClientServiceDataControl" id="DHClientsIterator"/>
+    <searchRegion Binds="DHClientsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHClientsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DClientsIterator" id="DClients">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.ClientsView" Name="DClients0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="CountryId"/>
+          <Item Value="DocTypeId"/>
+          <Item Value="DocId"/>
+          <Item Value="BranchId"/>
+          <Item Value="LastName"/>
+          <Item Value="FirstName"/>
+          <Item Value="BirthDate"/>
+          <Item Value="DocDate"/>
+          <Item Value="DocIssuer"/>
+          <Item Value="Address"/>
+          <Item Value="MiddleName"/>
+          <Item Value="TaxPayerId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHClientsIterator" id="DHClients">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.HClientsView" Name="DHClients0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="CountryId"/>
+          <Item Value="DocTypeId"/>
+          <Item Value="DocId"/>
+          <Item Value="BranchId"/>
+          <Item Value="LastName"/>
+          <Item Value="FirstName"/>
+          <Item Value="BirthDate"/>
+          <Item Value="DocDate"/>
+          <Item Value="DocIssuer"/>
+          <Item Value="Address"/>
+          <Item Value="MiddleName"/>
+          <Item Value="TaxPayerId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DClientsIterator" id="Execute" InstanceName="PMClientServiceDataControl.DClients" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

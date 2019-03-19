@@ -1,0 +1,10 @@
+insert into sr_types(user$, name, send_sms) values (user, 'Test', 'Y');
+delete from srs where id$ = 1;
+insert into srs(id$, phone_number, csi, status, sr_type_id$, status_detail) values (111, '123456789', 111, 'A', 2, 1);
+commit;
+select * from sr_types;
+select * from srs;
+select * from active_srs;
+select * from messages;
+select * from system_log;
+select to_char(a_date, 'YYYY.MM.DD HH:MI:SS.SSSSS') from messages;

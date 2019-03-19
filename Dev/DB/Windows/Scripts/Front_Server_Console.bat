@@ -1,0 +1,1 @@
+sqlplus front_server/qwerty@devpm

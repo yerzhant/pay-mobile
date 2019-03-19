@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>Main</display-name>
+        <facet>
+          <facet-name>contents</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>
+            title
+          </attribute-name>
+          <attribute-class>
+            java.lang.String
+          </attribute-class>
+          <default-value>
+            Title
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            top
+          </attribute-name>
+          <attribute-class>
+            int
+          </attribute-class>
+          <default-value>
+            76
+          </default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+    <af:panelStretchLayout id="pt_psl1" bottomHeight="15px"
+                           topHeight="#{attrs.top}">
+      <f:facet name="bottom">
+        <af:panelGroupLayout id="pt_pgl2">
+          <div align="right">
+            <af:outputFormatted value="Copyright &amp;copy; 2010 &lt;a href=&quot;http://www.paysoft.kz&quot;>PaySoft, LLP&lt;/a>. All rights reserved."
+                                id="pt_ot2" styleClass="Copyright"/><af:spacer width="10" id="pt_s2"/>
+          </div>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="center">
+        <af:decorativeBox id="pt_db1">
+          <f:facet name="center">
+            <af:facetRef facetName="contents"/>
+          </f:facet>
+        </af:decorativeBox>
+      </f:facet>
+      <f:facet name="top">
+        <af:panelStretchLayout id="pt_psl2" endWidth="200px">
+          <f:facet name="center">
+            <af:panelGroupLayout xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pt_pgl3" layout="horizontal">
+              <af:image source="/images/pay-mobile.png" id="pt_i1"
+                        shortDesc="PayMobile Logo."/>
+              <af:outputText value="#{attrs.title}" id="pt_ot1"
+                             styleClass="Title"/>
+              <f:facet name="separator">
+                <af:spacer width="50" id="pt_s1"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="end">
+            <af:panelGroupLayout id="pt_pgl1" layout="vertical">
+              <af:spacer height="10" id="pt_s3"/>
+              <af:panelGroupLayout id="pt_pgl4" layout="horizontal"
+                                   halign="end" valign="top">
+                <af:goImageLink text="Выйти" id="pt_gil1" destination="/adfAuthentication?logout=true&amp;end_url=/faces/pmClient"
+                                rendered="#{securityContext.authenticated}"/>
+                <af:statusIndicator id="pt_si1"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" id="pt_s4"/>
+                </f:facet>
+                <af:spacer id="pt_s5"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </f:facet>
+    </af:panelStretchLayout>
+  </af:pageTemplateDef>
+</jsp:root>

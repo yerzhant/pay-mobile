@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">error</property>
+      <property
+         name="page">/error.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>error&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">true</property>
+      <property
+         name="y">382.99414</property>
+      <property
+         name="x">713.5</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">setup</property>
+      <property
+         name="page">/setup.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setup&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">382.84473</property>
+      <property
+         name="x">503.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">toSetup</property>
+      <property
+         name="sdm:polyPoints">L50,672.5,382.64355,544.0,382.49414,R50</property>
+   </ControlFlowCase>
+</SDM>

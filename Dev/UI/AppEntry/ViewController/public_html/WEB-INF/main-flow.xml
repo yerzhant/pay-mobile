@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="main-flow">
+    <default-activity id="__1">enroll-flow</default-activity>
+    <no-save-point/>
+    <data-control-scope id="__3">
+      <isolated/>
+    </data-control-scope>
+    <task-flow-call id="enroll-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/enroll-flow.xml</document>
+        <id>enroll-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <view id="confirmation">
+      <page>/confirmation.jsff</page>
+    </view>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">enroll-flow</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__15">toConfirmation</from-outcome>
+        <to-activity-id id="__14">confirmation</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

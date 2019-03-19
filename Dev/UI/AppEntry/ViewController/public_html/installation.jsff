@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/WEB-INF/enroll-template.jspx" id="pt1">
+    <f:facet name="contents">
+      <af:panelList id="pl1">
+        <af:outputText value="Убедитесь в наличии безопасного соединения к настоящему узлу (о том, как это узнать см. справку Вашего обозревателя)." id="ot1"/>
+        <af:outputText value="Выпишите полный адрес этой страницы." id="ot2"/>
+        <af:outputText value="Удалите старый неиспользуемый мидлет этой системы и этого банка, если таковой имеется." id="ot3"/>
+        <af:outputText value="Зайдите с телефона на сайт по адресу www и удостоверьтесь, что подключение защищено." id="ot4"/>
+        <af:outputFormatted value="Произведите установку мидлета. Поставщик &lt;b>обязательно&lt;/b> должен быть PaySoft, LLP." id="of1"/>
+      </af:panelList>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

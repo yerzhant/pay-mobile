@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:decorativeBox id="pt_db1" topHeight="80px" theme="light">
+      <f:facet name="center">
+        <af:panelGroupLayout
+                             xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                             id="pt_pgl5" layout="scroll">
+          <af:panelGroupLayout id="pt_pgl4" layout="horizontal" halign="center">
+            <af:facetRef facetName="contents"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="top">
+        <af:panelGroupLayout id="pt_pgl1" layout="vertical">
+          <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="center">
+            <af:train id="pt_t1"
+                      value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                      rendered="#{attrs.showTrain}"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pt_pgl3" layout="horizontal" halign="center">
+            <af:trainButtonBar id="pt_tbb1"
+                               value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                               rendered="#{attrs.showTrain}"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:decorativeBox>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>Enroll</display-name>
+        <facet>
+          <facet-name>contents</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>
+            showTrain
+          </attribute-name>
+          <attribute-class>
+            boolean
+          </attribute-class>
+          <default-value>
+            true
+          </default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>

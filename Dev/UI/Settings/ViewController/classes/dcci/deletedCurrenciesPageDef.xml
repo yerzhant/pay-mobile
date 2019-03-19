@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedCurrenciesPageDef" Package="dcci">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DCurrencies" RangeSize="-1" DataControl="SetupServiceDataControl" id="DCurrenciesIterator"/>
+    <searchRegion Binds="DCurrenciesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DCurrenciesQuery"/>
+    <iterator Binds="DHCurrencies" RangeSize="-1" DataControl="SetupServiceDataControl" id="DHCurrenciesIterator"/>
+    <searchRegion Binds="DHCurrenciesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHCurrenciesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DCurrenciesIterator" id="DCurrencies">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HCurrenciesView" Name="DCurrencies0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHCurrenciesIterator" id="DHCurrencies">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HCurrenciesView" Name="DHCurrencies0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DCurrenciesIterator" id="Execute" InstanceName="SetupServiceDataControl.DCurrencies" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DHCurrenciesIterator" id="Execute1" InstanceName="SetupServiceDataControl.DHCurrencies" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

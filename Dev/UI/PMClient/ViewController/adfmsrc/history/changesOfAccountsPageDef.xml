@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfAccountsPageDef" Package="history">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CContracts" RangeSize="25" DataControl="PMClientServiceDataControl" id="CContractsIterator"/>
+    <searchRegion Binds="CContractsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CContractsQuery"/>
+    <iterator Binds="CAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="CAccountsIterator"/>
+    <searchRegion Binds="CAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CAccountsQuery"/>
+    <iterator Binds="CHAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="CHAccountsIterator"/>
+    <searchRegion Binds="CHAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CHAccountsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CContractsIterator" id="CContracts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.ContractsView" Name="CContracts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Status"/>
+          <Item Value="OpenDate"/>
+          <Item Value="AppliedAt"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="PasswordTries"/>
+          <Item Value="CloseDate"/>
+          <Item Value="ANumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CAccountsIterator" id="CAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.AccountsView" Name="CAccounts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHAccountsIterator" id="CHAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.AccountsView" Name="CHAccounts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CContractsIterator" id="Execute" InstanceName="PMClientServiceDataControl.CContracts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

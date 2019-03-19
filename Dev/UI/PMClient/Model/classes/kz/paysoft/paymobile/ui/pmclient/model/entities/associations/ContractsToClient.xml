@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContractsToClient"
+  Version="11.1.1.56.60"
+  Where=":Bind_Id = Contract.CLIENT_ID$ AND Contract.STATUS$ = 'C'"
+  WhereReverse=":Bind_ClientId = Client.ID$ AND Client.STATUS$ = 'C'">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Client"
+    Cardinality="1"
+    Source="true"
+    Owner="kz.paysoft.paymobile.ui.pmclient.model.entities.Client"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Client"/>
+      <Attr Name="_foreignKey" Value="kz.paysoft.paymobile.ui.pmclient.model.entities.Client.ClientsPkId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.pmclient.model.entities.Client.Id"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Contract"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.pmclient.model.entities.Contract"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Contract"/>
+      <Attr Name="_foreignKey" Value="kz.paysoft.paymobile.ui.pmclient.model.entities.Contract.ContractsFkClientId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.pmclient.model.entities.Contract.ClientId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

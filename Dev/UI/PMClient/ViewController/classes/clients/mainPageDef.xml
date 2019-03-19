@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef" Package="clients">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Clients" RangeSize="25" DataControl="PMClientServiceDataControl" id="ClientsIterator"/>
+    <searchRegion Criteria="ClientsByDocIdCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="ClientsIterator"
+                  id="ClientsByDocIdCriteriaQuery"/>
+    <iterator Binds="ClientContracts" RangeSize="25" DataControl="PMClientServiceDataControl" id="ClientContractsIterator"/>
+    <searchRegion Binds="ClientContractsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ClientContractsQuery"/>
+    <iterator Binds="ClientAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="ClientAccountsIterator"/>
+    <searchRegion Binds="ClientAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ClientAccountsQuery"/>
+    <iterator Binds="ClientSrs" RangeSize="25" DataControl="PMClientServiceDataControl" id="ClientSrsIterator"/>
+    <searchRegion Binds="ClientSrsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClientSrsQuery"/>
+    <iterator Binds="ClientSystemLog" RangeSize="25" DataControl="PMClientServiceDataControl" id="ClientSystemLogIterator"/>
+    <searchRegion Binds="ClientSystemLogIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ClientSystemLogQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ClientsIterator" id="Clients">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.ClientsView" Name="Clients0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="LastName"/>
+          <Item Value="FirstName"/>
+          <Item Value="MiddleName"/>
+          <Item Value="BirthDate"/>
+          <Item Value="DocTypeId"/>
+          <Item Value="DocId"/>
+          <Item Value="DocDate"/>
+          <Item Value="DocIssuer"/>
+          <Item Value="CountryId"/>
+          <Item Value="BranchId"/>
+          <Item Value="Address"/>
+          <Item Value="TaxPayerId"/>
+          <Item Value="FromDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ClientContractsIterator" id="ClientContracts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.ContractsView" Name="ClientContracts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Status"/>
+          <Item Value="OpenDate"/>
+          <Item Value="AppliedAt"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="PasswordTries"/>
+          <Item Value="CloseDate"/>
+          <Item Value="ANumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ClientsIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="MiddleName">
+      <AttrNames>
+        <Item Value="MiddleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="BirthDate">
+      <AttrNames>
+        <Item Value="BirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ClientsIterator" StaticList="false" Uses="LOV_DocTypeId" id="DocTypeId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ClientsIterator" id="DocId">
+      <AttrNames>
+        <Item Value="DocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="DocDate">
+      <AttrNames>
+        <Item Value="DocDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="DocIssuer">
+      <AttrNames>
+        <Item Value="DocIssuer"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ClientsIterator" StaticList="false" Uses="LOV_CountryId" id="CountryId" DTSupportsMRU="false"/>
+    <list IterBinding="ClientsIterator" StaticList="false" Uses="LOV_BranchId" id="BranchId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ClientsIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="TaxPayerId">
+      <AttrNames>
+        <Item Value="TaxPayerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClientsIterator" id="FromDate">
+      <AttrNames>
+        <Item Value="FromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="PMClientServiceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="PMClientServiceDataControl"/>
+    <tree IterBinding="ClientAccountsIterator" id="ClientAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.AccountsView" Name="ClientAccounts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayTotalAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="DayTotalQuantity"/>
+          <Item Value="DayDate"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthTotalAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="MonthTotalQuantity"/>
+          <Item Value="MonthDate"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ClientSrsIterator" id="ClientSrs">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.SrsView" Name="ClientSrs0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Status"/>
+          <Item Value="ADate"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="CipherSuite"/>
+          <Item Value="InitInterface"/>
+          <Item Value="TypeCode"/>
+          <Item Value="SrTypeId"/>
+          <Item Value="SmsSent"/>
+          <Item Value="StatusDetail"/>
+          <Item Value="SrcName"/>
+          <Item Value="SrcInterface"/>
+          <Item Value="SrcAccount"/>
+          <Item Value="DstName"/>
+          <Item Value="DstInterface"/>
+          <Item Value="DstAccount"/>
+          <Item Value="Amount"/>
+          <Item Value="Currency"/>
+          <Item Value="Ptc"/>
+          <Item Value="Description"/>
+          <Item Value="StType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ClientSystemLogIterator" id="ClientSystemLog">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.SystemLogView" Name="ClientSystemLog0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="OccurredAt"/>
+          <Item Value="Code"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="ClientContractsIterator" id="check" RequiresUpdateModel="true" Action="invokeMethod" MethodName="check"
+                  IsViewObjectMethod="false" DataControl="PMClientServiceDataControl" InstanceName="bindings.ClientContractsIterator.currentRow"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="ClientContractsIterator" id="resetPasswordTries" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="resetPasswordTries" IsViewObjectMethod="false" DataControl="PMClientServiceDataControl"
+                  InstanceName="bindings.ClientContractsIterator.currentRow" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="ClientContractsIterator" id="close" RequiresUpdateModel="true" Action="invokeMethod" MethodName="close"
+                  IsViewObjectMethod="false" DataControl="PMClientServiceDataControl" InstanceName="bindings.ClientContractsIterator.currentRow"
+                  IsLocalObjectReference="true"/>
+    <action IterBinding="ClientsIterator" id="DeleteClient" InstanceName="PMClientServiceDataControl.Clients" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ClientsIterator" id="RefreshClients" InstanceName="PMClientServiceDataControl.Clients" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="ClientContractsIterator" id="DeleteContract" InstanceName="PMClientServiceDataControl.ClientContracts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ClientContractsIterator" id="RefreshContracts" InstanceName="PMClientServiceDataControl.ClientContracts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="ClientAccountsIterator" id="AddAccount" InstanceName="PMClientServiceDataControl.ClientAccounts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ClientAccountsIterator" id="DeleteAccount" InstanceName="PMClientServiceDataControl.ClientAccounts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ClientAccountsIterator" id="RefreshAccounts" InstanceName="PMClientServiceDataControl.ClientAccounts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="ClientSrsIterator" id="RefreshSrs" InstanceName="PMClientServiceDataControl.ClientSrs" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

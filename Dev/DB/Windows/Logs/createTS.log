@@ -1,0 +1,54 @@
+SQL> CREATE TABLESPACE APP_D   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\app01_d.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> CREATE TABLESPACE APP_I   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\app01_i.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> 
+SQL> CREATE TABLESPACE CONTR_D DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\contr01_d.dbf' SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> CREATE TABLESPACE CONTR_I DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\contr01_i.dbf' SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> 
+SQL> CREATE TABLESPACE DIC_D   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\dic01_d.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> CREATE TABLESPACE DIC_I   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\dic01_i.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> 
+SQL> CREATE TABLESPACE MSG_D   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\msg01_d.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> CREATE TABLESPACE MSG_I   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\msg01_i.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> 
+SQL> CREATE TABLESPACE MISC_D  DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\misc01_d.dbf'  SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> CREATE TABLESPACE MISC_I  DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\misc01_i.dbf'  SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> 
+SQL> CREATE TABLESPACE SR_D    DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\sr01_d.dbf'    SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> CREATE TABLESPACE SR_I    DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\sr01_i.dbf'    SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+Tablespace created.
+
+SQL> spool off

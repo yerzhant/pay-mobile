@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelTabbed id="pt1">
+    <af:showDetailItem text="Удаленные пользователи" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps1" orientation="vertical" positionedFromEnd="true">
+        <f:facet name="first">
+          <dc:TableDef id="td1" baseView="Main" refreshEnabled="#{bindings.RefreshDUsers.enabled}" refresh="#{bindings.RefreshDUsers.execute}"
+                       rows="#{bindings.DUsers.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.DUsers.collectionModel}" var="row" rows="#{bindings.DUsers.rangeSize}"
+                        emptyText="#{bindings.DUsers.viewable ? 'Нет данных.' : 'Доступ запрещен.'}" fetchSize="#{bindings.DUsers.rangeSize}"
+                        rowBandingInterval="0" filterModel="#{bindings.DUsersQuery.queryDescriptor}"
+                        queryListener="#{bindings.DUsersQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.DUsers.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DUsers.collectionModel.makeCurrent}" rowSelection="single" id="t1" summary="Пользователи"
+                        partialTriggers="::dc_refresh">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DUsers.hints.Id.label}" id="c2"
+                           rowHeader="unstyled">
+                  <af:outputText value="#{row.Id}" id="ot1">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DUsers.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DUsers.hints.Date.label}" id="c5">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id1" label="Дата"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot3">
+                    <af:convertDateTime pattern="#{bindings.DUsers.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="UserName" filterable="true" sortable="true" headerText="#{bindings.DUsers.hints.UserName.label}" id="c1">
+                  <af:outputText value="#{row.UserName}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="SysName" filterable="true" sortable="true" headerText="#{bindings.DUsers.hints.SysName.label}" id="c4">
+                  <af:outputText value="#{row.SysName}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="FullName" filterable="true" sortable="true" headerText="#{bindings.DUsers.hints.FullName.label}" id="c3">
+                  <af:outputText value="#{row.FullName}" id="ot4"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td2" baseView="Main" refreshEnabled="#{bindings.RefreshDHUsers.enabled}" refresh="#{bindings.RefreshDHUsers.execute}"
+                       rows="#{bindings.DHUsers.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.DHUsers.collectionModel}" var="row" rows="#{bindings.DHUsers.rangeSize}"
+                        emptyText="#{bindings.DHUsers.viewable ? 'Нет данных.' : 'Доступ запрещен.'}" fetchSize="#{bindings.DHUsers.rangeSize}"
+                        rowBandingInterval="0" filterModel="#{bindings.DHUsersQuery.queryDescriptor}"
+                        queryListener="#{bindings.DHUsersQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.DHUsers.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DHUsers.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                        partialTriggers="::::td1:dc_pc1:t1 ::dc_refresh" summary="Пользователи">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DHUsers.hints.Id.label}" id="c9"
+                           rowHeader="unstyled">
+                  <af:outputText value="#{row.Id}" id="ot10">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DHUsers.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DHUsers.hints.Date.label}" id="c8">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id2" label="Дата"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot8">
+                    <af:convertDateTime pattern="#{bindings.DHUsers.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="UserName" filterable="true" sortable="true" headerText="#{bindings.DHUsers.hints.UserName.label}" id="c7">
+                  <af:outputText value="#{row.UserName}" id="ot6"/>
+                </af:column>
+                <af:column sortProperty="SysName" filterable="true" sortable="true" headerText="#{bindings.DHUsers.hints.SysName.label}" id="c10">
+                  <af:outputText value="#{row.SysName}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="FullName" filterable="true" sortable="true" headerText="#{bindings.DHUsers.hints.FullName.label}" id="c6">
+                  <af:outputText value="#{row.FullName}" id="ot9"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

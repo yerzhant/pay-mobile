@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HCipherSuitesLink"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="HCipherSuitesView"
+    Cardinality="1"
+    Owner="kz.paysoft.paymobile.ui.setup.model.history.HCipherSuitesView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="HCipherSuitesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.history.HCipherSuitesView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="IdHCipherSuitesView"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.setup.model.history.HCipherSuitesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="IdHCipherSuitesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.history.HCipherSuitesView.Cid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

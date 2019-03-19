@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.56.60" id="DataBindings" SeparateXMLFiles="false"
+             Package="kz.paysoft.paymobile.ui.security.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/security.jspx"
+          usageId="kz_paysoft_paymobile_ui_security_view_securityPageDef"/>
+    <page path="/main.jsff"
+          usageId="kz_paysoft_paymobile_ui_security_view_mainPageDef"/>
+    <page path="/changesOfUsers.jsff" usageId="kz_paysoft_paymobile_ui_security_view_changesOfUsersPageDef"/>
+    <page path="/deletedUsers.jsff" usageId="kz_paysoft_paymobile_ui_security_view_deletedUsersPageDef"/>
+    <page path="/changesOfUsersBranches.jsff" usageId="kz_paysoft_paymobile_ui_security_view_changesOfUsersBranchesPageDef"/>
+    <page path="/deletedUsersBranches.jsff" usageId="kz_paysoft_paymobile_ui_security_view_deletedUsersBranchesPageDef"/>
+    <page path="/deletedBranches.jsff" usageId="kz_paysoft_paymobile_ui_security_view_deletedBranchesPageDef"/>
+    <page path="/changesOfBranches.jsff" usageId="kz_paysoft_paymobile_ui_security_view_changesOfBranchesPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="kz_paysoft_paymobile_ui_security_view_securityPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.securityPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_mainPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_changesOfUsersPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.changesOfUsersPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_deletedUsersPageDef" path="kz.paysoft.paymobile.ui.security.view.pageDefs.deletedUsersPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_changesOfUsersBranchesPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.changesOfUsersBranchesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_deletedUsersBranchesPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.deletedUsersBranchesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_deletedBranchesPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.deletedBranchesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_security_view_changesOfBranchesPageDef"
+          path="kz.paysoft.paymobile.ui.security.view.pageDefs.changesOfBranchesPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="SecurityServiceDataControl"
+                     Package="kz.paysoft.paymobile.ui.security.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="SecurityServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

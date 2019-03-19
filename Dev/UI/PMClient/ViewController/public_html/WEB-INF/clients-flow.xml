@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="clients-flow">
+    <default-activity id="__1">main</default-activity>
+    <view id="main">
+      <page>/clients/main.jsff</page>
+    </view>
+    <view id="changesOfClients">
+      <page>/history/changesOfClients.jsff</page>
+    </view>
+    <view id="deletedClients">
+      <page>/history/deletedClients.jsff</page>
+    </view>
+    <view id="changesOfAccounts">
+      <page>/history/changesOfAccounts.jsff</page>
+    </view>
+    <view id="deletedAccounts">
+      <page>/history/deletedAccounts.jsff</page>
+    </view>
+    <view id="changesOfContracts">
+      <page>/history/changesOfContracts.jsff</page>
+    </view>
+    <view id="deletedContracts">
+      <page>/history/deletedContracts.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">toMain</from-outcome>
+        <to-activity-id id="__5">main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">main</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">toChangesOfClients</from-outcome>
+        <to-activity-id id="__10">changesOfClients</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__14">toDeletedClients</from-outcome>
+        <to-activity-id id="__13">deletedClients</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">toChangesOfAccounts</from-outcome>
+        <to-activity-id id="__16">changesOfAccounts</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome id="__20">toDeletedAccounts</from-outcome>
+        <to-activity-id id="__18">deletedAccounts</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome id="__23">toChangesOfContracts</from-outcome>
+        <to-activity-id id="__22">changesOfContracts</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome id="__26">toDeletedContracts</from-outcome>
+        <to-activity-id id="__25">deletedContracts</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

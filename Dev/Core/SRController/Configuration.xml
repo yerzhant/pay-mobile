@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.paysoft.kz/PayMobile/SRController/1.0.0">
+  <database server="supernova:1521/pm.paysoft.kz"
+            a="-49617465925222812556068343116201924486"
+            b="19050042770912955826353"/>
+  <crypto storeType="JCEKS" a="139207498776705072573935027716238857170359375303015469613"
+          b="19048873547427887560206">
+    <key id="1"/>
+  </crypto>
+  <server frontServerPort="1555" smppServerPort="1556" interfacePort="1557"
+          processorId="1" timeOut="300"/>
+  <logging level="9" file="srcontroller.log"/>
+</configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60"
+                id="app_processing_flow_app_processing_flow_prepareToDeclinePageDef" Package="kz.paysoft.paymobile.ui.pmclient.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="Applications" RangeSize="25" DataControl="PMClientServiceDataControl" id="ApplicationsIterator"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="ApplicationsIterator" id="prepareToDecline" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="prepareToDecline" IsViewObjectMethod="false" DataControl="PMClientServiceDataControl"
+                  InstanceName="bindings.ApplicationsIterator.currentRow" IsLocalObjectReference="true"/>
+  </bindings>
+</pageDefinition>

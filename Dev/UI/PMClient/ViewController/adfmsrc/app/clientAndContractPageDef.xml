@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="clientAndContractPageDef" Package="app">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AppClient" RangeSize="25" DataControl="PMClientServiceDataControl" id="AppClientIterator"/>
+    <iterator Binds="AppContract" RangeSize="25" DataControl="PMClientServiceDataControl" id="AppContractIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AppClientIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="MiddleName">
+      <AttrNames>
+        <Item Value="MiddleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="BirthDate">
+      <AttrNames>
+        <Item Value="BirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="TaxPayerId">
+      <AttrNames>
+        <Item Value="TaxPayerId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AppClientIterator" StaticList="false" Uses="LOV_DocTypeId" id="DocTypeId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="AppClientIterator" id="DocId">
+      <AttrNames>
+        <Item Value="DocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="DocDate">
+      <AttrNames>
+        <Item Value="DocDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="DocIssuer">
+      <AttrNames>
+        <Item Value="DocIssuer"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AppClientIterator" StaticList="false" Uses="LOV_CountryId" id="CountryId" DTSupportsMRU="false"/>
+    <list IterBinding="AppClientIterator" StaticList="false" Uses="LOV_BranchId" id="BranchId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="AppClientIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppContractIterator" id="AppliedAt">
+      <AttrNames>
+        <Item Value="AppliedAt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppContractIterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppContractIterator" id="ANumber">
+      <AttrNames>
+        <Item Value="ANumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppClientIterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

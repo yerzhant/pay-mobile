@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.paysoft.kz/PayMobile/FrontServer/1.0.0"
+            targetNamespace="http://www.paysoft.kz/PayMobile/FrontServer/1.0.0"
+            elementFormDefault="qualified">
+  <xsd:element name="configuration">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="database">
+          <xsd:complexType>
+            <xsd:attribute name="server" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="5"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="user" default="FRONT_SERVER">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                  <xsd:maxLength value="30"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="a" type="xsd:integer" use="required"/>
+            <xsd:attribute name="b" type="xsd:integer" use="required"/>
+            <xsd:attribute name="x"
+                           default="-1079113916523382802151481070964371665047962925387329234459"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="srController">
+          <xsd:complexType>
+            <xsd:attribute name="address" use="required"/>
+            <xsd:attribute name="port" type="xsd:unsignedShort" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="crypto">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="cipherSuite" maxOccurs="unbounded"
+                           minOccurs="0">
+                <xsd:complexType>
+                  <xsd:attribute name="name" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="storeType" default="nCipher.sworld">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="nCipher.sworld"/>
+                  <xsd:enumeration value="JCEKS"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="store" default="keystore.ks"/>
+            <xsd:attribute name="keyId" type="xsd:unsignedByte" use="required"/>
+            <xsd:attribute name="a" type="xsd:integer" use="required"/>
+            <xsd:attribute name="b" type="xsd:integer" use="required"/>
+            <xsd:attribute name="x"
+                           default="-1079113916523382802151481070964371665047962925387329234459"/>
+            <xsd:attribute name="sai" default="1">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte">
+                  <xsd:minInclusive value="1"/>
+                  <xsd:maxInclusive value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="provider" default="nCipherKM">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="nCipherKM"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="srAlgorithm" default="RND">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="RND"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="server">
+          <xsd:complexType>
+            <xsd:attribute name="port" use="required" type="xsd:unsignedShort"/>
+            <xsd:attribute name="timeOut" type="xsd:positiveInteger"
+                           default="120"/>
+            <xsd:attribute name="processorId" type="xsd:unsignedShort"
+                           use="required"/>
+            <xsd:attribute name="interface" default="FRONT">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="32"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="closeTime" type="xsd:positiveInteger" default="15"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="passwordValidation" minOccurs="1">
+          <xsd:complexType>
+            <xsd:attribute name="minLength" default="8"
+                           type="xsd:unsignedByte"/>
+            <xsd:attribute name="maxLength" default="127"
+                           type="xsd:unsignedByte"/>
+            <xsd:attribute name="minNumbers" type="xsd:unsignedByte" default="1"/>
+            <xsd:attribute name="minLetters" type="xsd:unsignedByte" default="1"/>
+            <xsd:attribute name="minSpecials" type="xsd:unsignedByte"
+                           default="1"/>
+            <xsd:attribute name="maxTries" type="xsd:unsignedByte"
+                           default="3"/>
+            <xsd:attribute name="factor" type="xsd:unsignedInt"
+                           default="1024"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="logging">
+          <xsd:complexType>
+            <xsd:attribute name="level" default="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte"/>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="file" use="required"/>
+            <xsd:attribute name="size" type="xsd:positiveInteger"
+                           default="1048576"/>
+            <xsd:attribute name="delimiter" default=" | "/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,643 @@
+2010-04-29 08:59:38.437 | Sys interface started.
+2010-04-29 08:59:39.609 | Sys interface stopped.
+2010-04-29 18:01:23.546 | Sys interface started.
+2010-04-29 18:01:56.671 | Sys interface started.
+2010-04-29 18:01:57.781 | Sys interface stopped.
+2010-04-29 19:02:20.843 | Sys interface started.
+2010-04-29 19:02:21.265 | Connected to the database.
+2010-04-29 19:02:22.250 | Disconnected from the database.
+2010-04-29 19:02:22.250 | Sys interface stopped.
+2010-04-29 19:02:51.468 | Sys interface started.
+2010-04-29 19:02:51.890 | Connected to the database.
+2010-04-29 19:02:51.906 | Disconnected from the database.
+2010-04-29 19:02:51.906 | Sys interface stopped.
+2010-04-29 19:04:18.906 | Sys interface started.
+2010-04-29 19:04:19.328 | Connected to the database.
+2010-04-29 19:04:19.343 | Disconnected from the database.
+2010-04-29 19:04:19.343 | Sys interface stopped.
+2010-04-29 19:04:33.859 | Sys interface started.
+2010-04-29 19:04:34.296 | Connected to the database.
+2010-04-29 19:04:34.390 | Disconnected from the database.
+2010-04-29 19:04:34.390 | Sys interface stopped.
+2010-04-29 19:05:27.250 | Sys interface started.
+2010-04-29 19:05:27.671 | Connected to the database.
+2010-04-29 19:05:27.796 | Disconnected from the database.
+2010-04-29 19:05:27.796 | Sys interface stopped.
+2010-04-30 06:28:44.937 | Sys interface started.
+2010-04-30 06:28:46.000 | Connected to the database.
+2010-04-30 06:28:46.234 | Disconnected from the database.
+2010-04-30 06:28:46.234 | Sys interface stopped.
+2010-04-30 06:29:02.046 | Sys interface started.
+2010-04-30 06:29:02.531 | Connected to the database.
+2010-04-30 06:29:02.765 | Disconnected from the database.
+2010-04-30 06:29:02.765 | Sys interface stopped.
+2010-04-30 06:29:18.812 | Sys interface started.
+2010-04-30 06:29:19.250 | Connected to the database.
+2010-04-30 06:29:19.343 | Disconnected from the database.
+2010-04-30 06:29:19.343 | Sys interface stopped.
+2010-04-30 06:29:35.390 | Sys interface started.
+2010-04-30 06:29:35.906 | Connected to the database.
+2010-04-30 06:29:36.000 | Disconnected from the database.
+2010-04-30 06:29:36.015 | Sys interface stopped.
+2010-04-30 06:33:10.875 | Sys interface started.
+2010-04-30 06:33:11.296 | Connected to the database.
+2010-04-30 06:33:11.421 | Disconnected from the database.
+2010-04-30 06:33:11.421 | Sys interface stopped.
+2010-04-30 06:34:27.734 | Sys interface started.
+2010-04-30 06:34:28.250 | Connected to the database.
+2010-04-30 06:34:28.359 | Disconnected from the database.
+2010-04-30 06:34:28.359 | Sys interface stopped.
+2010-04-30 06:38:05.828 | Sys interface started.
+2010-04-30 06:38:06.250 | Connected to the database.
+2010-04-30 06:38:06.359 | Disconnected from the database.
+2010-04-30 06:38:06.359 | Sys interface stopped.
+2010-04-30 06:40:29.906 | Sys interface started.
+2010-04-30 06:40:30.296 | Connected to the database.
+2010-04-30 06:40:30.437 | Disconnected from the database.
+2010-04-30 06:40:30.437 | Sys interface stopped.
+2010-04-30 06:42:52.656 | Sys interface started.
+2010-04-30 06:42:53.062 | Connected to the database.
+2010-04-30 06:42:53.156 | Disconnected from the database.
+2010-04-30 06:42:53.156 | Sys interface stopped.
+2010-04-30 06:45:06.906 | Sys interface started.
+2010-04-30 06:45:07.359 | Connected to the database.
+2010-04-30 06:45:07.484 | Disconnected from the database.
+2010-04-30 06:45:07.484 | Sys interface stopped.
+2010-04-30 06:45:28.625 | Sys interface started.
+2010-04-30 06:45:29.031 | Connected to the database.
+2010-04-30 06:45:29.125 | Disconnected from the database.
+2010-04-30 06:45:29.125 | Sys interface stopped.
+2010-04-30 06:45:52.812 | Sys interface started.
+2010-04-30 06:45:53.234 | Connected to the database.
+2010-04-30 06:45:53.390 | Disconnected from the database.
+2010-04-30 06:45:53.390 | Sys interface stopped.
+2010-04-30 06:48:20.062 | Sys interface started.
+2010-04-30 06:48:20.500 | Connected to the database.
+2010-04-30 06:48:20.593 | Disconnected from the database.
+2010-04-30 06:48:20.593 | Sys interface stopped.
+2010-04-30 06:48:29.843 | Sys interface started.
+2010-04-30 06:48:30.265 | Connected to the database.
+2010-04-30 06:48:30.375 | Update accounts processed for [2].
+2010-04-30 06:48:30.375 | Disconnected from the database.
+2010-04-30 06:48:30.375 | Sys interface stopped.
+2010-04-30 06:51:10.734 | Sys interface started.
+2010-04-30 06:51:11.156 | Connected to the database.
+2010-04-30 06:51:11.250 | Disconnected from the database.
+2010-04-30 06:51:11.250 | Sys interface stopped.
+2010-04-30 06:54:53.468 | Sys interface started.
+2010-04-30 06:54:53.859 | Connected to the database.
+2010-04-30 06:54:53.968 | Update accounts processed for [2].
+2010-04-30 06:54:53.968 | Disconnected from the database.
+2010-04-30 06:54:53.968 | Sys interface stopped.
+2010-04-30 06:59:25.015 | Sys interface started.
+2010-04-30 06:59:25.421 | Connected to the database.
+2010-04-30 06:59:25.515 | Disconnected from the database.
+2010-04-30 06:59:25.515 | Sys interface stopped.
+2010-04-30 06:59:32.421 | Sys interface started.
+2010-04-30 06:59:32.843 | Connected to the database.
+2010-04-30 06:59:32.937 | Update accounts processed for [3].
+2010-04-30 06:59:32.953 | Disconnected from the database.
+2010-04-30 06:59:32.953 | Sys interface stopped.
+2010-04-30 07:00:46.015 | Sys interface started.
+2010-04-30 07:00:46.453 | Connected to the database.
+2010-04-30 07:00:46.546 | Update accounts processed for [4].
+2010-04-30 07:00:46.562 | Disconnected from the database.
+2010-04-30 07:00:46.562 | Sys interface stopped.
+2010-04-30 07:12:05.546 | Sys interface started.
+2010-04-30 07:12:05.984 | Connected to the database.
+2010-04-30 07:12:06.093 | Update accounts processed for [5].
+2010-04-30 07:12:06.109 | Disconnected from the database.
+2010-04-30 07:12:06.109 | Sys interface stopped.
+2010-04-30 07:16:50.000 | Sys interface started.
+2010-04-30 07:16:50.406 | Connected to the database.
+2010-04-30 07:16:50.500 | Disconnected from the database.
+2010-04-30 07:16:50.500 | Sys interface stopped.
+2010-04-30 07:17:11.687 | Sys interface started.
+2010-04-30 07:17:12.125 | Connected to the database.
+2010-04-30 07:17:12.234 | Update accounts processed for [6].
+2010-04-30 07:17:12.234 | Disconnected from the database.
+2010-04-30 07:17:12.234 | Sys interface stopped.
+2010-04-30 07:18:28.000 | Sys interface started.
+2010-04-30 07:18:28.453 | Connected to the database.
+2010-04-30 07:18:28.562 | Update accounts processed for [7].
+2010-04-30 07:18:28.578 | Disconnected from the database.
+2010-04-30 07:18:28.578 | Sys interface stopped.
+2010-04-30 07:21:40.031 | Sys interface started.
+2010-04-30 07:21:40.484 | Connected to the database.
+2010-04-30 07:21:40.578 | Update accounts processed for [8].
+2010-04-30 07:21:40.593 | Disconnected from the database.
+2010-04-30 07:21:40.593 | Sys interface stopped.
+2010-04-30 07:29:48.281 | Sys interface started.
+2010-04-30 07:29:48.718 | Connected to the database.
+2010-04-30 07:29:48.812 | Disconnected from the database.
+2010-04-30 07:29:48.812 | Sys interface stopped.
+2010-04-30 07:32:10.875 | Sys interface started.
+2010-04-30 07:32:11.312 | Connected to the database.
+2010-04-30 07:32:11.406 | Disconnected from the database.
+2010-04-30 07:32:11.406 | Sys interface stopped.
+2010-04-30 07:32:28.984 | Sys interface started.
+2010-04-30 07:32:29.406 | Connected to the database.
+2010-04-30 07:32:29.500 | Disconnected from the database.
+2010-04-30 07:32:29.500 | Sys interface stopped.
+2010-04-30 07:37:02.937 | Sys interface started.
+2010-04-30 07:37:03.375 | Connected to the database.
+2010-04-30 07:37:03.484 | Update accounts processed for [9].
+2010-04-30 07:37:03.484 | Disconnected from the database.
+2010-04-30 07:37:03.484 | Sys interface stopped.
+2010-04-30 07:55:07.343 | Sys interface started.
+2010-04-30 07:55:07.796 | Connected to the database.
+2010-04-30 07:55:07.890 | Update accounts processed for [10].
+2010-04-30 07:55:07.937 | Disconnected from the database.
+2010-04-30 07:55:07.937 | Sys interface stopped.
+2010-04-30 08:05:49.000 | Sys interface started.
+2010-04-30 08:05:49.453 | Connected to the database.
+2010-04-30 08:05:49.562 | Update accounts processed for [1].
+2010-04-30 08:05:49.578 | Disconnected from the database.
+2010-04-30 08:05:49.578 | Sys interface stopped.
+2010-04-30 08:08:41.234 | Sys interface started.
+2010-04-30 08:08:41.765 | Connected to the database.
+2010-04-30 08:08:41.890 | Update accounts processed for [2].
+2010-04-30 08:08:41.921 | Disconnected from the database.
+2010-04-30 08:08:41.921 | Sys interface stopped.
+2010-04-30 08:11:04.546 | Sys interface started.
+2010-04-30 08:11:04.953 | Connected to the database.
+2010-04-30 08:11:05.062 | Update accounts processed for [2].
+2010-04-30 08:11:05.078 | Disconnected from the database.
+2010-04-30 08:11:05.078 | Sys interface stopped.
+2010-04-30 08:21:59.593 | Sys interface started.
+2010-04-30 08:22:00.031 | Connected to the database.
+2010-04-30 08:22:00.140 | Update accounts processed for [3].
+2010-04-30 08:22:00.140 | Disconnected from the database.
+2010-04-30 08:22:00.140 | Sys interface stopped.
+2010-05-02 13:03:14.813 | SysInterface started.
+2010-05-02 13:03:16.048 | SysInterface stopped.
+2010-05-03 19:44:42.593 | SysInterface started.
+2010-05-03 19:44:43.750 | SysInterface stopped.
+2010-05-04 15:38:56.796 | SysInterface started.
+2010-05-04 15:38:56.796 | SysInterface stopped.
+2010-05-04 15:39:34.843 | SysInterface started.
+2010-05-04 15:39:35.218 | Connected to the database.
+2010-05-04 15:39:35.218 | Connected to the SRController.
+2010-05-04 15:44:10.953 | SysInterface started.
+2010-05-04 15:44:11.328 | Connected to the database.
+2010-05-04 15:44:11.328 | Connected to the SRController.
+2010-05-04 15:44:39.828 | SysInterface started.
+2010-05-04 15:44:40.203 | Connected to the database.
+2010-05-04 15:44:40.203 | Connected to the SRController.
+2010-05-04 15:44:40.984 | Disconnected from the SRController.
+2010-05-04 15:44:40.984 | Disconnected from the database.
+2010-05-04 15:44:40.984 | SysInterface stopped.
+2010-05-04 15:45:02.234 | SysInterface started.
+2010-05-04 15:45:02.609 | Connected to the database.
+2010-05-04 15:45:02.609 | Connected to the SRController.
+2010-05-04 15:45:04.281 | Disconnected from the SRController.
+2010-05-04 15:45:04.296 | Disconnected from the database.
+2010-05-04 15:45:04.296 | SysInterface stopped.
+2010-05-04 16:25:20.265 | SysInterface started.
+2010-05-04 16:25:20.640 | Connected to the database.
+2010-05-04 16:25:20.640 | Connected to the SRController.
+2010-05-04 16:32:20.406 | Update accounts processed for [3].
+2010-05-04 16:38:05.625 | Disconnected from the SRController.
+2010-05-04 16:38:05.625 | Disconnected from the database.
+2010-05-04 16:38:05.625 | SysInterface stopped.
+2010-05-04 16:43:20.750 | SysInterface started.
+2010-05-04 16:43:21.140 | Connected to the database.
+2010-05-04 16:43:21.140 | Connected to the SRController.
+2010-05-04 16:47:34.078 | Update accounts processed for [4].
+2010-05-04 16:51:06.296 | Update accounts processed for [5].
+2010-05-04 16:56:27.812 | Disconnected from the SRController.
+2010-05-04 16:56:27.812 | Disconnected from the database.
+2010-05-04 16:56:27.812 | SysInterface stopped.
+2010-05-04 16:59:42.937 | SysInterface started.
+2010-05-04 16:59:43.312 | Connected to the database.
+2010-05-04 16:59:43.328 | Connected to the SRController.
+2010-05-04 17:01:58.968 | Update accounts processed for [6].
+2010-05-04 17:14:04.375 | SysInterface started.
+2010-05-04 17:14:04.750 | Connected to the database.
+2010-05-04 17:14:04.750 | Connected to the SRController.
+2010-05-04 17:17:02.656 | Disconnected from the SRController.
+2010-05-04 17:17:02.656 | Disconnected from the database.
+2010-05-04 17:17:02.656 | SysInterface stopped.
+2010-05-04 17:21:23.156 | SysInterface started.
+2010-05-04 17:21:23.546 | Connected to the database.
+2010-05-04 17:21:23.546 | Connected to the SRController.
+2010-05-04 17:30:25.343 | Update accounts processed for [4].
+2010-05-04 17:39:00.125 | Update accounts processed for [5].
+2010-05-04 17:42:49.890 | Disconnected from the SRController.
+2010-05-04 17:42:49.890 | Disconnected from the database.
+2010-05-04 17:42:49.890 | SysInterface stopped.
+2010-05-04 18:39:58.156 | SysInterface started.
+2010-05-04 18:39:58.546 | Connected to the database.
+2010-05-04 18:39:58.546 | Connected to the SRController.
+2010-05-04 18:49:50.375 | Update accounts processed for [1].
+2010-05-04 18:52:24.093 | Update accounts processed for [2].
+2010-05-04 19:11:41.890 | Disconnected from the SRController.
+2010-05-04 19:11:41.890 | Disconnected from the database.
+2010-05-04 19:11:41.890 | SysInterface stopped.
+2010-05-04 19:13:22.906 | SysInterface started.
+2010-05-04 19:13:23.281 | Connected to the database.
+2010-05-04 19:13:23.296 | Connected to the SRController.
+2010-05-04 19:16:49.671 | Update accounts processed for [5].
+2010-05-04 19:20:51.218 | Disconnected from the SRController.
+2010-05-04 19:20:51.218 | Disconnected from the database.
+2010-05-04 19:20:51.218 | SysInterface stopped.
+2010-05-04 19:21:16.687 | SysInterface started.
+2010-05-04 19:21:17.078 | Connected to the database.
+2010-05-04 19:21:17.093 | Connected to the SRController.
+2010-05-04 19:22:29.265 | Update accounts processed for [6].
+2010-05-04 19:43:15.125 | Update accounts processed for [8].
+2010-05-04 20:06:40.500 | Disconnected from the SRController.
+2010-05-04 20:06:40.500 | Disconnected from the database.
+2010-05-04 20:06:40.500 | SysInterface stopped.
+2010-05-04 20:22:30.781 | SysInterface started.
+2010-05-04 20:22:31.171 | Connected to the database.
+2010-05-04 20:22:31.171 | Connected to the SRController.
+2010-05-04 20:24:19.859 | Update accounts processed for [16].
+2010-05-04 20:50:12.906 | Disconnected from the SRController.
+2010-05-04 20:50:12.906 | Disconnected from the database.
+2010-05-04 20:50:12.906 | SysInterface stopped.
+2010-05-05 08:21:43.625 | SysInterface started.
+2010-05-05 08:21:44.046 | Connected to the database.
+2010-05-05 08:21:44.046 | Connected to the SRController.
+2010-05-05 08:23:10.937 | Update accounts processed for [1].
+2010-05-05 08:28:49.187 | Update accounts processed for [2].
+2010-05-05 09:22:03.203 | Disconnected from the SRController.
+2010-05-05 09:22:03.218 | Disconnected from the database.
+2010-05-05 09:22:03.218 | SysInterface stopped.
+2010-05-05 11:47:22.453 | SysInterface started.
+2010-05-05 11:47:22.843 | Connected to the database.
+2010-05-05 11:47:22.843 | Connected to the SRController.
+2010-05-05 11:48:42.562 | Disconnected from the SRController.
+2010-05-05 11:48:42.562 | Disconnected from the database.
+2010-05-05 11:48:42.562 | SysInterface stopped.
+2010-05-05 11:50:31.781 | SysInterface started.
+2010-05-05 11:50:32.171 | Connected to the database.
+2010-05-05 11:50:32.171 | Connected to the SRController.
+2010-05-05 12:06:55.734 | Disconnected from the SRController.
+2010-05-05 12:06:55.734 | Disconnected from the database.
+2010-05-05 12:06:55.734 | SysInterface stopped.
+2010-05-05 12:09:31.265 | SysInterface started.
+2010-05-05 12:09:31.656 | Connected to the database.
+2010-05-05 12:09:31.656 | Connected to the SRController.
+2010-05-05 12:10:20.906 | Disconnected from the SRController.
+2010-05-05 12:10:20.906 | Disconnected from the database.
+2010-05-05 12:10:20.906 | SysInterface stopped.
+2010-05-05 12:20:04.046 | SysInterface started.
+2010-05-05 12:20:04.437 | Connected to the database.
+2010-05-05 12:20:04.437 | Connected to the SRController.
+2010-05-05 12:20:27.250 | Processing stage 1 [2].
+2010-05-05 12:20:27.250 | Processing stage 2 [2].
+2010-05-05 12:20:27.359 | Processing stage 3 [2].
+2010-05-05 12:20:27.375 | Update accounts processed for [2].
+2010-05-05 12:20:27.375 | Processing stage 4 [2].
+2010-05-05 12:20:32.281 | Processing stage 5 [2].
+2010-05-05 12:30:43.453 | Disconnected from the SRController.
+2010-05-05 12:30:43.468 | Disconnected from the database.
+2010-05-05 12:30:43.468 | SysInterface stopped.
+2010-05-05 19:02:04.890 | SysInterface started.
+2010-05-05 19:02:05.281 | Connected to the database.
+2010-05-05 19:02:05.281 | Connected to the SRController.
+2010-05-05 19:02:34.062 | Processing stage 1 [1].
+2010-05-05 19:02:34.062 | Processing stage 2 [1].
+2010-05-05 19:02:34.171 | Processing stage 3 [1].
+2010-05-05 19:02:34.187 | Update accounts processed for [1].
+2010-05-05 19:02:34.203 | Processing stage 4 [1].
+2010-05-05 19:08:06.281 | Disconnected from the SRController.
+2010-05-05 19:08:06.296 | Disconnected from the database.
+2010-05-05 19:08:06.296 | SysInterface stopped.
+2010-07-29 15:53:39.500 | SysInterface started.
+2010-07-29 15:53:39.890 | Connected to the database.
+2010-07-29 15:53:39.890 | Connected to the SRController.
+2010-07-29 15:54:13.781 | Processing stage 1 [1].
+2010-07-29 15:54:13.781 | Processing stage 2 [1].
+2010-07-29 15:54:13.921 | Processing stage 3 [1].
+2010-07-29 15:54:13.937 | Update accounts processed for [1].
+2010-07-29 15:54:19.625 | Processing stage 4 [1].
+2010-07-29 16:29:34.781 | Processing stage 1 [2].
+2010-07-29 16:29:34.781 | Processing stage 2 [2].
+2010-07-29 16:29:34.781 | Processing stage 3 [2].
+2010-07-29 16:29:34.796 | Update accounts processed for [2].
+2010-07-29 16:29:34.796 | Processing stage 4 [2].
+2010-07-29 16:33:57.546 | Processing stage 1 [3].
+2010-07-29 16:33:57.546 | Processing stage 2 [3].
+2010-07-29 16:33:57.546 | Processing stage 3 [3].
+2010-07-29 16:33:57.562 | Update accounts processed for [3].
+2010-07-29 16:33:57.562 | Processing stage 4 [3].
+2010-07-29 16:37:01.062 | Processing stage 1 [4].
+2010-07-29 16:37:01.062 | Processing stage 2 [4].
+2010-07-29 16:37:01.062 | Processing stage 3 [4].
+2010-07-29 16:37:01.078 | Update accounts processed for [4].
+2010-07-29 16:37:01.078 | Processing stage 4 [4].
+2010-07-29 16:44:03.906 | Processing stage 1 [5].
+2010-07-29 16:44:03.906 | Processing stage 2 [5].
+2010-07-29 16:44:03.906 | Processing stage 3 [5].
+2010-07-29 16:44:03.921 | Update accounts processed for [5].
+2010-07-29 16:44:03.921 | Processing stage 4 [5].
+2010-07-29 16:54:20.593 | Processing stage 1 [7].
+2010-07-29 16:54:20.593 | Processing stage 2 [7].
+2010-07-29 16:54:20.609 | Processing stage 3 [7].
+2010-07-29 16:54:20.609 | Update accounts processed for [7].
+2010-07-29 16:54:20.609 | Processing stage 4 [7].
+2010-07-29 17:10:34.203 | Processing stage 1 [21].
+2010-07-29 17:10:34.203 | Processing stage 2 [21].
+2010-07-29 17:10:34.203 | Processing stage 3 [21].
+2010-07-29 17:10:34.203 | Update accounts processed for [21].
+2010-07-29 17:10:34.203 | Processing stage 4 [21].
+2010-07-29 17:26:03.531 | Processing stage 1 [22].
+2010-07-29 17:26:03.531 | Processing stage 2 [22].
+2010-07-29 17:26:03.531 | Processing stage 3 [22].
+2010-07-29 17:26:03.531 | Update accounts processed for [22].
+2010-07-29 17:26:03.531 | Processing stage 4 [22].
+2010-07-29 17:40:06.218 | Processing stage 1 [23].
+2010-07-29 17:40:06.218 | Processing stage 2 [23].
+2010-07-29 17:40:06.234 | Processing stage 3 [23].
+2010-07-29 17:40:06.234 | Update accounts processed for [23].
+2010-07-29 17:40:06.234 | Processing stage 4 [23].
+2010-07-29 17:42:31.234 | Processing stage 1 [24].
+2010-07-29 17:42:31.234 | Processing stage 2 [24].
+2010-07-29 17:42:31.234 | Processing stage 3 [24].
+2010-07-29 17:42:31.234 | Update accounts processed for [24].
+2010-07-29 17:42:31.234 | Processing stage 4 [24].
+2010-07-29 17:45:46.343 | Processing stage 1 [25].
+2010-07-29 17:45:46.343 | Processing stage 2 [25].
+2010-07-29 17:45:46.343 | Processing stage 3 [25].
+2010-07-29 17:45:46.343 | Update accounts processed for [25].
+2010-07-29 17:45:46.343 | Processing stage 4 [25].
+2010-07-29 18:15:21.937 | Disconnected from the SRController.
+2010-07-29 18:15:21.953 | Disconnected from the database.
+2010-07-29 18:15:21.953 | SysInterface stopped.
+2010-10-15 09:11:16.484 | SysInterface started.
+2010-10-15 09:11:16.875 | Connected to the database.
+2010-10-15 09:11:16.875 | Connected to the SRController.
+2010-10-15 10:16:46.812 | Disconnected from the SRController.
+2010-10-15 10:16:46.812 | Disconnected from the database.
+2010-10-15 10:16:46.812 | SysInterface stopped.
+2010-10-15 10:17:52.515 | SysInterface started.
+2010-10-15 10:17:52.906 | Connected to the database.
+2010-10-15 10:17:52.921 | Connected to the SRController.
+2010-10-15 10:30:54.453 | Disconnected from the SRController.
+2010-10-15 10:30:54.468 | Disconnected from the database.
+2010-10-15 10:30:54.468 | SysInterface stopped.
+2010-10-15 10:34:45.359 | SysInterface started.
+2010-10-15 10:34:45.750 | Connected to the database.
+2010-10-15 10:34:45.750 | Connected to the SRController.
+2010-10-15 10:38:42.140 | Processing stage 1 [23].
+2010-10-15 10:38:42.140 | Processing stage 2 [23].
+2010-10-15 10:38:42.296 | Processing stage 3 [23].
+2010-10-15 10:38:42.312 | Update accounts processed for [23].
+2010-10-15 10:38:45.390 | Processing stage 4 [23].
+2010-10-15 12:10:22.406 | Disconnected from the SRController.
+2010-10-15 12:10:22.421 | Disconnected from the database.
+2010-10-15 12:10:22.421 | SysInterface stopped.
+2010-10-17 12:15:56.093 | SysInterface started.
+2010-10-17 12:15:56.500 | Connected to the database.
+2010-10-17 12:15:56.500 | Connected to the SRController.
+2010-10-17 12:22:11.343 | Processing stage 1 [1].
+2010-10-17 12:22:11.343 | Processing stage 2 [1].
+2010-10-17 12:22:11.484 | Processing stage 3 [1].
+2010-10-17 12:22:11.500 | Update accounts processed for [1].
+2010-10-17 12:22:15.937 | Processing stage 4 [1].
+2010-10-17 12:29:10.093 | Disconnected from the SRController.
+2010-10-17 12:29:10.093 | Disconnected from the database.
+2010-10-17 12:29:10.093 | SysInterface stopped.
+2010-10-17 12:30:39.218 | SysInterface started.
+2010-10-17 12:30:39.609 | Connected to the database.
+2010-10-17 12:30:39.609 | Connected to the SRController.
+2010-10-17 13:16:39.296 | Disconnected from the SRController.
+2010-10-17 13:16:39.296 | Disconnected from the database.
+2010-10-17 13:16:39.296 | SysInterface stopped.
+2010-10-17 16:34:27.468 | SysInterface started.
+2010-10-17 16:34:27.906 | Connected to the database.
+2010-10-17 16:34:27.906 | Connected to the SRController.
+2010-10-17 16:37:46.781 | Disconnected from the SRController.
+2010-10-17 16:37:46.796 | Disconnected from the database.
+2010-10-17 16:37:46.796 | SysInterface stopped.
+2010-10-17 17:05:10.843 | SysInterface started.
+2010-10-17 17:05:11.281 | Connected to the database.
+2010-10-17 17:05:11.281 | Connected to the SRController.
+2010-10-17 17:35:13.781 | Disconnected from the SRController.
+2010-10-17 17:35:13.796 | Disconnected from the database.
+2010-10-17 17:35:13.796 | SysInterface stopped.
+2010-10-17 17:37:52.593 | SysInterface started.
+2010-10-17 17:37:53.015 | Connected to the database.
+2010-10-17 17:37:53.015 | Connected to the SRController.
+2010-10-17 17:39:19.031 | Processing stage 1 [28].
+2010-10-17 17:39:19.031 | Processing stage 2 [28].
+2010-10-17 17:39:19.156 | Processing stage 3 [28].
+2010-10-17 17:39:19.171 | Update accounts processed for [28].
+2010-10-17 17:39:19.171 | Processing stage 4 [28].
+2010-10-17 17:55:06.234 | Processing stage 1 [29].
+2010-10-17 17:55:06.234 | Processing stage 2 [29].
+2010-10-17 17:55:06.250 | Processing stage 3 [29].
+2010-10-17 17:55:06.250 | Update accounts processed for [29].
+2010-10-17 17:55:06.265 | Processing stage 4 [29].
+2010-10-17 18:23:08.062 | SysInterface started.
+2010-10-17 18:23:08.484 | Connected to the database.
+2010-10-17 18:23:08.484 | Connected to the SRController.
+2010-10-17 18:24:22.984 | Processing stage 1 [41].
+2010-10-17 18:24:22.984 | Processing stage 2 [41].
+2010-10-17 18:24:23.109 | Processing stage 3 [41].
+2010-10-17 18:24:23.109 | Update accounts processed for [41].
+2010-10-17 18:24:27.625 | Processing stage 4 [41].
+2010-10-17 18:54:16.578 | Disconnected from the SRController.
+2010-10-17 18:54:16.578 | Disconnected from the database.
+2010-10-17 18:54:16.578 | SysInterface stopped.
+2010-10-18 10:56:20.718 | SysInterface started.
+2010-10-18 10:56:21.125 | Connected to the database.
+2010-10-18 10:56:21.125 | Connected to the SRController.
+2010-10-18 11:17:49.406 | Processing stage 1 [3].
+2010-10-18 11:17:49.406 | Processing stage 2 [3].
+2010-10-18 11:17:49.578 | Processing stage 3 [3].
+2010-10-18 11:17:49.593 | Update accounts processed for [3].
+2010-10-18 11:17:53.484 | Processing stage 4 [3].
+2010-10-18 11:39:45.140 | Processing stage 1 [26].
+2010-10-18 11:39:45.140 | Processing stage 2 [26].
+2010-10-18 11:39:45.156 | Processing stage 3 [26].
+2010-10-18 11:39:45.187 | Update accounts processed for [26].
+2010-10-18 11:39:45.187 | Processing stage 4 [26].
+2010-10-18 12:22:43.031 | Processing stage 1 [42].
+2010-10-18 12:22:43.031 | Processing stage 2 [42].
+2010-10-18 12:22:43.046 | Processing stage 3 [42].
+2010-10-18 12:22:43.078 | Update accounts processed for [42].
+2010-10-18 12:22:43.093 | Processing stage 4 [42].
+2010-10-18 12:32:24.671 | Processing stage 1 [45].
+2010-10-18 12:32:24.671 | Processing stage 2 [45].
+2010-10-18 12:32:24.687 | Processing stage 3 [45].
+2010-10-18 12:32:24.687 | Update accounts processed for [45].
+2010-10-18 12:32:24.687 | Processing stage 4 [45].
+2010-10-18 13:16:01.109 | Processing stage 1 [61].
+2010-10-18 13:16:01.109 | Processing stage 2 [61].
+2010-10-18 13:16:01.109 | Processing stage 3 [61].
+2010-10-18 13:16:01.125 | Update accounts processed for [61].
+2010-10-18 13:16:01.125 | Processing stage 4 [61].
+2010-10-18 13:40:23.765 | Disconnected from the SRController.
+2010-10-18 13:40:23.765 | Disconnected from the database.
+2010-10-18 13:40:23.765 | SysInterface stopped.
+2010-10-18 15:20:34.968 | SysInterface started.
+2010-10-18 15:20:35.375 | Connected to the database.
+2010-10-18 15:20:35.375 | Connected to the SRController.
+2010-10-18 15:23:27.281 | Processing stage 1 [70].
+2010-10-18 15:23:27.281 | Processing stage 2 [70].
+2010-10-18 15:23:27.406 | Processing stage 3 [70].
+2010-10-18 15:23:27.421 | Update accounts processed for [70].
+2010-10-18 15:23:31.546 | Processing stage 4 [70].
+2010-10-18 15:31:31.156 | Disconnected from the SRController.
+2010-10-18 15:31:31.156 | Disconnected from the database.
+2010-10-18 15:31:31.156 | SysInterface stopped.
+2010-11-09 15:08:19.156 | SysInterface started.
+2010-11-09 15:08:19.546 | Connected to the database.
+2010-11-09 15:08:19.546 | Connected to the SRController.
+2010-11-09 15:12:14.625 | Processing stage 1 [1].
+2010-11-09 15:12:14.625 | Processing stage 2 [1].
+2010-11-09 15:12:14.734 | Processing stage 3 [1].
+2010-11-09 15:12:14.765 | Update accounts processed for [1].
+2010-11-09 15:12:20.156 | Processing stage 4 [1].
+2010-11-09 15:13:23.828 | Disconnected from the SRController.
+2010-11-09 15:13:23.843 | Disconnected from the database.
+2010-11-09 15:13:23.843 | SysInterface stopped.
+2010-11-09 15:16:30.906 | SysInterface started.
+2010-11-09 15:16:31.296 | Connected to the database.
+2010-11-09 15:16:31.296 | Connected to the SRController.
+2010-11-09 15:19:00.187 | Processing stage 1 [1].
+2010-11-09 15:19:00.187 | Processing stage 2 [1].
+2010-11-09 15:19:00.312 | Processing stage 3 [1].
+2010-11-09 15:19:00.328 | Update accounts processed for [1].
+2010-11-09 15:19:00.328 | Processing stage 4 [1].
+2010-11-09 15:22:43.500 | Disconnected from the SRController.
+2010-11-09 15:22:43.500 | Disconnected from the database.
+2010-11-09 15:22:43.500 | SysInterface stopped.
+2010-11-09 17:37:39.796 | SysInterface started.
+2010-11-09 17:37:42.531 | Connected to the database.
+2010-11-09 17:37:43.046 | Connected to the SRController.
+2010-11-09 19:28:22.156 | Disconnected from the SRController.
+2010-11-09 19:28:22.156 | Disconnected from the database.
+2010-11-09 19:28:22.156 | SysInterface stopped.
+2010-11-10 12:13:11.875 | SysInterface started.
+2010-11-10 12:13:12.265 | Connected to the database.
+2010-11-10 12:13:12.265 | Connected to the SRController.
+2010-11-10 14:49:10.250 | Disconnected from the SRController.
+2010-11-10 14:49:10.265 | Disconnected from the database.
+2010-11-10 14:49:10.265 | SysInterface stopped.
+2010-11-10 15:50:57.078 | SysInterface started.
+2010-11-10 15:50:57.468 | Connected to the database.
+2010-11-10 15:50:57.468 | Connected to the SRController.
+2010-11-10 16:17:54.437 | Disconnected from the SRController.
+2010-11-10 16:17:54.437 | Disconnected from the database.
+2010-11-10 16:17:54.437 | SysInterface stopped.
+2010-11-10 18:22:45.015 | SysInterface started.
+2010-11-10 18:22:45.406 | Connected to the database.
+2010-11-10 18:22:45.406 | Connected to the SRController.
+2010-11-10 18:48:44.578 | Disconnected from the SRController.
+2010-11-10 18:48:44.578 | Disconnected from the database.
+2010-11-10 18:48:44.578 | SysInterface stopped.
+2010-11-10 18:52:25.187 | SysInterface started.
+2010-11-10 18:52:25.578 | Connected to the database.
+2010-11-10 18:52:25.578 | Connected to the SRController.
+2010-11-10 19:20:45.953 | Processing stage 1 [2].
+2010-11-10 19:20:45.953 | Processing stage 2 [2].
+2010-11-10 19:20:46.093 | Processing stage 3 [2].
+2010-11-10 19:20:46.109 | Update accounts processed for [2].
+2010-11-10 19:20:49.625 | Processing stage 4 [2].
+2010-11-10 19:33:51.062 | Disconnected from the SRController.
+2010-11-10 19:33:51.062 | Disconnected from the database.
+2010-11-10 19:33:51.062 | SysInterface stopped.
+2010-11-10 21:13:42.156 | SysInterface started.
+2010-11-10 21:13:43.765 | Connected to the database.
+2010-11-10 21:13:44.281 | Connected to the SRController.
+2010-11-10 21:15:34.578 | Processing stage 1 [1].
+2010-11-10 21:15:34.578 | Processing stage 2 [1].
+2010-11-10 21:15:34.687 | Processing stage 3 [1].
+2010-11-10 21:15:34.703 | Update accounts processed for [1].
+2010-11-10 21:15:39.281 | Processing stage 4 [1].
+2010-11-10 21:21:50.312 | Disconnected from the SRController.
+2010-11-10 21:21:50.312 | Disconnected from the database.
+2010-11-10 21:21:50.312 | SysInterface stopped.
+2010-11-11 08:36:40.703 | SysInterface started.
+2010-11-11 08:36:41.125 | Connected to the database.
+2010-11-11 08:36:41.125 | Connected to the SRController.
+2010-11-11 09:06:23.531 | Processing stage 1 [1].
+2010-11-11 09:06:23.531 | Processing stage 2 [1].
+2010-11-11 09:06:23.640 | Processing stage 3 [1].
+2010-11-11 09:06:23.656 | Update accounts processed for [1].
+2010-11-11 09:06:28.578 | Processing stage 4 [1].
+2010-11-11 09:17:57.875 | Disconnected from the SRController.
+2010-11-11 09:17:57.875 | Disconnected from the database.
+2010-11-11 09:17:57.875 | SysInterface stopped.
+2010-11-11 10:50:25.796 | SysInterface started.
+2010-11-11 10:50:26.203 | Connected to the database.
+2010-11-11 10:50:26.203 | Connected to the SRController.
+2010-11-11 11:44:20.953 | Processing stage 1 [1].
+2010-11-11 11:44:20.968 | Processing stage 2 [1].
+2010-11-11 11:44:21.078 | Processing stage 3 [1].
+2010-11-11 11:44:21.093 | Update accounts processed for [1].
+2010-11-11 11:44:25.140 | Processing stage 4 [1].
+2010-11-11 12:00:53.000 | Disconnected from the SRController.
+2010-11-11 12:00:53.015 | Disconnected from the database.
+2010-11-11 12:00:53.015 | SysInterface stopped.
+2010-11-12 22:08:35.953 | SysInterface started.
+2010-11-12 22:08:36.343 | Connected to the database.
+2010-11-12 22:08:36.343 | Connected to the SRController.
+2010-11-12 22:11:45.875 | Processing stage 1 [1].
+2010-11-12 22:11:45.875 | Processing stage 2 [1].
+2010-11-12 22:11:45.984 | Processing stage 3 [1].
+2010-11-12 22:11:46.000 | Update accounts processed for [1].
+2010-11-12 22:11:46.015 | Processing stage 4 [1].
+2010-11-12 22:18:10.500 | Disconnected from the SRController.
+2010-11-12 22:18:10.500 | Disconnected from the database.
+2010-11-12 22:18:10.500 | SysInterface stopped.
+2010-11-15 09:06:54.765 | SysInterface started.
+2010-11-15 09:06:55.156 | Connected to the database.
+2010-11-15 09:06:55.156 | Connected to the SRController.
+2010-11-15 09:15:46.906 | Disconnected from the SRController.
+2010-11-15 09:15:46.906 | Disconnected from the database.
+2010-11-15 09:15:46.906 | SysInterface stopped.
+2010-11-15 09:45:51.609 | SysInterface started.
+2010-11-15 09:45:52.000 | Connected to the database.
+2010-11-15 09:45:52.000 | Connected to the SRController.
+2010-11-15 09:47:03.468 | Processing stage 1 [1].
+2010-11-15 09:47:03.468 | Processing stage 2 [1].
+2010-11-15 09:47:03.578 | Processing stage 3 [1].
+2010-11-15 09:47:03.593 | Update accounts processed for [1].
+2010-11-15 09:47:09.093 | Processing stage 4 [1].
+2010-11-15 10:24:52.609 | Disconnected from the SRController.
+2010-11-15 10:24:52.625 | Disconnected from the database.
+2010-11-15 10:24:52.625 | SysInterface stopped.
+2010-11-15 12:11:16.375 | SysInterface started.
+2010-11-15 12:11:16.781 | Connected to the database.
+2010-11-15 12:11:16.781 | Connected to the SRController.
+2010-11-15 20:19:44.984 | Disconnected from the SRController.
+2010-11-15 20:19:45.000 | Disconnected from the database.
+2010-11-15 20:19:45.000 | SysInterface stopped.
+2011-01-25 16:19:04.468 | SysInterface started.
+2011-01-25 16:19:04.859 | Connected to the database.
+2011-01-25 16:19:04.859 | Connected to the SRController.
+2011-01-25 17:34:06.562 | Processing stage 1 [3].
+2011-01-25 17:34:06.562 | Processing stage 2 [3].
+2011-01-25 17:34:06.703 | Processing stage 3 [3].
+2011-01-25 17:34:06.718 | Update accounts processed for [3].
+2011-01-25 17:34:06.718 | Processing stage 4 [3].
+2011-01-25 17:57:26.734 | Disconnected from the SRController.
+2011-01-25 17:57:26.750 | Disconnected from the database.
+2011-01-25 17:57:26.750 | SysInterface stopped.
+2011-01-26 07:46:15.109 | SysInterface started.
+2011-01-26 07:46:15.500 | Connected to the database.
+2011-01-26 07:46:15.500 | Connected to the SRController.
+2011-01-26 08:10:54.156 | Processing stage 1 [2].
+2011-01-26 08:10:54.156 | Processing stage 2 [2].
+2011-01-26 08:10:54.312 | Processing stage 3 [2].
+2011-01-26 08:10:54.312 | Update accounts processed for [2].
+2011-01-26 08:10:54.328 | Processing stage 4 [2].
+2011-01-26 08:17:56.406 | Disconnected from the SRController.
+2011-01-26 08:17:56.406 | Disconnected from the database.
+2011-01-26 08:17:56.406 | SysInterface stopped.
+2011-01-26 09:55:42.593 | SysInterface started.
+2011-01-26 09:55:42.984 | Connected to the database.
+2011-01-26 09:55:42.984 | Connected to the SRController.
+2011-01-26 11:28:08.140 | Processing stage 1 [2].
+2011-01-26 11:28:08.140 | Processing stage 2 [2].
+2011-01-26 11:28:08.328 | Processing stage 3 [2].
+2011-01-26 11:28:08.343 | Update accounts processed for [2].
+2011-01-26 11:28:12.578 | Processing stage 4 [2].
+2011-01-26 12:01:00.546 | Disconnected from the SRController.
+2011-01-26 12:01:00.546 | Disconnected from the database.
+2011-01-26 12:01:00.546 | SysInterface stopped.

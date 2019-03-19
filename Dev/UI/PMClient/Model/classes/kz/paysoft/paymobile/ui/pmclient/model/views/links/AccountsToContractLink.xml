@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AccountsToContractLink"
+  Version="11.1.1.56.60"
+  EntityAssociation="kz.paysoft.paymobile.ui.pmclient.model.entities.associations.AccountsToContract"
+  Where=":Bind_Id = Account.CONTRACT_ID$ AND Account.STATUS$ = 'C'"
+  WhereReverse=":Bind_ContractId = Contract.ID$ AND Contract.STATUS$ = 'C'">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="ContractsView"
+    Cardinality="1"
+    Owner="kz.paysoft.paymobile.ui.pmclient.model.views.ContractsView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ContractsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.pmclient.model.views.ContractsView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AccountsView"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.pmclient.model.views.AccountsView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AccountsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.pmclient.model.views.AccountsView.ContractId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

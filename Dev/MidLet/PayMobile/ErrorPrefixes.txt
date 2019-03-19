@@ -1,0 +1,17 @@
+Copyright (C) 2010 PaySoft, LLP. All Rights Reserved.
+
+2010.03.27   Yerzhan Tulepov         Created.
+
+A   SHA256.java
+B   Balanse.java
+C   Processor.java
+H   HMAC.java
+I   InitPassword.java
+M   Statement.java
+P   PayMobile.java
+R   Operations.java
+S   Setup.java
+T   Trnasfer.java
+U   UpdateAccounts.java
+V   Service.java
+W   PBE.java

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.paysoft.kz/PayMobile/IsoInterface/1.0.0"
+            xmlns:ic="http://www.paysoft.kz/PayMobile/IsoInterface/1.0.0"
+            targetNamespace="http://www.paysoft.kz/PayMobile/IsoInterface/1.0.0"
+            elementFormDefault="qualified">
+  <xsd:element name="configuration">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="database">
+          <xsd:complexType>
+            <xsd:attribute name="server" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="5"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="user" default="INTERFACE">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                  <xsd:maxLength value="30"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="a" type="xsd:integer" use="required"/>
+            <xsd:attribute name="b" type="xsd:integer" use="required"/>
+            <xsd:attribute name="x"
+                           default="-1079113916523382802151481070964371665047962925387329234459"/>
+            <xsd:attribute name="interfaceCode" default="ISO">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="32"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="srController">
+          <xsd:complexType>
+            <xsd:attribute name="address" use="required"/>
+            <xsd:attribute name="port" type="xsd:unsignedShort" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="logging">
+          <xsd:complexType>
+            <xsd:attribute name="level" default="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte"/>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="file" use="required"/>
+            <xsd:attribute name="size" type="xsd:positiveInteger"
+                           default="1048576"/>
+            <xsd:attribute name="delimiter" default=" | "/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="isoSystem">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="message" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="field" minOccurs="0" maxOccurs="123">
+                      <xsd:complexType>
+                        <xsd:attribute name="number" use="required">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:unsignedByte">
+                              <xsd:minInclusive value="3"/>
+                              <xsd:maxInclusive value="127"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:attribute>
+                        <xsd:attribute name="value" use="required"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="code" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:minLength value="1"/>
+                        <xsd:maxLength value="250"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="type" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:unsignedShort">
+                        <xsd:maxInclusive value="9999"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                </xsd:complexType>
+                <xsd:unique name="uniqueField">
+                  <xsd:selector xpath="ic:field"/>
+                  <xsd:field xpath="@number"/>
+                </xsd:unique>
+              </xsd:element>
+              <xsd:element name="rcMapping" maxOccurs="230">
+                <xsd:complexType>
+                  <xsd:attribute name="iso" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:minLength value="1"/>
+                        <xsd:maxLength value="2"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="system" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:unsignedByte">
+                        <xsd:maxInclusive value="229"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="currencyMapping" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:attribute name="system" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:length value="3"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="iso" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:unsignedShort">
+                        <xsd:maxInclusive value="999"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="isoPointPos" default="2">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:unsignedByte">
+                        <xsd:maxInclusive value="4"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="fieldDef" maxOccurs="126" minOccurs="3">
+                <xsd:complexType>
+                  <xsd:attribute name="number" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:unsignedByte">
+                        <xsd:minInclusive value="2"/>
+                        <xsd:maxInclusive value="128"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="lengthType" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="FIXED"/>
+                        <xsd:enumeration value="LLVAR"/>
+                        <xsd:enumeration value="LLLVAR"/>
+                        <xsd:enumeration value="BBVAR"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="valueType" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="BCD"/>
+                        <xsd:enumeration value="ANS"/>
+                        <xsd:enumeration value="HEX"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="maxLength" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:unsignedShort">
+                        <xsd:minInclusive value="1"/>
+                        <xsd:maxInclusive value="999"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="balanse">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="amount" maxOccurs="100">
+                      <xsd:complexType>
+                        <xsd:attribute name="code" use="required">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:unsignedByte">
+                              <xsd:maxInclusive value="99"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:attribute>
+                        <xsd:attribute name="text" use="required"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="account" maxOccurs="100">
+                      <xsd:complexType>
+                        <xsd:attribute name="code" use="required">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:unsignedByte">
+                              <xsd:maxInclusive value="99"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:attribute>
+                        <xsd:attribute name="text" use="required"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="credit"/>
+                  <xsd:attribute name="debit" default="-"/>
+                </xsd:complexType>
+                <xsd:unique name="uniqueAmount">
+                  <xsd:selector xpath="ic:amount"/>
+                  <xsd:field xpath="@code"/>
+                </xsd:unique>
+                <xsd:unique name="uniqueAccount">
+                  <xsd:selector xpath="ic:account"/>
+                  <xsd:field xpath="@code"/>
+                </xsd:unique>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="address" use="required"/>
+            <xsd:attribute name="port" type="xsd:unsignedShort" use="required"/>
+            <xsd:attribute name="lengthSize" default="2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte">
+                  <xsd:enumeration value="2"/>
+                  <xsd:enumeration value="4"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+          <xsd:unique name="uniqueFieldDef">
+            <xsd:selector xpath="ic:fieldDef"/>
+            <xsd:field xpath="@number"/>
+          </xsd:unique>
+          <xsd:unique name="uniqueRcMapping">
+            <xsd:selector xpath="ic:rcMapping"/>
+            <xsd:field xpath="@iso"/>
+          </xsd:unique>
+          <xsd:unique name="uniqueMessage">
+            <xsd:selector xpath="ic:message"/>
+            <xsd:field xpath="@code"/>
+          </xsd:unique>
+          <xsd:unique name="uniqueSystemCurrencyMapping">
+            <xsd:selector xpath="ic:currencyMapping"/>
+            <xsd:field xpath="@system"/>
+          </xsd:unique>
+          <xsd:unique name="uniqueIsoCurrencyMapping">
+            <xsd:selector xpath="ic:currencyMapping"/>
+            <xsd:field xpath="@iso"/>
+          </xsd:unique>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

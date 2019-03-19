@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelTabbed id="pt1">
+    <af:showDetailItem text="История изменений филиалов" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps1" orientation="vertical" positionedFromEnd="true">
+        <f:facet name="first">
+          <dc:TableDef id="td1" baseView="Main" refreshEnabled="#{bindings.RefreshCBranches.enabled}" refresh="#{bindings.RefreshCBranches.execute}"
+                       rows="#{bindings.CBranches.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CBranches.collectionModel}" var="row" rows="#{bindings.CBranches.rangeSize}"
+                        emptyText="#{bindings.CBranches.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.CBranches.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.CBranchesQuery.queryDescriptor}"
+                        queryListener="#{bindings.CBranchesQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.CBranches.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CBranches.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                        partialTriggers="::dc_refresh" summary="Филиалы">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CBranches.hints.Id.label}" id="c2"
+                           rowHeader="unstyled">
+                  <af:outputText value="#{row.Id}" id="ot4">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CBranches.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CBranches.hints.Date.label}" id="c3">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id1" label="Дата"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot5">
+                    <af:convertDateTime pattern="#{bindings.CBranches.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="UserName" filterable="true" sortable="true" headerText="#{bindings.CBranches.hints.UserName.label}" id="c5">
+                  <af:outputText value="#{row.UserName}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CBranches.hints.Name.label}" id="c4">
+                  <af:outputText value="#{row.Name}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="ParentBranch" filterable="true" sortable="true" headerText="#{bindings.CBranches.hints.ParentBranch.label}"
+                           id="c1">
+                  <af:outputText value="#{row.ParentBranch}" id="ot1"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <dc:TableDef id="td2" baseView="Main" refresh="#{bindings.RefreshCHBranches.execute}"
+                       refreshEnabled="#{bindings.RefreshCHBranches.enabled}" rows="#{bindings.CHBranches.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CHBranches.collectionModel}" var="row" rows="#{bindings.CHBranches.rangeSize}"
+                        emptyText="#{bindings.CHBranches.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                        fetchSize="#{bindings.CHBranches.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.CHBranchesQuery.queryDescriptor}"
+                        queryListener="#{bindings.CHBranchesQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.CHBranches.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CHBranches.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                        partialTriggers="::::td1:dc_pc1:t1 ::dc_refresh" summary="Пользователи филиала">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CHBranches.hints.Id.label}" id="c7"
+                           rowHeader="unstyled">
+                  <af:outputText value="#{row.Id}" id="ot6">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CHBranches.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CHBranches.hints.Date.label}" id="c9">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id2" label="Дата"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot10">
+                    <af:convertDateTime pattern="#{bindings.CHBranches.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="UserName" filterable="true" sortable="true" headerText="#{bindings.CHBranches.hints.UserName.label}" id="c6">
+                  <af:outputText value="#{row.UserName}" id="ot9"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CHBranches.hints.Name.label}" id="c8">
+                  <af:outputText value="#{row.Name}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="ParentBranch" filterable="true" sortable="true" headerText="#{bindings.CHBranches.hints.ParentBranch.label}"
+                           id="c10">
+                  <af:outputText value="#{row.ParentBranch}" id="ot8"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

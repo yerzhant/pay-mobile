@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef" Package="contractiv">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Contracts" RangeSize="25" DataControl="PMClientServiceDataControl" id="ContractsIterator"/>
+    <searchRegion Criteria="ContractsGenericCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="ContractsIterator"
+                  id="ContractsGenericCriteriaQuery"/>
+    <iterator Binds="ContractClients" RangeSize="25" DataControl="PMClientServiceDataControl" id="ContractClientsIterator"/>
+    <iterator Binds="ContractAccounts" RangeSize="25" DataControl="PMClientServiceDataControl" id="ContractAccountsIterator"/>
+    <searchRegion Binds="ContractAccountsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ContractAccountsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ContractsIterator" id="Contracts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.ContractsView" Name="Contracts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Status"/>
+          <Item Value="OpenDate"/>
+          <Item Value="AppliedAt"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="PasswordTries"/>
+          <Item Value="CloseDate"/>
+          <Item Value="ANumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ContractClientsIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="MiddleName">
+      <AttrNames>
+        <Item Value="MiddleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="BirthDate">
+      <AttrNames>
+        <Item Value="BirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ContractClientsIterator" StaticList="false" Uses="LOV_DocTypeId" id="DocTypeId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ContractClientsIterator" id="DocId">
+      <AttrNames>
+        <Item Value="DocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="DocDate">
+      <AttrNames>
+        <Item Value="DocDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="DocIssuer">
+      <AttrNames>
+        <Item Value="DocIssuer"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ContractClientsIterator" StaticList="false" Uses="LOV_CountryId" id="CountryId" DTSupportsMRU="false"/>
+    <list IterBinding="ContractClientsIterator" StaticList="false" Uses="LOV_BranchId" id="BranchId" DTSupportsMRU="false"/>
+    <list IterBinding="ContractClientsIterator" StaticList="false" Uses="LOV_User" id="User" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="ContractClientsIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="TaxPayerId">
+      <AttrNames>
+        <Item Value="TaxPayerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="FromDate">
+      <AttrNames>
+        <Item Value="FromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContractClientsIterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ContractAccountsIterator" id="ContractAccounts">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.AccountsView" Name="ContractAccounts0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Kind"/>
+          <Item Value="AnInterface"/>
+          <Item Value="ANumber"/>
+          <Item Value="Name"/>
+          <Item Value="Priority"/>
+          <Item Value="SingleAmount"/>
+          <Item Value="SingleCurrency"/>
+          <Item Value="DayAmount"/>
+          <Item Value="DayTotalAmount"/>
+          <Item Value="DayCurrency"/>
+          <Item Value="DayQuantity"/>
+          <Item Value="DayTotalQuantity"/>
+          <Item Value="DayDate"/>
+          <Item Value="MonthAmount"/>
+          <Item Value="MonthTotalAmount"/>
+          <Item Value="MonthCurrency"/>
+          <Item Value="MonthQuantity"/>
+          <Item Value="MonthTotalQuantity"/>
+          <Item Value="MonthDate"/>
+          <Item Value="FromHour"/>
+          <Item Value="FromMin"/>
+          <Item Value="ToHour"/>
+          <Item Value="ToMin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="activateContract" RequiresUpdateModel="true" Action="invokeMethod" MethodName="activateContract" IsViewObjectMethod="false"
+                  DataControl="PMClientServiceDataControl" InstanceName="PMClientServiceDataControl.dataProvider"/>
+    <methodAction id="activateContractAndNotify" RequiresUpdateModel="true" Action="invokeMethod" MethodName="activateContractAndNotify"
+                  IsViewObjectMethod="false" DataControl="PMClientServiceDataControl" InstanceName="PMClientServiceDataControl.dataProvider"/>
+    <action id="Commit" InstanceName="PMClientServiceDataControl" DataControl="PMClientServiceDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" InstanceName="PMClientServiceDataControl" DataControl="PMClientServiceDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="ContractsIterator" id="Execute" InstanceName="PMClientServiceDataControl.Contracts" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="ContractAccountsIterator" id="Execute1" InstanceName="PMClientServiceDataControl.ContractAccounts"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

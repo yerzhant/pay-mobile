@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelAccordion id="pa1">
+    <af:showDetailItem text="Типы документов" id="sdi1" stretchChildren="first">
+      <dc:TableDef id="td1" historyEnabled="true" viewObject="DocTypes" rollbackEnabled="#{bindings.Rollback.enabled}"
+                   rollback="#{bindings.Rollback.execute}" rows="#{bindings.DocTypes.estimatedRowCount}" refresh="#{bindings.Execute.execute}"
+                   refreshEnabled="true" addEnabled="#{bindings.CreateInsert.enabled}" add="#{bindings.CreateInsert.execute}"
+                   commitEnabled="#{bindings.Commit.enabled}" commit="#{bindings.Commit.execute}" deleteEnabled="#{bindings.Delete.enabled}"
+                   delete="#{bindings.Delete.execute}" binding="#{backingBeanScope.mainBean.docTypes}">
+        <f:facet name="table">
+          <af:table value="#{bindings.DocTypes.collectionModel}" var="row" rows="#{bindings.DocTypes.rangeSize}"
+                    emptyText="#{bindings.DocTypes.viewable ? 'Нет данных.' : 'Доступ запрещен.'}" fetchSize="#{bindings.DocTypes.rangeSize}"
+                    rowBandingInterval="0" filterModel="#{bindings.DocTypesQuery.queryDescriptor}"
+                    queryListener="#{bindings.DocTypesQuery.processQuery}" varStatus="vs"
+                    selectedRowKeys="#{bindings.DocTypes.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DocTypes.collectionModel.makeCurrent}" rowSelection="single" id="t4" editingMode="clickToEdit"
+                    partialTriggers="::dc_add ::dc_delete ::dc_commit ::dc_rollback ::dc_refresh">
+            <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.DocTypes.hints.Id.label}" id="c19">
+              <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.DocTypes.hints.Id.label}"
+                            required="#{bindings.DocTypes.hints.Id.mandatory}" columns="#{bindings.DocTypes.hints.Id.displayWidth}"
+                            maximumLength="#{bindings.DocTypes.hints.Id.precision}" shortDesc="#{bindings.DocTypes.hints.Id.tooltip}" id="it13">
+                <f:validator binding="#{row.bindings.Id.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.DocTypes.hints.Date.label}" id="c17">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.Date}" id="id8"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.DocTypes.hints.Date.label}"
+                            required="#{bindings.DocTypes.hints.Date.mandatory}" shortDesc="#{bindings.DocTypes.hints.Date.tooltip}" id="id7">
+                <f:validator binding="#{row.bindings.Date.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DocTypes.hints.Date.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="EditorName" filterable="true" sortable="true" headerText="#{bindings.DocTypes.hints.EditorName.label}" id="c16">
+              <af:inputText value="#{row.bindings.EditorName.inputValue}" label="#{bindings.DocTypes.hints.EditorName.label}"
+                            required="#{bindings.DocTypes.hints.EditorName.mandatory}" columns="#{bindings.DocTypes.hints.EditorName.displayWidth}"
+                            maximumLength="#{bindings.DocTypes.hints.EditorName.precision}" shortDesc="#{bindings.DocTypes.hints.EditorName.tooltip}"
+                            id="it12">
+                <f:validator binding="#{row.bindings.EditorName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.DocTypes.hints.Name.label}" id="c18">
+              <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.DocTypes.hints.Name.label}"
+                            required="#{bindings.DocTypes.hints.Name.mandatory}" columns="#{bindings.DocTypes.hints.Name.displayWidth}"
+                            maximumLength="#{bindings.DocTypes.hints.Name.precision}" shortDesc="#{bindings.DocTypes.hints.Name.tooltip}" id="it14">
+                <f:validator binding="#{row.bindings.Name.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </f:facet>
+      </dc:TableDef>
+    </af:showDetailItem>
+    <af:showDetailItem text="Страны" id="sdi2" stretchChildren="first">
+      <dc:TableDef id="td2" historyEnabled="true" viewObject="Countries" rollbackEnabled="#{bindings.Rollback.enabled}"
+                   rollback="#{bindings.Rollback.execute}" refresh="#{bindings.Execute1.execute}" refreshEnabled="true"
+                   rows="#{bindings.Countries.estimatedRowCount}" addEnabled="#{bindings.CreateInsert1.enabled}"
+                   add="#{bindings.CreateInsert1.execute}" commitEnabled="#{bindings.Commit.enabled}" commit="#{bindings.Commit.execute}"
+                   deleteEnabled="#{bindings.Delete1.enabled}" delete="#{bindings.Delete1.execute}" binding="#{backingBeanScope.mainBean.countries}">
+        <f:facet name="table">
+          <af:table value="#{bindings.Countries.collectionModel}" var="row" rows="#{bindings.Countries.rangeSize}"
+                    emptyText="#{bindings.Countries.viewable ? 'Нет данных.' : 'Доступ запрещен.'}" fetchSize="#{bindings.Countries.rangeSize}"
+                    rowBandingInterval="0" filterModel="#{bindings.CountriesQuery.queryDescriptor}"
+                    queryListener="#{bindings.CountriesQuery.processQuery}" varStatus="vs"
+                    selectedRowKeys="#{bindings.Countries.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.Countries.collectionModel.makeCurrent}" rowSelection="single" id="t3" editingMode="clickToEdit"
+                    partialTriggers="::dc_add ::dc_delete ::dc_commit ::dc_rollback ::dc_refresh">
+            <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.Countries.hints.Id.label}" id="c13">
+              <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.Countries.hints.Id.label}"
+                            required="#{bindings.Countries.hints.Id.mandatory}" columns="#{bindings.Countries.hints.Id.displayWidth}"
+                            maximumLength="#{bindings.Countries.hints.Id.precision}" shortDesc="#{bindings.Countries.hints.Id.tooltip}" id="it9">
+                <f:validator binding="#{row.bindings.Id.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.Countries.hints.Date.label}" id="c15">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.Date}" id="id5"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.Countries.hints.Date.label}"
+                            required="#{bindings.Countries.hints.Date.mandatory}" shortDesc="#{bindings.Countries.hints.Date.tooltip}" id="id6">
+                <f:validator binding="#{row.bindings.Date.validator}"/>
+                <af:convertDateTime pattern="#{bindings.Countries.hints.Date.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="EditorName" filterable="true" sortable="true" headerText="#{bindings.Countries.hints.EditorName.label}" id="c14">
+              <af:inputText value="#{row.bindings.EditorName.inputValue}" label="#{bindings.Countries.hints.EditorName.label}"
+                            required="#{bindings.Countries.hints.EditorName.mandatory}" columns="#{bindings.Countries.hints.EditorName.displayWidth}"
+                            maximumLength="#{bindings.Countries.hints.EditorName.precision}"
+                            shortDesc="#{bindings.Countries.hints.EditorName.tooltip}" id="it11">
+                <f:validator binding="#{row.bindings.EditorName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.Countries.hints.Name.label}" id="c12">
+              <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.Countries.hints.Name.label}"
+                            required="#{bindings.Countries.hints.Name.mandatory}" columns="#{bindings.Countries.hints.Name.displayWidth}"
+                            maximumLength="#{bindings.Countries.hints.Name.precision}" shortDesc="#{bindings.Countries.hints.Name.tooltip}" id="it10">
+                <f:validator binding="#{row.bindings.Name.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </f:facet>
+      </dc:TableDef>
+    </af:showDetailItem>
+    <af:showDetailItem text="Валюты" id="sdi3" stretchChildren="first">
+      <dc:TableDef id="td3" historyEnabled="true" viewObject="Currencies" rollbackEnabled="#{bindings.Rollback.enabled}"
+                   rollback="#{bindings.Rollback.execute}" refresh="#{bindings.Execute2.execute}" refreshEnabled="true"
+                   rows="#{bindings.Currencies.estimatedRowCount}" addEnabled="#{bindings.CreateInsert2.enabled}"
+                   add="#{bindings.CreateInsert2.execute}" commitEnabled="#{bindings.Commit.enabled}" commit="#{bindings.Commit.execute}"
+                   deleteEnabled="#{bindings.Delete2.enabled}" delete="#{bindings.Delete2.execute}" binding="#{backingBeanScope.mainBean.currencies}">
+        <f:facet name="table">
+          <af:table value="#{bindings.Currencies.collectionModel}" var="row" rows="#{bindings.Currencies.rangeSize}"
+                    emptyText="#{bindings.Currencies.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                    fetchSize="#{bindings.Currencies.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.CurrenciesQuery.queryDescriptor}"
+                    queryListener="#{bindings.CurrenciesQuery.processQuery}" varStatus="vs"
+                    selectedRowKeys="#{bindings.Currencies.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.Currencies.collectionModel.makeCurrent}" rowSelection="single" id="t2" editingMode="clickToEdit"
+                    partialTriggers="::dc_add ::dc_delete ::dc_commit ::dc_rollback ::dc_refresh">
+            <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.Currencies.hints.Id.label}" id="c9">
+              <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.Currencies.hints.Id.label}"
+                            required="#{bindings.Currencies.hints.Id.mandatory}" columns="#{bindings.Currencies.hints.Id.displayWidth}"
+                            maximumLength="#{bindings.Currencies.hints.Id.precision}" shortDesc="#{bindings.Currencies.hints.Id.tooltip}" id="it7">
+                <f:validator binding="#{row.bindings.Id.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.Currencies.hints.Date.label}" id="c8">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.Date}" id="id4"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.Currencies.hints.Date.label}"
+                            required="#{bindings.Currencies.hints.Date.mandatory}" shortDesc="#{bindings.Currencies.hints.Date.tooltip}" id="id3">
+                <f:validator binding="#{row.bindings.Date.validator}"/>
+                <af:convertDateTime pattern="#{bindings.Currencies.hints.Date.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="EditorName" filterable="true" sortable="true" headerText="#{bindings.Currencies.hints.EditorName.label}"
+                       id="c10">
+              <af:inputText value="#{row.bindings.EditorName.inputValue}" label="#{bindings.Currencies.hints.EditorName.label}"
+                            required="#{bindings.Currencies.hints.EditorName.mandatory}"
+                            columns="#{bindings.Currencies.hints.EditorName.displayWidth}"
+                            maximumLength="#{bindings.Currencies.hints.EditorName.precision}"
+                            shortDesc="#{bindings.Currencies.hints.EditorName.tooltip}" id="it5">
+                <f:validator binding="#{row.bindings.EditorName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.Currencies.hints.Code.label}" id="c11">
+              <af:inputText value="#{row.bindings.Code.inputValue}" label="#{bindings.Currencies.hints.Code.label}"
+                            required="#{bindings.Currencies.hints.Code.mandatory}" columns="#{bindings.Currencies.hints.Code.displayWidth}"
+                            maximumLength="#{bindings.Currencies.hints.Code.precision}" shortDesc="#{bindings.Currencies.hints.Code.tooltip}"
+                            id="it8">
+                <f:validator binding="#{row.bindings.Code.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.Currencies.hints.Name.label}" id="c7">
+              <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.Currencies.hints.Name.label}"
+                            required="#{bindings.Currencies.hints.Name.mandatory}" columns="#{bindings.Currencies.hints.Name.displayWidth}"
+                            maximumLength="#{bindings.Currencies.hints.Name.precision}" shortDesc="#{bindings.Currencies.hints.Name.tooltip}"
+                            id="it6">
+                <f:validator binding="#{row.bindings.Name.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </f:facet>
+      </dc:TableDef>
+    </af:showDetailItem>
+    <af:showDetailItem text="Интерфейсы" id="sdi4" stretchChildren="first">
+      <dc:TableDef id="td4" historyEnabled="true" viewObject="Interfaces" rollbackEnabled="#{bindings.Rollback.enabled}"
+                   rollback="#{bindings.Rollback.execute}" refresh="#{bindings.Execute3.execute}" refreshEnabled="true"
+                   rows="#{bindings.Interfaces.estimatedRowCount}" addEnabled="#{bindings.CreateInsert3.enabled}"
+                   commitEnabled="#{bindings.Commit.enabled}" deleteEnabled="#{bindings.Delete3.enabled}" add="#{bindings.CreateInsert3.execute}"
+                   commit="#{bindings.Commit.execute}" delete="#{bindings.Delete3.execute}" binding="#{backingBeanScope.mainBean.interfaces}">
+        <f:facet name="table">
+          <af:table value="#{bindings.Interfaces.collectionModel}" var="row" rows="#{bindings.Interfaces.rangeSize}"
+                    emptyText="#{bindings.Interfaces.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                    fetchSize="#{bindings.Interfaces.rangeSize}" rowBandingInterval="0" filterModel="#{bindings.InterfacesQuery.queryDescriptor}"
+                    queryListener="#{bindings.InterfacesQuery.processQuery}" varStatus="vs"
+                    selectedRowKeys="#{bindings.Interfaces.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.Interfaces.collectionModel.makeCurrent}" rowSelection="single" id="t1" editingMode="clickToEdit"
+                    partialTriggers="::dc_add ::dc_delete ::dc_commit ::dc_rollback ::dc_refresh">
+            <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.Interfaces.hints.Id.label}" id="c4">
+              <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.Interfaces.hints.Id.label}"
+                            required="#{bindings.Interfaces.hints.Id.mandatory}" columns="#{bindings.Interfaces.hints.Id.displayWidth}"
+                            maximumLength="#{bindings.Interfaces.hints.Id.precision}" shortDesc="#{bindings.Interfaces.hints.Id.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.Id.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.Interfaces.hints.Date.label}" id="c1">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.Date}" id="id1"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.Interfaces.hints.Date.label}"
+                            required="#{bindings.Interfaces.hints.Date.mandatory}" shortDesc="#{bindings.Interfaces.hints.Date.tooltip}" id="id2">
+                <f:validator binding="#{row.bindings.Date.validator}"/>
+                <af:convertDateTime pattern="#{bindings.Interfaces.hints.Date.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="EditorName" filterable="true" sortable="true" headerText="#{bindings.Interfaces.hints.EditorName.label}" id="c3">
+              <af:inputText value="#{row.bindings.EditorName.inputValue}" label="#{bindings.Interfaces.hints.EditorName.label}"
+                            required="#{bindings.Interfaces.hints.EditorName.mandatory}"
+                            columns="#{bindings.Interfaces.hints.EditorName.displayWidth}"
+                            maximumLength="#{bindings.Interfaces.hints.EditorName.precision}"
+                            shortDesc="#{bindings.Interfaces.hints.EditorName.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.EditorName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Format" filterable="true" sortable="true" headerText="#{bindings.Interfaces.hints.Format.label}" id="c6">
+              <af:selectOneChoice value="#{row.bindings.Format.inputValue}" label="#{row.bindings.Format.label}"
+                                  required="#{bindings.Interfaces.hints.Format.mandatory}" shortDesc="#{bindings.Interfaces.hints.Format.tooltip}"
+                                  id="soc1">
+                <f:selectItems value="#{row.bindings.Format.items}" id="si1"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.Interfaces.hints.Code.label}" id="c5">
+              <af:inputText value="#{row.bindings.Code.inputValue}" label="#{bindings.Interfaces.hints.Code.label}"
+                            required="#{bindings.Interfaces.hints.Code.mandatory}" columns="#{bindings.Interfaces.hints.Code.displayWidth}"
+                            maximumLength="#{bindings.Interfaces.hints.Code.precision}" shortDesc="#{bindings.Interfaces.hints.Code.tooltip}"
+                            id="it2">
+                <f:validator binding="#{row.bindings.Code.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.Interfaces.hints.Name.label}" id="c2">
+              <af:inputText value="#{row.bindings.Name.inputValue}" label="#{bindings.Interfaces.hints.Name.label}"
+                            required="#{bindings.Interfaces.hints.Name.mandatory}" columns="#{bindings.Interfaces.hints.Name.displayWidth}"
+                            maximumLength="#{bindings.Interfaces.hints.Name.precision}" shortDesc="#{bindings.Interfaces.hints.Name.tooltip}"
+                            id="it4">
+                <f:validator binding="#{row.bindings.Name.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </f:facet>
+      </dc:TableDef>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</jsp:root>

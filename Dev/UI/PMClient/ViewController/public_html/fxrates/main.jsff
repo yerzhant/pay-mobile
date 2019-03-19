@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <dc:TableDef id="td1" addEnabled="#{bindings.CreateInsert.enabled}" add="#{bindings.CreateInsert.execute}" historyEnabled="true"
+                   commitEnabled="#{bindings.Commit.enabled}" commit="#{bindings.Commit.execute}" deleteEnabled="#{bindings.Delete.enabled}"
+                   delete="#{bindings.Delete.execute}" refreshEnabled="#{bindings.Execute.enabled}" refresh="#{bindings.Execute.execute}"
+                   rollbackEnabled="#{bindings.Rollback.enabled}" rollback="#{bindings.Rollback.execute}"
+                   rows="#{bindings.FxRates.estimatedRowCount}" viewObject="FxRates" binding="#{backingBeanScope.mainBean.fxRates}">
+        <f:facet name="table">
+          <af:table value="#{bindings.FxRates.collectionModel}" var="row" rows="#{bindings.FxRates.rangeSize}"
+                    emptyText="#{bindings.FxRates.viewable ? 'Нет данных.' : 'Доступ запрещен.'}" fetchSize="#{bindings.FxRates.rangeSize}"
+                    rowBandingInterval="0" filterModel="#{bindings.FxRatesQuery.queryDescriptor}"
+                    queryListener="#{bindings.FxRatesQuery.processQuery}" varStatus="vs"
+                    selectedRowKeys="#{bindings.FxRates.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.FxRates.collectionModel.makeCurrent}" rowSelection="single" id="t1" summary="Конверсионные курсы"
+                    shortDesc="Конверсионные курсы" editingMode="clickToEdit"
+                    partialTriggers="::dc_add ::dc_delete ::dc_commit ::dc_rollback ::dc_refresh">
+            <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.FxRates.hints.Id.label}" id="c5"
+                       rowHeader="unstyled">
+              <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.FxRates.hints.Id.label}"
+                            required="#{bindings.FxRates.hints.Id.mandatory}" columns="#{bindings.FxRates.hints.Id.displayWidth}"
+                            maximumLength="#{bindings.FxRates.hints.Id.precision}" shortDesc="#{bindings.FxRates.hints.Id.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.Id.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.FxRates.hints.Date.label}" id="c4">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.Date}" id="id1" label="L"/>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.Date.inputValue}" label="#{bindings.FxRates.hints.Date.label}"
+                            required="#{bindings.FxRates.hints.Date.mandatory}" shortDesc="#{bindings.FxRates.hints.Date.tooltip}" id="id2">
+                <f:validator binding="#{row.bindings.Date.validator}"/>
+                <af:convertDateTime pattern="#{bindings.FxRates.hints.Date.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="User" filterable="true" sortable="true" headerText="#{bindings.FxRates.hints.User.label}" id="c6">
+              <af:selectOneChoice value="#{row.bindings.User.inputValue}" label="#{row.bindings.User.label}"
+                                  required="#{bindings.FxRates.hints.User.mandatory}" shortDesc="#{bindings.FxRates.hints.User.tooltip}" id="soc1">
+                <f:selectItems value="#{row.bindings.User.items}" id="si2"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="Currency" filterable="true" sortable="true" headerText="#{bindings.FxRates.hints.Currency.label}" id="c3">
+              <af:selectOneChoice value="#{row.bindings.Currency.inputValue}" label="#{row.bindings.Currency.label}"
+                                  required="#{bindings.FxRates.hints.Currency.mandatory}" shortDesc="#{bindings.FxRates.hints.Currency.tooltip}"
+                                  id="soc2">
+                <f:selectItems value="#{row.bindings.Currency.items}" id="si1"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="Buy" filterable="true" sortable="true" headerText="#{bindings.FxRates.hints.Buy.label}" id="c2" align="end">
+              <af:inputText value="#{row.bindings.Buy.inputValue}" label="#{bindings.FxRates.hints.Buy.label}"
+                            required="#{bindings.FxRates.hints.Buy.mandatory}" columns="#{bindings.FxRates.hints.Buy.displayWidth}"
+                            maximumLength="#{bindings.FxRates.hints.Buy.precision}" shortDesc="#{bindings.FxRates.hints.Buy.tooltip}" id="it1"
+                            styleClass="AFFieldNumberMarker">
+                <f:validator binding="#{row.bindings.Buy.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FxRates.hints.Buy.format}" maxFractionDigits="8" minFractionDigits="8"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="Sell" filterable="true" sortable="true" headerText="#{bindings.FxRates.hints.Sell.label}" id="c1" align="end">
+              <af:inputText value="#{row.bindings.Sell.inputValue}" label="#{bindings.FxRates.hints.Sell.label}"
+                            required="#{bindings.FxRates.hints.Sell.mandatory}" columns="#{bindings.FxRates.hints.Sell.displayWidth}"
+                            maximumLength="#{bindings.FxRates.hints.Sell.precision}" shortDesc="#{bindings.FxRates.hints.Sell.tooltip}" id="it3"
+                            styleClass="AFFieldNumberMarker">
+                <f:validator binding="#{row.bindings.Sell.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FxRates.hints.Sell.format}" minFractionDigits="8" maxFractionDigits="8"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </f:facet>
+      </dc:TableDef>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

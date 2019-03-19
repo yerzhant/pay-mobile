@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="pmClientPageDef"
+                Package="kz.paysoft.paymobile.ui.pmclient.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SystemLog" RangeSize="25" DataControl="PMClientServiceDataControl" id="SystemLogIterator"/>
+    <taskFlow id="appwrapperflow1" taskFlowId="/WEB-INF/app-wrapper-flow.xml#app-wrapper-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="contractactivationflow1" taskFlowId="/WEB-INF/contract-activation-flow.xml#contract-activation-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="contractsflow1" taskFlowId="/WEB-INF/contracts-flow.xml#contracts-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="clientsflow1" taskFlowId="/WEB-INF/clients-flow.xml#clients-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="Srs" RangeSize="25" DataControl="PMClientServiceDataControl" id="SrsIterator"/>
+    <searchRegion Criteria="SrsByPhoneNumberCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SrsIterator"
+                  id="SrsByPhoneNumberCriteriaQuery"/>
+    <iterator Binds="SrsSystemLog" RangeSize="25" DataControl="PMClientServiceDataControl" id="SrsSystemLogIterator"/>
+    <searchRegion Binds="SrsSystemLogIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SrsSystemLogQuery"/>
+    <iterator Binds="Messages" RangeSize="25" DataControl="PMClientServiceDataControl" id="MessagesIterator"/>
+    <searchRegion Binds="MessagesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MessagesQuery"/>
+    <iterator Binds="ActiveSrs" RangeSize="25" DataControl="PMClientServiceDataControl" id="ActiveSrsIterator"/>
+    <searchRegion Binds="ActiveSrsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ActiveSrsQuery"/>
+    <iterator Binds="ActiveSrsSrs" RangeSize="25" DataControl="PMClientServiceDataControl" id="ActiveSrsSrsIterator"/>
+    <taskFlow id="fxratesflow1" taskFlowId="/WEB-INF/fx-rates-flow.xml#fx-rates-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <searchRegion Criteria="SystemLogOnOrAfterCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SystemLogIterator"
+                  id="SystemLogOnOrAfterCriteriaQuery"/>
+    <searchRegion Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SystemLogIterator" id="SystemLogQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SystemLogIterator" id="SystemLog">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.SystemLogView" Name="SystemLog0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="OccurredAt"/>
+          <Item Value="Code"/>
+          <Item Value="Description"/>
+          <Item Value="SrId"/>
+          <Item Value="User"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SrsIterator" id="Srs">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.SrsView" Name="Srs0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Status"/>
+          <Item Value="ADate"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="CipherSuite"/>
+          <Item Value="InitInterface"/>
+          <Item Value="TypeCode"/>
+          <Item Value="SrTypeId"/>
+          <Item Value="SmsSent"/>
+          <Item Value="StatusDetail"/>
+          <Item Value="SrcName"/>
+          <Item Value="SrcInterface"/>
+          <Item Value="SrcAccount"/>
+          <Item Value="DstName"/>
+          <Item Value="DstInterface"/>
+          <Item Value="DstAccount"/>
+          <Item Value="Amount"/>
+          <Item Value="Currency"/>
+          <Item Value="Ptc"/>
+          <Item Value="Description"/>
+          <Item Value="StType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SrsSystemLogIterator" id="SrsSystemLog">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.SystemLogView" Name="SrsSystemLog0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="OccurredAt"/>
+          <Item Value="Code"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MessagesIterator" id="Messages">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.MessagesView" Name="Messages0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="AnInterface"/>
+          <Item Value="Direction"/>
+          <Item Value="ADate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ActiveSrsIterator" id="ActiveSrs">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.ActiveSrsView" Name="ActiveSrs0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Lag"/>
+          <Item Value="Cancelled"/>
+          <Item Value="SendNtf"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ActiveSrsSrsIterator" id="ActiveSrsSrs">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.SrsView" Name="ActiveSrsSrs0">
+        <AttrNames>
+          <Item Value="Status"/>
+          <Item Value="ADate"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="CipherSuite"/>
+          <Item Value="InitInterface"/>
+          <Item Value="TypeCode"/>
+          <Item Value="SrTypeId"/>
+          <Item Value="SmsSent"/>
+          <Item Value="StatusDetail"/>
+          <Item Value="SrcName"/>
+          <Item Value="SrcInterface"/>
+          <Item Value="SrcAccount"/>
+          <Item Value="DstName"/>
+          <Item Value="DstInterface"/>
+          <Item Value="DstAccount"/>
+          <Item Value="Amount"/>
+          <Item Value="Currency"/>
+          <Item Value="Ptc"/>
+          <Item Value="Description"/>
+          <Item Value="StType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ActiveSrsIterator" id="RefreshActiveSrs" InstanceName="PMClientServiceDataControl.ActiveSrs"
+            DataControl="PMClientServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="SrsIterator" id="RefreshSrs" InstanceName="PMClientServiceDataControl.Srs" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="SystemLogIterator" id="RefreshSystemLog" InstanceName="PMClientServiceDataControl.SystemLog" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

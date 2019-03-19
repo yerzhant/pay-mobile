@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dc="http://www.paysoft.kz/paymobile/ui/DeclarativeComponents">
+  <af:panelAccordion id="pa1">
+    <af:showDetailItem text="История изменений кодов типов сервисов" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps2" orientation="vertical">
+        <f:facet name="first">
+          <dc:TableDef id="td3" baseView="Main" refresh="#{bindings.Execute.execute}" refreshEnabled="true"
+                       rows="#{bindings.CSrTypes.estimatedRowCount}">
+            <f:facet name="table">
+              <af:table value="#{bindings.CSrTypes.collectionModel}" var="row" rows="#{bindings.CSrTypes.rangeSize}"
+                        emptyText="#{bindings.CSrTypes.viewable ? 'Нет данных.' : 'Доступ запрещен.'}" fetchSize="#{bindings.CSrTypes.rangeSize}"
+                        rowBandingInterval="0" filterModel="#{bindings.CSrTypesQuery.queryDescriptor}"
+                        queryListener="#{bindings.CSrTypesQuery.processQuery}" varStatus="vs"
+                        selectedRowKeys="#{bindings.CSrTypes.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CSrTypes.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                        partialTriggers="::dc_refresh" editingMode="clickToEdit">
+                <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CSrTypes.hints.Id.label}" id="c3">
+                  <af:outputText value="#{row.Id}" id="ot7">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CSrTypes.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CSrTypes.hints.Date.label}" id="c1">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.Date}" id="id1"/>
+                  </f:facet>
+                  <af:outputText value="#{row.Date}" id="ot1">
+                    <af:convertDateTime pattern="#{bindings.CSrTypes.hints.Date.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.CSrTypes.hints.Editor.label}" id="c2">
+                  <af:outputText value="#{row.Editor}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="Name" filterable="true" sortable="true" headerText="#{bindings.CSrTypes.hints.Name.label}" id="c4">
+                  <af:outputText value="#{row.Name}" id="ot6"/>
+                </af:column>
+                <af:column sortProperty="Is2Phase" sortable="true" headerText="#{bindings.CSrTypes.hints.Is2Phase.label}" id="c8">
+                  <af:selectOneChoice value="#{row.bindings.Is2Phase.inputValue}" label="#{row.bindings.Is2Phase.label}"
+                                      required="#{bindings.CSrTypes.hints.Is2Phase.mandatory}" shortDesc="#{bindings.CSrTypes.hints.Is2Phase.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{row.bindings.Is2Phase.items}" id="si1"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="IsCancellable" sortable="true" headerText="#{bindings.CSrTypes.hints.IsCancellable.label}" id="c7">
+                  <af:selectOneChoice value="#{row.bindings.IsCancellable.inputValue}" label="#{row.bindings.IsCancellable.label}"
+                                      required="#{bindings.CSrTypes.hints.IsCancellable.mandatory}"
+                                      shortDesc="#{bindings.CSrTypes.hints.IsCancellable.tooltip}" id="soc2">
+                    <f:selectItems value="#{row.bindings.IsCancellable.items}" id="si2"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="CheckFields" filterable="true" sortable="true" headerText="#{bindings.CSrTypes.hints.CheckFields.label}"
+                           id="c5">
+                  <af:outputText value="#{row.CheckFields}" id="ot8"/>
+                </af:column>
+                <af:column id="c22" sortProperty="SrcInterface" sortable="true" headerText="#{bindings.CSrTypes.hints.SrcInterface.label}">
+                  <af:outputText value="#{row.SrcInterface}" id="ot21"/>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </dc:TableDef>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelSplitter id="ps1" positionedFromEnd="true" orientation="vertical">
+            <f:facet name="first">
+              <dc:TableDef id="td1" baseView="Main" refresh="#{bindings.Execute1.execute}" refreshEnabled="true"
+                           rows="#{bindings.CSrTypeCodes.estimatedRowCount}">
+                <f:facet name="table">
+                  <af:table value="#{bindings.CSrTypeCodes.collectionModel}" var="row" rows="#{bindings.CSrTypeCodes.rangeSize}"
+                            emptyText="#{bindings.CSrTypeCodes.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                            fetchSize="#{bindings.CSrTypeCodes.rangeSize}" rowBandingInterval="0"
+                            filterModel="#{bindings.CSrTypeCodesQuery.queryDescriptor}" queryListener="#{bindings.CSrTypeCodesQuery.processQuery}"
+                            varStatus="vs" selectedRowKeys="#{bindings.CSrTypeCodes.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.CSrTypeCodes.collectionModel.makeCurrent}" rowSelection="single" id="t2"
+                            partialTriggers="::::td3:dc_pc1:t1 ::dc_refresh" editingMode="clickToEdit">
+                    <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.Id.label}" id="c12">
+                      <af:outputText value="#{row.Id}" id="ot11">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CSrTypeCodes.hints.Id.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.Date.label}" id="c9">
+                      <f:facet name="filter">
+                        <af:inputDate value="#{vs.filterCriteria.Date}" id="id2"/>
+                      </f:facet>
+                      <af:outputText value="#{row.Date}" id="ot13">
+                        <af:convertDateTime pattern="#{bindings.CSrTypeCodes.hints.Date.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.Editor.label}"
+                               id="c14">
+                      <af:outputText value="#{row.Editor}" id="ot14"/>
+                    </af:column>
+                    <af:column id="c21" sortProperty="SrcInterface" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.AnInterface.label}">
+                      <af:outputText value="#{row.AnInterface}" id="ot15"/>
+                    </af:column>
+                    <af:column sortProperty="Type" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.Type.label}" id="c11">
+                      <af:selectOneChoice value="#{row.bindings.Type.inputValue}" label="#{row.bindings.Type.label}"
+                                          required="#{bindings.CSrTypeCodes.hints.Type.mandatory}"
+                                          shortDesc="#{bindings.CSrTypeCodes.hints.Type.tooltip}" id="soc5">
+                        <f:selectItems value="#{row.bindings.Type.items}" id="si5"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.Code.label}" id="c10">
+                      <af:outputText value="#{row.Code}" id="ot9"/>
+                    </af:column>
+                  </af:table>
+                </f:facet>
+              </dc:TableDef>
+            </f:facet>
+            <f:facet name="second">
+              <dc:TableDef id="td2" baseView="Main" refresh="#{bindings.Execute2.execute}" refreshEnabled="true"
+                           rows="#{bindings.CHSrTypeCodes.estimatedRowCount}">
+                <f:facet name="table">
+                  <af:table value="#{bindings.CHSrTypeCodes.collectionModel}" var="row" rows="#{bindings.CHSrTypeCodes.rangeSize}"
+                            emptyText="#{bindings.CHSrTypeCodes.viewable ? 'Нет данных.' : 'Доступ запрещен.'}"
+                            fetchSize="#{bindings.CHSrTypeCodes.rangeSize}" rowBandingInterval="0"
+                            filterModel="#{bindings.CHSrTypeCodesQuery.queryDescriptor}" queryListener="#{bindings.CHSrTypeCodesQuery.processQuery}"
+                            varStatus="vs" selectedRowKeys="#{bindings.CHSrTypeCodes.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.CHSrTypeCodes.collectionModel.makeCurrent}" rowSelection="single" id="t3"
+                            partialTriggers="::::td1:dc_pc1:t2 ::dc_refresh" editingMode="clickToEdit">
+                    <af:column sortProperty="Id" filterable="true" sortable="true" headerText="#{bindings.CHSrTypeCodes.hints.Id.label}" id="c19">
+                      <af:outputText value="#{row.Id}" id="ot17">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CHSrTypeCodes.hints.Id.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Date" filterable="true" sortable="true" headerText="#{bindings.CHSrTypeCodes.hints.Date.label}" id="c20">
+                      <f:facet name="filter">
+                        <af:inputDate value="#{vs.filterCriteria.Date}" id="id3"/>
+                      </f:facet>
+                      <af:outputText value="#{row.Date}" id="ot20">
+                        <af:convertDateTime pattern="#{bindings.CHSrTypeCodes.hints.Date.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Editor" filterable="true" sortable="true" headerText="#{bindings.CHSrTypeCodes.hints.Editor.label}"
+                               id="c17">
+                      <af:outputText value="#{row.Editor}" id="ot19"/>
+                    </af:column>
+                    <af:column id="c18" sortProperty="SrcInterface" sortable="true" headerText="#{bindings.CSrTypeCodes.hints.AnInterface.label}">
+                      <af:outputText value="#{row.AnInterface}" id="ot10"/>
+                    </af:column>
+                    <af:column sortProperty="Type" sortable="true" headerText="#{bindings.CHSrTypeCodes.hints.Type.label}" id="c15">
+                      <af:selectOneChoice value="#{row.bindings.Type.inputValue}" label="#{row.bindings.Type.label}"
+                                          required="#{bindings.CHSrTypeCodes.hints.Type.mandatory}"
+                                          shortDesc="#{bindings.CHSrTypeCodes.hints.Type.tooltip}" id="soc7">
+                        <f:selectItems value="#{row.bindings.Type.items}" id="si7"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="Code" filterable="true" sortable="true" headerText="#{bindings.CHSrTypeCodes.hints.Code.label}" id="c16">
+                      <af:outputText value="#{row.Code}" id="ot18"/>
+                    </af:column>
+                  </af:table>
+                </f:facet>
+              </dc:TableDef>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</jsp:root>

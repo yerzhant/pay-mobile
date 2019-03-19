@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<declarativeCompDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/declarativecomp">
+  <declarativecomp-jsp-ui-def>/TableDef.jspx</declarativecomp-jsp-ui-def>
+  <declarativecomp-taglib>
+    <taglib-name>DeclarativeComponents</taglib-name>
+    <taglib-uri>http://www.paysoft.kz/paymobile/ui/DeclarativeComponents</taglib-uri>
+    <taglib-prefix>dc</taglib-prefix>
+  </declarativecomp-taglib>
+</declarativeCompDefs>

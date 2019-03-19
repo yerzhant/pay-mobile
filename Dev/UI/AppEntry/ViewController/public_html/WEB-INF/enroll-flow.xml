@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="enroll-flow">
+    <default-activity id="__25">welcome</default-activity>
+    <transaction id="__45">
+      <new-transaction/>
+    </transaction>
+    <data-control-scope id="__11">
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__31">
+      <managed-bean-name id="__23">enrollBean</managed-bean-name>
+      <managed-bean-class id="__30">kz.paysoft.paymobile.ui.appentry.view.bean.EnrollBean</managed-bean-class>
+      <managed-bean-scope id="__24">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="welcome">
+      <page>/welcome.jsff</page>
+      <train-stop id="__26">
+        <display-name id="__38">Добро пожаловать!</display-name>
+      </train-stop>
+    </view>
+    <method-call id="createApplication">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__27">
+        <fixed-outcome>toPersonal</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="installation">
+      <page>/installation.jsff</page>
+      <train-stop id="__28">
+        <display-name id="__39">Установка мидлета</display-name>
+      </train-stop>
+    </view>
+    <view id="personal">
+      <page>/personal.jsff</page>
+      <train-stop id="__29">
+        <display-name id="__40">Личные данные</display-name>
+        <outcome id="__42">toCreateNewApplication</outcome>
+      </train-stop>
+    </view>
+    <view id="accounts">
+      <page>/accounts.jsff</page>
+      <train-stop id="__1">
+        <display-name id="__41">Счета</display-name>
+      </train-stop>
+    </view>
+    <task-flow-return id="commit">
+      <outcome id="__2">
+        <name>toConfirmation</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <router id="createNewApplication">
+      <case>
+        <expression>#{pageFlowScope.enrollBean.applicationCreated}</expression>
+        <outcome id="__37">no</outcome>
+      </case>
+      <default-outcome>yes</default-outcome>
+    </router>
+    <train/>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__3">*</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">toCreateNewApplication</from-outcome>
+        <to-activity-id id="__6">createNewApplication</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">createNewApplication</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">yes</from-outcome>
+        <to-activity-id id="__12">createApplication</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">no</from-outcome>
+        <to-activity-id id="__16">personal</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id id="__19">accounts</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">toCommit</from-outcome>
+        <to-activity-id id="__21">commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__32">
+      <from-activity-id id="__33">createApplication</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome id="__34">toPersonal</from-outcome>
+        <to-activity-id id="__35">personal</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

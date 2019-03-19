@@ -1,0 +1,1 @@
+sqlplus pay_mobile/qwerty@devpm

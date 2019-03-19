@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedUsersPageDef"
+                Package="kz.paysoft.paymobile.ui.security.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DUsers" RangeSize="25" DataControl="SecurityServiceDataControl" id="DUsersIterator"/>
+    <searchRegion Binds="DUsersIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DUsersQuery"/>
+    <iterator Binds="DHUsers" RangeSize="25" DataControl="SecurityServiceDataControl" id="DHUsersIterator"/>
+    <searchRegion Binds="DHUsersIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHUsersQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DUsersIterator" id="DUsers">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersView" Name="DUsers0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="SysName"/>
+          <Item Value="FullName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHUsersIterator" id="DHUsers">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.HUsersView" Name="DHUsers0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="SysName"/>
+          <Item Value="FullName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DUsersIterator" id="RefreshDUsers" InstanceName="SecurityServiceDataControl.DUsers" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DHUsersIterator" id="RefreshDHUsers" InstanceName="SecurityServiceDataControl.DHUsers" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.56.60" id="DataBindings" SeparateXMLFiles="false"
+             Package="kz.paysoft.paymobile.ui.appentry.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/personal.jsff"
+          usageId="kz_paysoft_paymobile_ui_appentry_view_personalPageDef"/>
+    <page path="/accounts.jsff"
+          usageId="kz_paysoft_paymobile_ui_appentry_view_accountsPageDef"/>
+    <page path="/WEB-INF/enroll-flow.xml#enroll-flow@createApplication"
+          usageId="kz_paysoft_paymobile_ui_appentry_view_enroll_flow_enroll_flow_CreateInsertPageDef"/>
+    <page path="/enroll.jspx"
+          usageId="kz_paysoft_paymobile_ui_appentry_view_enrollPageDef"/>
+    <page path="/confirmation.jsff"
+          usageId="kz_paysoft_paymobile_ui_appentry_view_confirmationPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="kz_paysoft_paymobile_ui_appentry_view_personalPageDef"
+          path="kz.paysoft.paymobile.ui.appentry.view.pageDefs.personalPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_appentry_view_accountsPageDef"
+          path="kz.paysoft.paymobile.ui.appentry.view.pageDefs.accountsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_appentry_view_enroll_flow_enroll_flow_CreateInsertPageDef"
+          path="kz.paysoft.paymobile.ui.appentry.view.pageDefs.enroll_flow_enroll_flow_CreateInsertPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_appentry_view_enrollPageDef"
+          path="kz.paysoft.paymobile.ui.appentry.view.pageDefs.enrollPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_appentry_view_confirmationPageDef"
+          path="kz.paysoft.paymobile.ui.appentry.view.pageDefs.confirmationPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppEntryServiceDataControl"
+                     Package="kz.paysoft.paymobile.ui.appentry.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppEntryServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

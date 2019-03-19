@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ActiveSrToSrLink"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="SrsView"
+    Cardinality="1"
+    Owner="kz.paysoft.paymobile.ui.pmclient.model.views.SrsView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SrsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.pmclient.model.views.SrsView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ActiveSrsView"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.pmclient.model.views.ActiveSrsView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ActiveSrsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.pmclient.model.views.ActiveSrsView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

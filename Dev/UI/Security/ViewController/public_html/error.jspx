@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" theme="contentBody" title="PayMobile™ | Настройка безопасности">
+      <af:form id="f1">
+        <af:pageTemplate viewId="/WEB-INF/main-template.jspx" id="pt1">
+          <f:facet name="contents">
+            <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+              <af:decorativeBox id="db1" topHeight="0" theme="light">
+                <f:facet name="center">
+                  <af:panelStretchLayout id="psl1" bottomHeight="25px">
+                    <f:facet name="bottom">
+                      <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+                        <af:commandButton text="OK" id="cb1" action="toSetup"/>
+                      </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="center">
+                      <af:outputText value="#{controllerContext.currentViewPort.exceptionData.localizedMessage}" id="ot1"/>
+                    </f:facet>
+                  </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="top"/>
+              </af:decorativeBox>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:attribute name="title" value="Настройка безопасности системы | Ошибка"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

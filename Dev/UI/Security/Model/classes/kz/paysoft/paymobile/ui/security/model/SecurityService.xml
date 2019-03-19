@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SecurityService"
+  Version="11.1.1.56.60"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="Branches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.BranchesView"/>
+  <ViewUsage
+    Name="UsersOfBranch"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfBranchView"/>
+  <ViewUsage
+    Name="Users"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.UsersView"/>
+  <ViewUsage
+    Name="BranchesOfUser"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfUserView"/>
+  <ViewUsage
+    Name="CBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["C"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="CHBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["D"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DHBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="CUsers"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["C"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="CHUsers"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DUsers"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["D"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DHUsers"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="CBranchesOfUser"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["C"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="CHUsersBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DUsersBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["D"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DHUsersBranches"
+    ViewObjectName="kz.paysoft.paymobile.ui.security.model.views.HUsersBranchesView">
+    <ParameterMap>
+      <PIMap Variable="RS">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewLinkUsage
+    Name="UsersBranchesToBranchLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.UsersBranchesToBranchLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.Branches"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.UsersOfBranch"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="UsersBranchesToUserLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.UsersBranchesToUserLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.Users"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.BranchesOfUser"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HBranchesLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HBranchesLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CBranches"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CHBranches"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HBranchesLink2"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HBranchesLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.DBranches"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.DHBranches"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HUsersLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HUsersLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CUsers"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CHUsers"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HUsersLink2"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HUsersLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.DUsers"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.DHUsers"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HUsersBranchesToUserLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HUsersBranchesToUserLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CUsers"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CBranchesOfUser"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HUsersBranchesLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HUsersBranchesLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CBranchesOfUser"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.CHUsersBranches"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="HUsersBranchesLink2"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="kz.paysoft.paymobile.ui.security.model.views.links.HUsersBranchesLink"
+    SrcViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.DUsersBranches"
+    DstViewUsageName="kz.paysoft.paymobile.ui.security.model.SecurityService.DHUsersBranches"
+    Reversed="false"/>
+</AppModule>

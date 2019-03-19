@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedDocTypesPageDef" Package="dcci">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DDocTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="DDocTypesIterator"/>
+    <searchRegion Binds="DDocTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DDocTypesQuery"/>
+    <iterator Binds="DHDocTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="DHDocTypesIterator"/>
+    <searchRegion Binds="DHDocTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHDocTypesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DDocTypesIterator" id="DDocTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HDocTypesView" Name="DDocTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHDocTypesIterator" id="DHDocTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HDocTypesView" Name="DHDocTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DDocTypesIterator" id="Execute" InstanceName="SetupServiceDataControl.DDocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DHDocTypesIterator" id="Execute1" InstanceName="SetupServiceDataControl.DHDocTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

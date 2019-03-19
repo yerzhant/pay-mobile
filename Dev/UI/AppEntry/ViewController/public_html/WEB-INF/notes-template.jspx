@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:panelSplitter id="pt_ps1" orientation="vertical"
+                      splitterPosition="#{attrs.height}"
+                      positionedFromEnd="true">
+      <f:facet name="first">
+        <af:decorativeBox id="pt_db1" theme="light" topHeight="80px">
+          <f:facet name="center">
+            <af:facetRef facetName="contents"/>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelGroupLayout id="pt_pgl2" layout="vertical">
+              <af:panelGroupLayout id="pt_pgl3" layout="horizontal"
+                                   halign="center">
+                <af:train id="pt_t1"
+                          value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pt_pgl4" layout="horizontal"
+                                   halign="center">
+                <af:trainButtonBar id="pt_tbb1"
+                                   value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"/>
+                <af:commandToolbarButton text="Зарегистрировать"
+                                         id="pt_ctb1"
+                                         rendered="#{attrs.register}"
+                                         action="toCommit"/>
+                <f:facet name="separator">
+                  <af:spacer width="3" id="pt_s2"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </f:facet>
+      <f:facet name="second">
+        <af:decorativeBox id="pt_db2" theme="light" topHeight="30px">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pt_pgl5" layout="scroll">
+              <af:panelGroupLayout id="pt_pgl6" layout="horizontal"
+                                   halign="center">
+                <af:facetRef facetName="notes"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelGroupLayout
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pt_pgl1" layout="horizontal" valign="top">
+              <af:icon name="info" id="pt_i1"/>
+              <af:spacer width="5" id="pt_s1"/>
+              <af:outputText value="Примечания" id="pt_ot1"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:decorativeBox>
+      </f:facet>
+    </af:panelSplitter>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>Notes</display-name>
+        <facet>
+          <facet-name>contents</facet-name>
+        </facet>
+        <facet>
+          <facet-name>
+            notes
+          </facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>
+            height
+          </attribute-name>
+          <attribute-class>
+            int
+          </attribute-class>
+          <default-value>
+            100
+          </default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            register
+          </attribute-name>
+          <attribute-class>
+            boolean
+          </attribute-class>
+          <default-value>
+            false
+          </default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>

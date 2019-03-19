@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AccountsView"
+  Version="11.1.1.56.60"
+  SelectList="Account.ID$, 
+       Account.DATE$, 
+       Account.USER$, 
+       Account.CONTRACT_ID$, 
+       Account.KIND, 
+       Account.INTERFACE, 
+       Account.A_NUMBER, 
+       Account.NAME, 
+       Account.PRIORITY, 
+       Account.SINGLE_AMOUNT, 
+       Account.SINGLE_CURRENCY, 
+       Account.DAY_AMOUNT, 
+       Account.DAY_TOTAL_AMOUNT, 
+       Account.DAY_CURRENCY, 
+       Account.DAY_QUANTITY, 
+       Account.DAY_TOTAL_QUANTITY, 
+       Account.DAY_DATE, 
+       Account.MONTH_AMOUNT, 
+       Account.MONTH_TOTAL_AMOUNT, 
+       Account.MONTH_CURRENCY, 
+       Account.MONTH_QUANTITY, 
+       Account.MONTH_TOTAL_QUANTITY, 
+       Account.MONTH_DATE, 
+       Account.FROM_HOUR, 
+       Account.FROM_MIN, 
+       Account.TO_HOUR, 
+       Account.TO_MIN"
+  FromList="PAY_MOBILE.ACCOUNTS Account"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="Account.STATUS$ = 'C'"
+  RowClass="kz.paysoft.paymobile.ui.pmclient.model.views.AccountsViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="Interfaces"
+    ViewObjectName="kz.paysoft.paymobile.ui.pmclient.model.dics.InterfacesView"/>
+  <ViewAccessor
+    Name="Currencies"
+    ViewObjectName="kz.paysoft.paymobile.ui.pmclient.model.dics.CurrenciesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccountKinds"
+    ViewObjectName="kz.paysoft.paymobile.ui.pmclient.model.views.AccountKindsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Users"
+    ViewObjectName="kz.paysoft.paymobile.ui.pmclient.model.dics.UsersView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Kind"
+    ListVOName="AccountKinds"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Kind_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Kind"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AnInterface"
+    ListVOName="Interfaces"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_AnInterface_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AnInterface"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SingleCurrency"
+    ListVOName="Currencies"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SingleCurrency"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DayCurrency"
+    ListVOName="Currencies"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DayCurrency"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MonthCurrency"
+    ListVOName="Currencies"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MonthCurrency"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_User"
+    ListVOName="Users"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_User_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="User"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SysName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FullName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Account"
+    Entity="kz.paysoft.paymobile.ui.pmclient.model.entities.Account"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Account"
+    AliasName="ID$"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="Date"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Date"
+    EntityUsage="Account"
+    AliasName="DATE$"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="User"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="User"
+    EntityUsage="Account"
+    AliasName="USER$"
+    LOVName="LOV_User">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContractId"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContractId"
+    EntityUsage="Account"
+    AliasName="CONTRACT_ID$"/>
+  <ViewAttribute
+    Name="Kind"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Kind"
+    EntityUsage="Account"
+    AliasName="KIND"
+    LOVName="LOV_Kind">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AnInterface"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AnInterface"
+    EntityUsage="Account"
+    AliasName="INTERFACE"
+    LOVName="LOV_AnInterface">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ANumber"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ANumber"
+    EntityUsage="Account"
+    AliasName="A_NUMBER"/>
+  <ViewAttribute
+    Name="Name"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="Account"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="Priority"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Priority"
+    EntityUsage="Account"
+    AliasName="PRIORITY"/>
+  <ViewAttribute
+    Name="SingleAmount"
+    PrecisionRule="true"
+    EntityAttrName="SingleAmount"
+    EntityUsage="Account"
+    AliasName="SINGLE_AMOUNT"/>
+  <ViewAttribute
+    Name="SingleCurrency"
+    PrecisionRule="true"
+    EntityAttrName="SingleCurrency"
+    EntityUsage="Account"
+    AliasName="SINGLE_CURRENCY"
+    LOVName="LOV_SingleCurrency">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DayAmount"
+    PrecisionRule="true"
+    EntityAttrName="DayAmount"
+    EntityUsage="Account"
+    AliasName="DAY_AMOUNT"/>
+  <ViewAttribute
+    Name="DayTotalAmount"
+    PrecisionRule="true"
+    EntityAttrName="DayTotalAmount"
+    EntityUsage="Account"
+    AliasName="DAY_TOTAL_AMOUNT"/>
+  <ViewAttribute
+    Name="DayCurrency"
+    PrecisionRule="true"
+    EntityAttrName="DayCurrency"
+    EntityUsage="Account"
+    AliasName="DAY_CURRENCY"
+    LOVName="LOV_DayCurrency">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DayQuantity"
+    PrecisionRule="true"
+    EntityAttrName="DayQuantity"
+    EntityUsage="Account"
+    AliasName="DAY_QUANTITY"/>
+  <ViewAttribute
+    Name="DayTotalQuantity"
+    PrecisionRule="true"
+    EntityAttrName="DayTotalQuantity"
+    EntityUsage="Account"
+    AliasName="DAY_TOTAL_QUANTITY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="DayDate"
+    PrecisionRule="true"
+    EntityAttrName="DayDate"
+    EntityUsage="Account"
+    AliasName="DAY_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="MonthAmount"
+    PrecisionRule="true"
+    EntityAttrName="MonthAmount"
+    EntityUsage="Account"
+    AliasName="MONTH_AMOUNT"/>
+  <ViewAttribute
+    Name="MonthTotalAmount"
+    PrecisionRule="true"
+    EntityAttrName="MonthTotalAmount"
+    EntityUsage="Account"
+    AliasName="MONTH_TOTAL_AMOUNT"/>
+  <ViewAttribute
+    Name="MonthCurrency"
+    PrecisionRule="true"
+    EntityAttrName="MonthCurrency"
+    EntityUsage="Account"
+    AliasName="MONTH_CURRENCY"
+    LOVName="LOV_MonthCurrency">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthQuantity"
+    PrecisionRule="true"
+    EntityAttrName="MonthQuantity"
+    EntityUsage="Account"
+    AliasName="MONTH_QUANTITY"/>
+  <ViewAttribute
+    Name="MonthTotalQuantity"
+    PrecisionRule="true"
+    EntityAttrName="MonthTotalQuantity"
+    EntityUsage="Account"
+    AliasName="MONTH_TOTAL_QUANTITY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="MonthDate"
+    PrecisionRule="true"
+    EntityAttrName="MonthDate"
+    EntityUsage="Account"
+    AliasName="MONTH_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="FromHour"
+    PrecisionRule="true"
+    EntityAttrName="FromHour"
+    EntityUsage="Account"
+    AliasName="FROM_HOUR"/>
+  <ViewAttribute
+    Name="FromMin"
+    PrecisionRule="true"
+    EntityAttrName="FromMin"
+    EntityUsage="Account"
+    AliasName="FROM_MIN"/>
+  <ViewAttribute
+    Name="ToHour"
+    PrecisionRule="true"
+    EntityAttrName="ToHour"
+    EntityUsage="Account"
+    AliasName="TO_HOUR"/>
+  <ViewAttribute
+    Name="ToMin"
+    PrecisionRule="true"
+    EntityAttrName="ToMin"
+    EntityUsage="Account"
+    AliasName="TO_MIN"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="ContractsView"
+    ViewLink="kz.paysoft.paymobile.ui.pmclient.model.views.links.AccountsToContractLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

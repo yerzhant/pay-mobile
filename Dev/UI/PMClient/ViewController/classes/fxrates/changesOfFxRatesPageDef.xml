@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfFxRatesPageDef" Package="fxrates">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CFxRates" RangeSize="25" DataControl="PMClientServiceDataControl" id="CFxRatesIterator"/>
+    <searchRegion Binds="CFxRatesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CFxRatesQuery"/>
+    <iterator Binds="CHFxRates" RangeSize="25" DataControl="PMClientServiceDataControl" id="CHFxRatesIterator"/>
+    <searchRegion Binds="CHFxRatesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CHFxRatesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CFxRatesIterator" id="CFxRates">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.FxRatesView" Name="CFxRates0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Currency"/>
+          <Item Value="Buy"/>
+          <Item Value="Sell"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHFxRatesIterator" id="CHFxRates">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.history.FxRatesView" Name="CHFxRates0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="User"/>
+          <Item Value="Currency"/>
+          <Item Value="Buy"/>
+          <Item Value="Sell"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CFxRatesIterator" id="Execute" InstanceName="PMClientServiceDataControl.CFxRates" DataControl="PMClientServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

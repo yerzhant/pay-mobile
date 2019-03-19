@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/contract-activation-flow.xml" id="contract-activation-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/contracts-flow.xml" id="contracts-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/app-processing-flow.xml" id="app-processing-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/clients-flow.xml" id="clients-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/fx-rates-flow.xml" id="fx-rates-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/app-wrapper-flow.xml" id="app-wrapper-flow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+</task-flow-registry>

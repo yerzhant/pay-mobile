@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="changesOfCipherSuitesPageDef" Package="sps">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CCipherSuites" RangeSize="-1" DataControl="SetupServiceDataControl" id="CCipherSuitesIterator"/>
+    <searchRegion Binds="CCipherSuitesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CCipherSuitesQuery"/>
+    <iterator Binds="CHCipherSuites" RangeSize="-1" DataControl="SetupServiceDataControl" id="CHCipherSuitesIterator"/>
+    <searchRegion Binds="CHCipherSuitesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CHCipherSuitesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CCipherSuitesIterator" id="CCipherSuites">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HCipherSuitesView" Name="CCipherSuites0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Code"/>
+          <Item Value="ALevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CHCipherSuitesIterator" id="CHCipherSuites">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HCipherSuitesView" Name="CHCipherSuites0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="Code"/>
+          <Item Value="ALevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CCipherSuitesIterator" id="Execute" InstanceName="SetupServiceDataControl.CCipherSuites"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CHCipherSuitesIterator" id="Execute1" InstanceName="SetupServiceDataControl.CHCipherSuites"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

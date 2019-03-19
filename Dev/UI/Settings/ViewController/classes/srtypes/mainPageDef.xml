@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef" Package="srtypes">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SrTypes" RangeSize="-1" DataControl="SetupServiceDataControl" id="SrTypesIterator"/>
+    <searchRegion Binds="SrTypesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SrTypesQuery"/>
+    <iterator Binds="SrTypeCodes" RangeSize="-1" DataControl="SetupServiceDataControl" id="SrTypeCodesIterator"/>
+    <searchRegion Binds="SrTypeCodesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SrTypeCodesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SrTypesIterator" id="SrTypes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.SrTypesView" Name="SrTypes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="Name"/>
+          <Item Value="Is2Phase"/>
+          <Item Value="IsCancellable"/>
+          <Item Value="CheckFields"/>
+          <Item Value="SrcInterface"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SrTypeCodesIterator" id="SrTypeCodes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.views.SrTypeCodesView" Name="SrTypeCodes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="EditorName"/>
+          <Item Value="AnInterface"/>
+          <Item Value="Type"/>
+          <Item Value="Code"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" InstanceName="SetupServiceDataControl" DataControl="SetupServiceDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" InstanceName="SetupServiceDataControl" DataControl="SetupServiceDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SrTypesIterator" id="CreateInsert" InstanceName="SetupServiceDataControl.SrTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SrTypesIterator" id="Delete" InstanceName="SetupServiceDataControl.SrTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SrTypesIterator" id="Execute" InstanceName="SetupServiceDataControl.SrTypes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="SrTypeCodesIterator" id="CreateInsert1" InstanceName="SetupServiceDataControl.SrTypeCodes"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SrTypeCodesIterator" id="Delete1" InstanceName="SetupServiceDataControl.SrTypeCodes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SrTypeCodesIterator" id="Execute1" InstanceName="SetupServiceDataControl.SrTypeCodes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

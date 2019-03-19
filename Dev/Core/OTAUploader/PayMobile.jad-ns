@@ -1,0 +1,10 @@
+MIDlet-1: PayMobile,/Logo.png,kz.paysoft.paymobile.midlet.PayMobile
+MIDlet-Jar-Size: 44003
+MIDlet-Jar-URL: PayMobile.jar
+MIDlet-Name: PayMobile
+MIDlet-Permissions: javax.microedition.io.Connector.ssl, javax.microedition.io.Connector.sms, javax.wireless.messaging.sms.send
+MIDlet-Vendor: PaySoft, LLP.
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
+PayMobile-Copyright: Copyright (C) 2010 PaySoft, LLP.

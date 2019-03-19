@@ -1,0 +1,67 @@
+1. >runas /user:admin regedit
+
+2. If not set yet, then set NLS_LANG=AMERICAN_AMERICA.CL8WIN1251 in register.
+
+3. >runas /user:admin "oradim -new -sid pm -syspwd qwerty -startmode manual -srvcstart demand -shutmode immediate"
+
+4. Set ORACLE_SID=pm in Env params dialog.
+
+5. Create all the steps as per create_files.sh using the following:
+
+6.
+CREATE DATABASE pm
+	MAXINSTANCES 1
+	MAXLOGHISTORY 1
+	MAXLOGFILES 16
+	MAXLOGMEMBERS 3
+	MAXDATAFILES 128
+	DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\system01.dbf' SIZE 1G   AUTOEXTEND ON NEXT 512M MAXSIZE UNLIMITED EXTENT MANAGEMENT LOCAL
+	SYSAUX
+	DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\sysaux01.dbf' SIZE 128M AUTOEXTEND ON NEXT 128M MAXSIZE UNLIMITED
+	DEFAULT TEMPORARY TABLESPACE temp1
+	TEMPFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\temp01.dbf'   SIZE 512M AUTOEXTEND ON NEXT 256M MAXSIZE UNLIMITED
+	UNDO TABLESPACE undo1
+	DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\undo01.dbf'   SIZE 1G   AUTOEXTEND ON NEXT 512M MAXSIZE UNLIMITED
+	CHARACTER SET CL8MSWIN1251
+	NATIONAL CHARACTER SET AL16UTF16
+	SET TIME_ZONE = 'UTC'
+	LOGFILE GROUP 1 ('C:\Oracle\product\10.2.0\oradata\pm\redo01\redo01.log') SIZE 128M,
+		GROUP 2 ('C:\Oracle\product\10.2.0\oradata\pm\redo01\redo02.log') SIZE 128M,
+		GROUP 3 ('C:\Oracle\product\10.2.0\oradata\pm\redo01\redo03.log') SIZE 128M
+	USER SYS IDENTIFIED BY qwerty USER SYSTEM IDENTIFIED BY qwerty;
+
+
+7.
+CREATE TABLESPACE app_d   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\app01_d.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+CREATE TABLESPACE app_i   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\app01_i.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE contr_d DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\contr01_d.dbf' SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+CREATE TABLESPACE contr_i DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\contr01_i.dbf' SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE dic_d   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\dic01_d.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+CREATE TABLESPACE dic_i   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\dic01_i.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE msg_d   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\msg01_d.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+CREATE TABLESPACE msg_i   DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\msg01_i.dbf'   SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE misc_d  DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\misc01_d.dbf'  SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+CREATE TABLESPACE misc_i  DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\misc01_i.dbf'  SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE sr_d    DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\sr01_d.dbf'    SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+CREATE TABLESPACE sr_i    DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\sr01_i.dbf'    SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+CREATE TABLESPACE ofm     DATAFILE 'C:\Oracle\product\10.2.0\oradata\pm\data01\ofm01.dbf'     SIZE 50M AUTOEXTEND ON NEXT 50M MAXSIZE UNLIMITED;
+
+8.
+@C:\Oracle\product\10.2.0\db_1\rdbms\admin\catalog.sql
+@C:\Oracle\product\10.2.0\db_1\rdbms\admin\catproc.sql
+
+9.
+@C:\Oracle\product\10.2.0\db_1\sqlplus\admin\pupbld.sql;
+
+@C:\Oracle\product\10.2.0\db_1\rdbms\admin\utlrp.sql;
+CREATE SPFILE FROM PFILE='M:\Dev\DB\Windows\init.ora';
+
+10. >runas /user:admin "oradim -edit -sid pm -startmode auto -spfile -shuttype srvc"
+
+11. Copy files from NetConfig to ORACLE_HOME\network\admin.

@@ -1,0 +1,173 @@
+SQL> @C:\Oracle\product\10.2.0\db_1\sqlplus\admin\pupbld.sql;
+DROP SYNONYM PRODUCT_USER_PROFILE
+             *
+ERROR at line 1:
+ORA-01434: private synonym to be dropped does not exist 
+
+
+  DATE_VALUE FROM PRODUCT_USER_PROFILE
+                  *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE PRODUCT_USER_PROFILE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE SQLPLUS_PRODUCT_PROFILE ADD (LONG_VALUE LONG)
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+DROP TABLE PRODUCT_PROFILE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW PRODUCT_PRIVS
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+View created.
+
+
+Grant succeeded.
+
+DROP PUBLIC SYNONYM PRODUCT_PROFILE
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+
+Synonym created.
+
+DROP SYNONYM PRODUCT_USER_PROFILE
+             *
+ERROR at line 1:
+ORA-01434: private synonym to be dropped does not exist 
+
+
+
+Synonym created.
+
+DROP PUBLIC SYNONYM PRODUCT_USER_PROFILE
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist 
+
+
+
+Synonym created.
+
+SQL> disconnect
+Disconnected from Oracle Database 10g Release 10.2.0.1.0 - Production
+SQL> connect / as SYSDBA
+Connected.
+SQL> @C:\Oracle\product\10.2.0\db_1\rdbms\admin\utlrp.sql;
+
+TIMESTAMP                                                                       
+--------------------------------------------------------------------------------
+COMP_TIMESTAMP UTLRP_BGN  2010-04-05 15:22:08                                   
+
+DOC>   The following PL/SQL block invokes UTL_RECOMP to recompile invalid
+DOC>   objects in the database. Recompilation time is proportional to the
+DOC>   number of invalid objects in the database, so this command may take
+DOC>   a long time to execute on a database with a large number of invalid
+DOC>   objects.
+DOC>
+DOC>   Use the following queries to track recompilation progress:
+DOC>
+DOC>   1. Query returning the number of invalid objects remaining. This
+DOC>	  number should decrease with time.
+DOC>	     SELECT COUNT(*) FROM obj$ WHERE status IN (4, 5, 6);
+DOC>
+DOC>   2. Query returning the number of objects compiled so far. This number
+DOC>	  should increase with time.
+DOC>	     SELECT COUNT(*) FROM UTL_RECOMP_COMPILED;
+DOC>
+DOC>   This script automatically chooses serial or parallel recompilation
+DOC>   based on the number of CPUs available (parameter cpu_count) multiplied
+DOC>   by the number of threads per CPU (parameter parallel_threads_per_cpu).
+DOC>   On RAC, this number is added across all RAC nodes.
+DOC>
+DOC>   UTL_RECOMP uses DBMS_SCHEDULER to create jobs for parallel
+DOC>   recompilation. Jobs are created without instance affinity so that they
+DOC>   can migrate across RAC nodes. Use the following queries to verify
+DOC>   whether UTL_RECOMP jobs are being created and run correctly:
+DOC>
+DOC>   1. Query showing jobs created by UTL_RECOMP
+DOC>	     SELECT job_name FROM dba_scheduler_jobs
+DOC>		WHERE job_name like 'UTL_RECOMP_SLAVE_%';
+DOC>
+DOC>   2. Query showing UTL_RECOMP jobs that are running
+DOC>	     SELECT job_name FROM dba_scheduler_running_jobs
+DOC>		WHERE job_name like 'UTL_RECOMP_SLAVE_%';
+DOC>#
+
+PL/SQL procedure successfully completed.
+
+
+TIMESTAMP                                                                       
+--------------------------------------------------------------------------------
+COMP_TIMESTAMP UTLRP_END  2010-04-05 15:22:09                                   
+
+
+PL/SQL procedure successfully completed.
+
+DOC> The following query reports the number of objects that have compiled
+DOC> with errors (objects that compile with errors have status set to 3 in
+DOC> obj$). If the number is higher than expected, please examine the error
+DOC> messages reported with each object (using SHOW ERRORS) to see if they
+DOC> point to system misconfiguration or resource constraints that must be
+DOC> fixed before attempting to recompile these objects.
+DOC>#
+
+OBJECTS WITH ERRORS                                                             
+-------------------                                                             
+                  0                                                             
+
+DOC> The following query reports the number of errors caught during
+DOC> recompilation. If this number is non-zero, please query the error
+DOC> messages in the table UTL_RECOMP_ERRORS to see if any of these errors
+DOC> are due to misconfiguration or resource constraints that must be
+DOC> fixed before objects can compile successfully.
+DOC>#
+
+ERRORS DURING RECOMPILATION                                                     
+---------------------------                                                     
+                          0                                                     
+
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE SPFILE FROM PFILE='M:\Dev\DB\Windows\init.ora';
+
+File created.
+
+SQL> SHUTDOWN;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL>  STARTUP;
+ORACLE instance started.
+
+Total System Global Area  536870912 bytes                                       
+Fixed Size                  1250016 bytes                                       
+Variable Size             150998304 bytes                                       
+Database Buffers          381681664 bytes                                       
+Redo Buffers                2940928 bytes                                       
+Database mounted.
+Database opened.
+SQL> spool off

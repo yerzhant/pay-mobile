@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.56.60" id="DataBindings" SeparateXMLFiles="false"
+             Package="kz.paysoft.paymobile.ui.setup.view"
+             ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/dcci/main.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_mainPageDef"/>
+    <page path="/setup.jspx" usageId="kz_paysoft_paymobile_ui_setup_view_setupPageDef"/>
+    <page path="/sps/main.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_mainPageDef1"/>
+    <page path="/srtypes/main.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_mainPageDef2"/>
+    <page path="/dcci/changesOfDocTypes.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfDocTypesPageDef"/>
+    <page path="/dcci/deletedDocTypes.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedDocTypesPageDef"/>
+    <page path="/dcci/changesOfCountries.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfCountriesPageDef"/>
+    <page path="/dcci/deletedCountries.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedCountriesPageDef"/>
+    <page path="/dcci/deletedInterfaces.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedInterfacesPageDef"/>
+    <page path="/dcci/changesOfInterfaces.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfInterfacesPageDef"/>
+    <page path="/dcci/changesOfCurrencies.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfCurrenciesPageDef"/>
+    <page path="/dcci/deletedCurrencies.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedCurrenciesPageDef"/>
+    <page path="/sps/changesOfCipherSuites.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfCipherSuitesPageDef"/>
+    <page path="/sps/deletedCipherSuites.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedCipherSuitesPageDef"/>
+    <page path="/sps/changesOfGlobalParams.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfGlobalParamsPageDef"/>
+    <page path="/sps/deletedGlobalParams.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedGlobalParamsPageDef"/>
+    <page path="/sps/changesOfStatusDetails.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfStatusDetailsPageDef"/>
+    <page path="/sps/deletedStatusDetails.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedStatusDetailsPageDef"/>
+    <page path="/srtypes/changesOfSrTypes.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfSrTypesPageDef"/>
+    <page path="/srtypes/deletedSrTypes.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedSrTypesPageDef"/>
+    <page path="/srtypes/deletedSrTypeCodes.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_deletedSrTypeCodesPageDef"/>
+    <page path="/srtypes/changesOfSrTypeCodes.jsff" usageId="kz_paysoft_paymobile_ui_setup_view_changesOfSrTypeCodesPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="kz_paysoft_paymobile_ui_setup_view_mainPageDef" path="dcci.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_setupPageDef" path="kz.paysoft.paymobile.ui.setup.view.pageDefs.setupPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_mainPageDef1" path="sps.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_mainPageDef2" path="srtypes.mainPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfDocTypesPageDef" path="dcci.changesOfDocTypesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedDocTypesPageDef" path="dcci.deletedDocTypesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfCountriesPageDef" path="dcci.changesOfCountriesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedCountriesPageDef" path="dcci.deletedCountriesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedInterfacesPageDef" path="dcci.deletedInterfacesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfInterfacesPageDef" path="dcci.changesOfInterfacesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfCurrenciesPageDef" path="dcci.changesOfCurrenciesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedCurrenciesPageDef" path="dcci.deletedCurrenciesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfCipherSuitesPageDef" path="sps.changesOfCipherSuitesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedCipherSuitesPageDef" path="sps.deletedCipherSuitesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfGlobalParamsPageDef" path="sps.changesOfGlobalParamsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedGlobalParamsPageDef" path="sps.deletedGlobalParamsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfStatusDetailsPageDef" path="sps.changesOfStatusDetailsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedStatusDetailsPageDef" path="sps.deletedStatusDetailsPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfSrTypesPageDef" path="srtypes.changesOfSrTypesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedSrTypesPageDef" path="srtypes.deletedSrTypesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_deletedSrTypeCodesPageDef" path="srtypes.deletedSrTypeCodesPageDef"/>
+    <page id="kz_paysoft_paymobile_ui_setup_view_changesOfSrTypeCodesPageDef" path="srtypes.changesOfSrTypeCodesPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="SetupServiceDataControl" Package="kz.paysoft.paymobile.ui.setup.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true" SupportsSortCollection="true" Configuration="SetupServiceLocal"
+                     syncMode="Immediate" xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

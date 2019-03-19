@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="deletedSrTypeCodesPageDef" Package="srtypes">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DSrTypeCodes" RangeSize="-1" DataControl="SetupServiceDataControl" id="DSrTypeCodesIterator"/>
+    <searchRegion Binds="DSrTypeCodesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DSrTypeCodesQuery"/>
+    <iterator Binds="DHSrTypeCodes" RangeSize="-1" DataControl="SetupServiceDataControl" id="DHSrTypeCodesIterator"/>
+    <searchRegion Binds="DHSrTypeCodesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DHSrTypeCodesQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DSrTypeCodesIterator" id="DSrTypeCodes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HSrTypeCodesView" Name="DSrTypeCodes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="AnInterface"/>
+          <Item Value="Type"/>
+          <Item Value="Code"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DHSrTypeCodesIterator" id="DHSrTypeCodes">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.setup.model.history.HSrTypeCodesView" Name="DHSrTypeCodes0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="Editor"/>
+          <Item Value="AnInterface"/>
+          <Item Value="Type"/>
+          <Item Value="Code"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DSrTypeCodesIterator" id="Execute" InstanceName="SetupServiceDataControl.DSrTypeCodes" DataControl="SetupServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DHSrTypeCodesIterator" id="Execute1" InstanceName="SetupServiceDataControl.DHSrTypeCodes"
+            DataControl="SetupServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

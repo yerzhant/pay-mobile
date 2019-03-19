@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="mainPageDef"
+                Package="kz.paysoft.paymobile.ui.security.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Users" RangeSize="-1" DataControl="SecurityServiceDataControl" id="UsersIterator"/>
+    <iterator Binds="BranchesOfUser" RangeSize="-1" DataControl="SecurityServiceDataControl" id="BranchesOfUserIterator"/>
+    <iterator Binds="Branches" RangeSize="-1" DataControl="SecurityServiceDataControl" id="BranchesIterator"/>
+    <iterator Binds="UsersOfBranch" RangeSize="-1" DataControl="SecurityServiceDataControl" id="UsersOfBranchIterator"/>
+    <searchRegion Binds="UsersOfBranchIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UsersOfBranchQuery"/>
+    <searchRegion Binds="BranchesIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BranchesQuery"/>
+    <searchRegion Binds="UsersIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UsersQuery"/>
+    <searchRegion Binds="BranchesOfUserIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BranchesOfUserQuery"/>
+  </executables>
+  <bindings>
+    <action id="Commit" InstanceName="SecurityServiceDataControl" DataControl="SecurityServiceDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" InstanceName="SecurityServiceDataControl" DataControl="SecurityServiceDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="UsersIterator" id="AddUser" InstanceName="SecurityServiceDataControl.Users" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="UsersIterator" id="DeleteUser" InstanceName="SecurityServiceDataControl.Users" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="UsersIterator" id="RefreshUsers" InstanceName="SecurityServiceDataControl.Users" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="BranchesOfUserIterator" id="AddBranchToUser" InstanceName="SecurityServiceDataControl.BranchesOfUser"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="BranchesOfUserIterator" id="DeleteBranchFromUser" InstanceName="SecurityServiceDataControl.BranchesOfUser"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="BranchesOfUserIterator" id="RefreshBranchesForUser" InstanceName="SecurityServiceDataControl.BranchesOfUser"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="BranchesIterator" id="AddBranch" InstanceName="SecurityServiceDataControl.Branches" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="BranchesIterator" id="DeleteBranch" InstanceName="SecurityServiceDataControl.Branches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="BranchesIterator" id="RefreshBranches" InstanceName="SecurityServiceDataControl.Branches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="UsersOfBranchIterator" id="AddUserToBranch" InstanceName="SecurityServiceDataControl.UsersOfBranch"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="UsersOfBranchIterator" id="DeleteUserFromBranch" InstanceName="SecurityServiceDataControl.UsersOfBranch"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="UsersOfBranchIterator" id="RefreshUsersForBranch" InstanceName="SecurityServiceDataControl.UsersOfBranch"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="UsersIterator" id="ToFirstUser" InstanceName="SecurityServiceDataControl.Users" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="UsersIterator" id="ToLastUser" InstanceName="SecurityServiceDataControl.Users" DataControl="SecurityServiceDataControl"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="BranchesOfUserIterator" id="ToFirstBranchOfUser" InstanceName="SecurityServiceDataControl.BranchesOfUser"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="BranchesOfUserIterator" id="ToLastBranchOfUser" InstanceName="SecurityServiceDataControl.BranchesOfUser"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="BranchesIterator" id="ToFirstBranch" InstanceName="SecurityServiceDataControl.Branches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="BranchesIterator" id="ToLastBranch" InstanceName="SecurityServiceDataControl.Branches"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="UsersOfBranchIterator" id="ToFirstUserOfBranch" InstanceName="SecurityServiceDataControl.UsersOfBranch"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="UsersOfBranchIterator" id="ToLastUserOfBranch" InstanceName="SecurityServiceDataControl.UsersOfBranch"
+            DataControl="SecurityServiceDataControl" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="UsersOfBranchIterator" id="UsersOfBranch">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfBranchView" Name="UsersOfBranch0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="UserId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BranchesIterator" id="Branches">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.BranchesView" Name="Branches0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="Name"/>
+          <Item Value="ParentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="UsersIterator" id="Users">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.UsersView" Name="Users0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="SysName"/>
+          <Item Value="FullName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BranchesOfUserIterator" id="BranchesOfUser">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.security.model.views.UsersBranchesOfUserView" Name="BranchesOfUser0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Date"/>
+          <Item Value="UserName"/>
+          <Item Value="BranchId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ApplicationsView"
+  Version="11.1.1.56.60"
+  SelectList="Application.ID$, 
+       Application.COUNTRY_ID$, 
+       Application.DOC_TYPE_ID$, 
+       Application.DOC_ID, 
+       Application.PHONE_NUMBER, 
+       Application.BRANCH_ID$, 
+       Application.LAST_NAME, 
+       Application.FIRST_NAME, 
+       Application.BIRTH_DATE, 
+       Application.DOC_DATE, 
+       Application.DOC_ISSUER, 
+       Application.TAX_PAYER_ID, 
+       Application.ADDRESS, 
+       Application.MIDDLE_NAME"
+  FromList="PAY_MOBILE.APPLICATIONS Application"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  FetchMode="FETCH_AS_NEEDED"
+  MaxFetchSize="0"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="Countries"
+    ViewObjectName="kz.paysoft.paymobile.ui.appentry.model.views.CountriesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DocTypes"
+    ViewObjectName="kz.paysoft.paymobile.ui.appentry.model.views.DocTypesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Branches"
+    ViewObjectName="kz.paysoft.paymobile.ui.appentry.model.views.BranchesView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CountryId"
+    ListVOName="Countries"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_CountryId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DocTypeId"
+    ListVOName="DocTypes"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_DocTypeId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DocTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BranchId"
+    ListVOName="Branches"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_BranchId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BranchId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Application"
+    Entity="kz.paysoft.paymobile.ui.appentry.model.entities.Application"/>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Application"
+    AliasName="ID$"/>
+  <ViewAttribute
+    Name="CountryId"
+    IsUpdateable="while_insert"
+    LOVName="LOV_CountryId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CountryId"
+    EntityUsage="Application"
+    AliasName="COUNTRY_ID$">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocTypeId"
+    IsUpdateable="while_insert"
+    LOVName="LOV_DocTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DocTypeId"
+    EntityUsage="Application"
+    AliasName="DOC_TYPE_ID$">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DocId"
+    EntityUsage="Application"
+    AliasName="DOC_ID"/>
+  <ViewAttribute
+    Name="PhoneNumber"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="Application"
+    AliasName="PHONE_NUMBER"/>
+  <ViewAttribute
+    Name="BranchId"
+    IsUpdateable="while_insert"
+    LOVName="LOV_BranchId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BranchId"
+    EntityUsage="Application"
+    AliasName="BRANCH_ID$">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastName"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="Application"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="FirstName"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Application"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="BirthDate"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="BirthDate"
+    EntityUsage="Application"
+    AliasName="BIRTH_DATE"/>
+  <ViewAttribute
+    Name="DocDate"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DocDate"
+    EntityUsage="Application"
+    AliasName="DOC_DATE"/>
+  <ViewAttribute
+    Name="DocIssuer"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DocIssuer"
+    EntityUsage="Application"
+    AliasName="DOC_ISSUER"/>
+  <ViewAttribute
+    Name="TaxPayerId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TaxPayerId"
+    EntityUsage="Application"
+    AliasName="TAX_PAYER_ID"/>
+  <ViewAttribute
+    Name="Address"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="Address"
+    EntityUsage="Application"
+    AliasName="ADDRESS"/>
+  <ViewAttribute
+    Name="MiddleName"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="MiddleName"
+    EntityUsage="Application"
+    AliasName="MIDDLE_NAME"/>
+  <ViewLinkAccessor
+    Name="AppAccountsView"
+    ViewLink="kz.paysoft.paymobile.ui.appentry.model.views.AppAccountsToApplicationsLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="kz.paysoft.paymobile.ui.appentry.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

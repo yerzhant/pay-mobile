@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/WEB-INF/enroll-template.jspx" id="pt1">
+    <f:facet name="contents">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:outputText value="Добро пожаловать в систему мобильных переводов и платежей - PayMobile™. Данная система предназначена для осуществления безопасных переводов средств и получения информации по счету с использованием криптографически надежных алгоритмов."
+                       id="ot2"/>
+        <af:outputText value="Настоящее приложение поможет Вам проинициализировать телефон и зарегистрировать заявление на подключение к системе." id="ot1"/>
+        <af:outputText value="Для навигации по этапам используйте кнопки и ссылки расположенные выше." id="ot3"/>
+        <f:facet name="separator">
+          <af:spacer height="5" id="s1"/>
+        </f:facet>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

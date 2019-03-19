@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.paysoft.kz/PayMobile/OTAUploader/1.0.0"
+            targetNamespace="http://www.paysoft.kz/PayMobile/OTAUploader/1.0.0"
+            elementFormDefault="qualified">
+  <xsd:element name="configuration">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="crypto">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="cipherSuite" maxOccurs="unbounded"
+                           minOccurs="0">
+                <xsd:complexType>
+                  <xsd:attribute name="name" use="required"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="storeType" default="nCipher.sworld">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="nCipher.sworld"/>
+                  <xsd:enumeration value="JCEKS"/>
+                  <xsd:enumeration value="PKCS12"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="store" default="keystore.ks"/>
+            <xsd:attribute name="a" type="xsd:integer" use="required"/>
+            <xsd:attribute name="b" type="xsd:integer" use="required"/>
+            <xsd:attribute name="x"
+                           default="-1079113916523382802151481070964371665047962925387329234459"/>
+            <xsd:attribute name="provider" default="nCipherKM">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="nCipherKM"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="server">
+          <xsd:complexType>
+            <xsd:attribute name="port" use="required" type="xsd:unsignedShort"/>
+            <xsd:attribute name="closeTime" type="xsd:positiveInteger"
+                           default="15"/>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="logging">
+          <xsd:complexType>
+            <xsd:attribute name="level" default="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte"/>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="file" use="required"/>
+            <xsd:attribute name="size" type="xsd:positiveInteger"
+                           default="1048576"/>
+            <xsd:attribute name="delimiter" default=" | "/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

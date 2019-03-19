@@ -1,0 +1,30 @@
+#####################################################################
+# Copyright (C) 2008-2010 by Yerzhan Tulepov.
+#
+# Init.ora.
+#####################################################################
+
+BACKGROUND_DUMP_DEST='C:\Oracle\product\10.2.0\admin\pm\bdump'
+
+COMPATIBLE=10.2.0.1.0
+
+CONTROL_FILES=(	'C:\Oracle\product\10.2.0\oradata\pm\control\control01.ctl',
+		'C:\Oracle\product\10.2.0\oradata\pm\control\control02.ctl',
+		'C:\Oracle\product\10.2.0\oradata\pm\control\control03.ctl' )
+
+DB_BLOCK_SIZE=8192
+DB_DOMAIN=paysoft.kz
+DB_NAME=pm
+
+NLS_LANGUAGE=RUSSIAN
+NLS_TERRITORY=KAZAKHSTAN
+
+# Don't change to 1G as half of it is, as it seems, enough.
+SGA_TARGET=512M
+
+SHARED_SERVERS=1
+
+UNDO_MANAGEMENT=AUTO
+UNDO_TABLESPACE=undo1
+
+USER_DUMP_DEST='C:\Oracle\product\10.2.0\admin\pm\udump'

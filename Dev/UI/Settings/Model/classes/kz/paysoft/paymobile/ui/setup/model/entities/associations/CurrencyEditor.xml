@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CurrencyEditor"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Editor"
+    Cardinality="1"
+    Source="true"
+    Owner="kz.paysoft.paymobile.ui.setup.model.entities.Editor"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Editor"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Editor.SysName"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Currency"
+    Cardinality="-1"
+    Owner="kz.paysoft.paymobile.ui.setup.model.entities.Currency">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Currency"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="kz.paysoft.paymobile.ui.setup.model.entities.Currency.User"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

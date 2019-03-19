@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.paysoft.kz/PayMobile/OTAUploader/1.0.0">
+  <crypto storeType="JCEKS"
+          a="139207498776705072573935027716238857170359375303015469613"
+          b="19048873547427887560206" store="keystore.ks">
+    <!--cipherSuite name="TLS_RSA_WITH_AES_128_CBC_SHA"/>
+    <cipherSuite name="TLS_DHE_RSA_WITH_AES_128_CBC_SHA"/>
+    <cipherSuite name="TLS_DHE_DSS_WITH_AES_128_CBC_SHA"/>
+    <cipherSuite name="SSL_RSA_WITH_RC4_128_SHA"/-->
+  </crypto>
+  <server port="443"/>
+  <logging level="9" file="otauploader.log"/>
+</configuration>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="searchPageDef" Package="app">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Applications" RangeSize="25" DataControl="PMClientServiceDataControl" id="ApplicationsIterator"/>
+    <searchRegion Criteria="ApplicationCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="ApplicationsIterator"
+                  id="ApplicationCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ApplicationsIterator" id="DeclineReason">
+      <AttrNames>
+        <Item Value="DeclineReason"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ApplicationsIterator" id="Applications">
+      <nodeDefinition DefName="kz.paysoft.paymobile.ui.pmclient.model.views.ApplicationsView" Name="Applications0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Status"/>
+          <Item Value="AppliedAt"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="LastName"/>
+          <Item Value="FirstName"/>
+          <Item Value="MiddleName"/>
+          <Item Value="BirthDate"/>
+          <Item Value="DocTypeId"/>
+          <Item Value="DocId"/>
+          <Item Value="DocDate"/>
+          <Item Value="DocIssuer"/>
+          <Item Value="TaxPayerId"/>
+          <Item Value="CountryId"/>
+          <Item Value="BranchId"/>
+          <Item Value="Address"/>
+          <Item Value="Manager"/>
+          <Item Value="ManagerDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

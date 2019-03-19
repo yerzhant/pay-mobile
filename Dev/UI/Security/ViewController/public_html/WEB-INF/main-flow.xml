@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="main-flow">
+    <default-activity id="__1">main</default-activity>
+    <data-control-scope id="__27">
+      <isolated/>
+    </data-control-scope>
+    <view id="main">
+      <page>/main.jsff</page>
+    </view>
+    <view id="changesOfUsers">
+      <page>/changesOfUsers.jsff</page>
+    </view>
+    <view id="deletedUsers">
+      <page>/deletedUsers.jsff</page>
+    </view>
+    <view id="changesOfBranches">
+      <page>/changesOfBranches.jsff</page>
+    </view>
+    <view id="deletedBranches">
+      <page>/deletedBranches.jsff</page>
+    </view>
+    <view id="changesOfUsersBranches">
+      <page>/changesOfUsersBranches.jsff</page>
+    </view>
+    <view id="deletedUsersBranches">
+      <page>/deletedUsersBranches.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__2">*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">toMain</from-outcome>
+        <to-activity-id id="__5">main</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">main</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">toChangesOfBranches</from-outcome>
+        <to-activity-id id="__10">changesOfBranches</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">toDeletedBranches</from-outcome>
+        <to-activity-id id="__12">deletedBranches</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">toChangesOfUsers</from-outcome>
+        <to-activity-id id="__16">changesOfUsers</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__20">toDeletedUsers</from-outcome>
+        <to-activity-id id="__19">deletedUsers</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome id="__23">toChangesOfUsersBranches</from-outcome>
+        <to-activity-id id="__22">changesOfUsersBranches</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome id="__26">toDeletedUsersBranches</from-outcome>
+        <to-activity-id id="__25">deletedUsersBranches</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

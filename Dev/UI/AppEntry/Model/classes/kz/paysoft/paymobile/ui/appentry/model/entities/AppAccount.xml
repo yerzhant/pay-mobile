@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppAccount"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="PAY_MOBILE.APP_ACCOUNTS"
+  AliasName="AppAccount"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="Id"
+    IsUpdateable="false"
+    DefaultValue="@0"
+    Precision="12"
+    Scale="0"
+    ColumnName="ID$"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS"
+    PrimaryKey="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ApplicationId"
+    IsUpdateable="false"
+    IsNotNull="true"
+    Precision="12"
+    Scale="0"
+    ColumnName="APPLICATION_ID$"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Kind"
+    IsUpdateable="while_insert"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="KIND"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Kind_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Interface"
+    IsUpdateable="while_insert"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="32"
+    ColumnName="INTERFACE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="32"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Interface_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ANumber"
+    IsUpdateable="while_insert"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="70"
+    ColumnName="A_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="70"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ANumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsUpdateable="while_insert"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="250"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Name_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Priority"
+    IsUpdateable="while_insert"
+    Precision="3"
+    Scale="0"
+    ColumnName="PRIORITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Priority_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SingleAmount"
+    IsUpdateable="while_insert"
+    Precision="12"
+    Scale="2"
+    ColumnName="SINGLE_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:CompareValidationBean
+      Name="SingleAmount_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleAmount_Rule_0"
+      OnAttribute="SingleAmount"
+      OperandType="LITERAL"
+      Inverse="false"
+      CompareType="GREATERTHANEQUALTO"
+      CompareValue="0"/>
+  </Attribute>
+  <Attribute
+    Name="SingleCurrency"
+    IsUpdateable="while_insert"
+    Precision="3"
+    ColumnName="SINGLE_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DayAmount"
+    IsUpdateable="while_insert"
+    Precision="12"
+    Scale="2"
+    ColumnName="DAY_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:CompareValidationBean
+      Name="DayAmount_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Amount_Rule_0"
+      OnAttribute="DayAmount"
+      OperandType="LITERAL"
+      Inverse="false"
+      CompareType="GREATERTHAN"
+      CompareValue="0"/>
+  </Attribute>
+  <Attribute
+    Name="DayCurrency"
+    IsUpdateable="while_insert"
+    Precision="3"
+    ColumnName="DAY_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DayQuantity"
+    IsUpdateable="while_insert"
+    Precision="5"
+    Scale="0"
+    ColumnName="DAY_QUANTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="DayQuantity_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Quantity_Rule_0"
+      OnAttribute="DayQuantity"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="1"
+      MaxValue="65535"/>
+  </Attribute>
+  <Attribute
+    Name="MonthAmount"
+    IsUpdateable="while_insert"
+    Precision="12"
+    Scale="2"
+    ColumnName="MONTH_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:CompareValidationBean
+      Name="MonthAmount_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Amount_Rule_0"
+      OnAttribute="MonthAmount"
+      OperandType="LITERAL"
+      Inverse="false"
+      CompareType="GREATERTHAN"
+      CompareValue="0"/>
+  </Attribute>
+  <Attribute
+    Name="MonthCurrency"
+    IsUpdateable="while_insert"
+    Precision="3"
+    ColumnName="MONTH_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="MonthQuantity"
+    IsUpdateable="while_insert"
+    Precision="5"
+    Scale="0"
+    ColumnName="MONTH_QUANTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="MonthQuantity_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Quantity_Rule_0"
+      OnAttribute="MonthQuantity"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="1"
+      MaxValue="65535"/>
+  </Attribute>
+  <Attribute
+    Name="FromHour"
+    IsUpdateable="while_insert"
+    Precision="2"
+    Scale="0"
+    ColumnName="FROM_HOUR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.FromHour_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="FromHour_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Hour_Rule_0"
+      OnAttribute="FromHour"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="23"/>
+  </Attribute>
+  <Attribute
+    Name="FromMin"
+    IsUpdateable="while_insert"
+    Precision="2"
+    Scale="0"
+    ColumnName="FROM_MIN"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.FromMin_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="FromMin_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Minute_Rule_0"
+      OnAttribute="FromMin"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="59"/>
+  </Attribute>
+  <Attribute
+    Name="ToHour"
+    IsUpdateable="while_insert"
+    Precision="2"
+    Scale="0"
+    ColumnName="TO_HOUR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ToHour_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="ToHour_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Hour_Rule_0"
+      OnAttribute="ToHour"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="23"/>
+  </Attribute>
+  <Attribute
+    Name="ToMin"
+    IsUpdateable="while_insert"
+    Precision="2"
+    Scale="0"
+    ColumnName="TO_MIN"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PAY_MOBILE.APP_ACCOUNTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ToMin_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RangeValidationBean
+      Name="ToMin_Rule_0"
+      ResId="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Minute_Rule_0"
+      OnAttribute="ToMin"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="59"/>
+  </Attribute>
+  <AccessorAttribute
+    Name="Application"
+    Association="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountToApplication"
+    AssociationEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountToApplication.Application"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountToApplication.AppAccount"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SingleCurr"
+    Association="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountSingleToCurrency"
+    AssociationEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountSingleToCurrency.SingleCurr"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountSingleToCurrency.AppAccountSingle"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DayCurr"
+    Association="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountDayToCurrency"
+    AssociationEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountDayToCurrency.DayCurr"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountDayToCurrency.AppAccountDay"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MonthCurr"
+    Association="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountMonthToCurrency"
+    AssociationEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountMonthToCurrency.MonthCurr"
+    AssociationOtherEnd="kz.paysoft.paymobile.ui.appentry.model.entities.associations.AppAccountMonthToCurrency.AppAccountMonth"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AppAccountsCkDayAmount">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_DAY_AMOUNT"/>
+      <Attr Name="_checkCondition"
+        Value="day_amount > 0 AND day_amount >= single_amount"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayAmount"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleAmount"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkDayCurrency">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_DAY_CURRENCY"/>
+      <Attr Name="_checkCondition"
+        Value="(day_amount IS NOT NULL AND day_currency IS NOT NULL) OR (day_amount IS NULL AND day_currency IS NULL)"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayCurrency"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayAmount"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkDayQuantity">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_DAY_QUANTITY"/>
+      <Attr Name="_checkCondition" Value="day_quantity BETWEEN 1 AND 65535"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayQuantity"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkFromHour">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_FROM_HOUR"/>
+      <Attr Name="_checkCondition"
+        Value="from_hour >= 0 AND from_hour &lt; 24"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.FromHour"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkFromMin">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_FROM_MIN"/>
+      <Attr Name="_checkCondition" Value="from_min >= 0 AND from_min &lt; 60"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.FromMin"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkFromTo">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_FROM_TO"/>
+      <Attr Name="_checkCondition"
+        Value="to_hour > from_hour OR (to_hour = from_hour AND to_min >= from_min)"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ToMin"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ToHour"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.FromMin"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.FromHour"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkKind">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_KIND"/>
+      <Attr Name="_checkCondition" Value="kind IN('S', 'R')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Kind"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkMonthAmount">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_MONTH_AMOUNT"/>
+      <Attr Name="_checkCondition"
+        Value="month_amount > 0 AND month_amount >= day_amount"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayAmount"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthAmount"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkMonthCurrency">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_MONTH_CURRENCY"/>
+      <Attr Name="_checkCondition"
+        Value="(month_amount IS NOT NULL AND month_currency IS NOT NULL) OR (month_amount IS NULL AND month_currency IS NULL)"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthCurrency"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthAmount"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkMonthQuantity">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_MONTH_QUANTITY"/>
+      <Attr Name="_checkCondition"
+        Value="(month_quantity BETWEEN 1 AND 65535) AND month_quantity >= day_quantity"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayQuantity"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthQuantity"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkSingleAmount">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_SINGLE_AMOUNT"/>
+      <Attr Name="_checkCondition" Value="single_amount >= 0"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleAmount"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkToHour">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_TO_HOUR"/>
+      <Attr Name="_checkCondition" Value="to_hour >= 0 AND to_hour &lt; 24"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ToHour"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsCkToMin">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_CK_TO_MIN"/>
+      <Attr Name="_checkCondition" Value="to_min >= 0 AND to_min &lt; 60"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ToMin"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsNnANumber">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_NN_A_NUMBER"/>
+      <Attr Name="_checkCondition" Value='"A_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ANumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsNnAppId">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_NN_APP_ID$"/>
+      <Attr Name="_checkCondition" Value='"APPLICATION_ID$" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ApplicationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsNnId">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_NN_ID$"/>
+      <Attr Name="_checkCondition" Value='"ID$" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="AppAccountsNnInterface">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_NN_INTERFACE"/>
+      <Attr Name="_checkCondition" Value='"INTERFACE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Interface"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsNnKind">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_NN_KIND"/>
+      <Attr Name="_checkCondition" Value='"KIND" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Kind"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsNnName">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_NN_NAME"/>
+      <Attr Name="_checkCondition" Value='"NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsPkId"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_PK_ID$"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsUkAkin">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_UK_AKIN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ApplicationId"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Kind"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Interface"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ANumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsUkAkn">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_UK_AKN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ApplicationId"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Kind"/>
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AppAccountsFkAppId">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="APPLICATIONS_PK_ID$"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="APP_ACCOUNTS_FK_APP_ID$"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.ApplicationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AppAccount">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CURRENCIES_NN_CODE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_APP_ACCOUNT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleCurrency"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AppAccount1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UK_CURRENCY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_APP_ACCOUNT1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.SingleCurrency"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AppAccount2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UK_CURRENCY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_APP_ACCOUNT2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.DayCurrency"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AppAccount3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UK_CURRENCY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_APP_ACCOUNT3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="kz.paysoft.paymobile.ui.appentry.model.entities.AppAccount.MonthCurrency"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="kz.paysoft.paymobile.ui.appentry.model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>
